@@ -1,0 +1,158 @@
+{
+  "indexHome": {
+    "title": "Interbras",
+    "description": "Descubra com a Interbras uma grande variedade de produtos para o lar e a cozinha. Conheça nossos produtos e aproveite a qualidade que nos caracteriza!"
+  },
+  "downloadsPage": {
+    "title": "Downloads - Interbras",
+    "description": "Baixe os arquivos que você precisa para o seu produto Interbras."
+  },
+  "header": {
+    "whereWeAre": {
+      "title": "Onde estamos",
+      "line1": "Nas melhores lojas",
+      "line2": "do ",
+      "line3": "Paraguai! "
+    },
+    "products": {
+      "title": "Produtos",
+      "text": "Nossos produtos"
+    },
+    "download": "Downloads",
+    "whoWeAre": {
+      "title": "Quem somos",
+      "line1": "Somos uma empresa internacional ",
+      "line2": "apaixonada por melhorar a vida no",
+      "line3": "lar."
+    }
+  },
+  "home": {
+    "title": "Sua marca\nfavorita",
+    "tvs": {
+      "sizes": "Tamanhos"
+    },
+    "scooters": {
+      "title": "Scooters Interbras",
+      "description": "Conheça nossa linha de scooters Interbras, a melhor opção para se locomover na cidade.",
+      "download": {
+        "text": "Está procurando o aplicativo?",
+        "callToAction": "Baixe aqui"
+      }
+    },
+    "ac": {
+      "title": "Ares-condicionados",
+      "seeAc": "Ver ares",
+      "why": {
+        "first": "Por que um",
+        "second": "AC",
+        "third": "Interbras?"
+      },
+      "benefit_silent": {
+        "title": "Silencioso",
+        "description": "Os mais silenciosos do mercado, você nem perceberá que estão ligados."
+      },
+      "benefit_energy_saving": {
+        "title": "Economia de energia",
+        "description": "Economize na sua conta de luz com nossos aparelhos de ar condicionado que possuem tecnologia inverter."
+      },
+      "benefit_clean_air": {
+        "title": "Ar mais limpo",
+        "description": "Nossos aparelhos de ar condicionado possuem filtros de alta qualidade que eliminam 99,9% das bactérias e vírus do ar."
+      }
+    },
+    "scrolled": {
+      "our_essence": "Nossa essência",
+      "title": "para o lar",
+      "airfryer": {
+        "title": "Airfryers, uma vida mais saudável",
+        "description": "Cozinhe seus alimentos de forma mais saudável com as airfryers da Interbras."
+      },
+      "blender": {
+        "title": "Liquidificadores, para uma batida perfeita",
+        "description": "Prepare seus smoothies de forma rápida e eficiente com os liquidificadores da Interbras."
+      },
+      "iron": {
+        "title": "Ferro de passar, para um acabamento perfeito",
+        "description": "Passe suas roupas de forma rápida e eficiente com os ferros da Interbras."
+      },
+      "beauty": {
+        "title": "Beleza",
+        "description": "Pensado para você, o melhor cuidado para o seu dia a dia."
+      },
+      "mixer": {
+        "title": "Batedeiras",
+        "description": "Prepare suas receitas favoritas com as batedeiras da Interbras."
+      },
+      "ricecooker": {
+        "title": "Panelas de arroz",
+        "description": "Dê um toque especial à sua cozinha com as panelas de arroz da Interbras."
+      }
+    },
+    "SomeProducts": {
+      "title": "Outros produtos em destaque",
+      "1": {
+        "title": "Bebedouros"
+      },
+      "2": {
+        "title": "Chaleiras"
+      },
+      "3": {
+        "title": "Cafeteiras"
+      },
+      "4": {
+        "title": "Misturadores"
+      },
+      "5": {
+        "title": "Fogões Elétricos"
+      }
+    },
+    "FAQ": {
+      "title": "Perguntas mais frequentes"
+    }
+  },
+  "primaryButton": {
+    "text": "Ver mais"
+  },
+  "moreProducts": "Mais produtos",
+  "footer": {
+    "copy": "Copyright © 2024 Interbras. Todos os direitos reservados."
+  },
+  "productPage": {
+    "review": "Descrição",
+    "whatAreIncluded": "O que há na caixa?",
+    "specs": "Especificações"
+  },
+  "alert": {
+    "info": {
+      "download": "Baixar aplicativo",
+      "no": "Não, obrigado"
+    },
+    "scooters": {
+      "title": "Baixar o aplicativo",
+      "message": "Está tentando baixar o aplicativo dos scooters? O app está disponível para as versões 8.5 e 10.5."
+    }
+  },
+  "notFound": {
+    "title": "Página não encontrada",
+    "message": "Desculpe, a página que você procura não existe. Aqui estão alguns links que podem ajudar:",
+    "goBack": "Voltar",
+    "home": "Ir para o início"
+  },
+  "downloads": {
+    "download": "Baixar",
+    "title": "Arquivos de\ndownload",
+    "p1": "Bem-vindo à nossa seção de downloads.\nAqui você encontrará uma seleção de arquivos.",
+    "callToAction": "Ver aplicativos",
+    "scroll": "Baixar arquivos",
+    "close": "Sair",
+    "selectFile": "Selecione o arquivo",
+    "files": {
+      "scooter105y85": {
+        "1": "App para Android",
+        "2": "App para Iphone",
+        "3": "App para Iphone - Lenzod",
+        "4": "App para Android - Lenzod"
+      }
+    }
+  }
+}

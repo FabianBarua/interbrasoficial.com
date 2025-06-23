@@ -1,0 +1,59 @@
+---
+import { getI18NGlobal } from "@/i18n";
+import { getUrls } from "@/shared/newUtils";
+const { currentLocale } = Astro;
+
+const i18n = getI18NGlobal({ currentLocale });
+
+const urls = await getUrls({
+  currentLocale,
+  table: "categories",
+});
+---
+
+<div id="WeProductsSection" class="hidden justify-center items-center h-full">
+  <div
+    class="mt-5 lg:mt-auto lg:mx-0 text-white flex lg:my-auto lg:flex-row flex-col gap-6 mx-auto"
+  >
+    <img src="/productosHeader.webp" class="h-64" alt="Arrow" />
+    <div class="flex flex-col items-left">
+      <h3 class="text-lg font-bold">
+        {i18n.header.products.text}
+      </h3>
+      <div class="flex gap-16 mt-2">
+        <div class="flex-col flex">
+          {
+            urls.slice(0, 8).map(({ name, url }) => {
+              return (
+                <a
+                  hreflang={
+                    currentLocale === "pt" ? "pt-BR" : currentLocale || "es"
+                  }
+                  href={url}
+                >
+                  {name}
+                </a>
+              );
+            })
+          }
+        </div>
+        <div class="flex-col flex">
+          {
+            urls.slice(8, urls.length).map(({ name, url }) => {
+              return (
+                <a
+                  hreflang={
+                    currentLocale === "pt" ? "pt-BR" : currentLocale || "es"
+                  }
+                  href={url}
+                >
+                  {name}
+                </a>
+              );
+            })
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

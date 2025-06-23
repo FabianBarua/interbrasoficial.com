@@ -1,0 +1,67 @@
+---
+const { currentLocale } = Astro;
+
+const langs = [
+  {
+    id: "es",
+    name: "Español",
+    slug: "PY",
+    flag: "/paraguay_flag.svg",
+    alt: "bandera de PY",
+  },
+  {
+    id: "pt",
+    name: "Português",
+    slug: "BR",
+    flag: "/brasil_flag.svg",
+    alt: "bandera de BR",
+  },
+];
+
+const langSelected =
+  langs.find((lang) => lang.id === currentLocale) || langs[0];
+---
+
+<div class="relative w-full">
+  <input type="checkbox" id="lang-toggle" class="hidden peer" />
+  <label
+    for="lang-toggle"
+    class="text-white bg-interbrasGreen-900 rounded-lg hover:bg-interbrasGreen-900/80 transition-colors px-2 py-1 flex justify-center items-center gap-2 cursor-pointer"
+  >
+    <img
+      loading="lazy"
+      width="20px"
+      height="20px"
+      src={langSelected.flag}
+      alt={langSelected.alt}
+    />
+    {langSelected.slug}
+  </label>
+
+  <div
+    class="absolute gap-1 top-[120%] text-white hidden peer-checked:flex flex-col w-full"
+    style="opacity: 1; will-change: auto; transform: none;"
+  >
+    {
+      langs.map((lang) => {
+        if (lang.id === currentLocale) return null;
+
+        return (
+          <a
+            data-astro-reload
+            href={`/${lang.id === "es" ? "" : lang.id}`}
+            class="text-white bg-interbrasGreen-900 w-full rounded-lg hover:bg-interbrasGreen-900/80 transition-colors px-2 py-1 flex justify-center items-center gap-2"
+          >
+            <img
+              loading="eager"
+              class=" pointer-events-none "
+              src={lang.flag}
+              alt={lang.alt}
+            />
+            {lang.slug}
+          </a>
+        );
+      })
+    }
+  </div>
+</div>

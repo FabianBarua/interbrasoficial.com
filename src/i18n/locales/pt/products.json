@@ -1,0 +1,1585 @@
+{
+  "whatDoYouWant": "Qual modelo você deseja?",
+  "productInfo": "Informações do produto",
+  "showMore": {
+    "show": "Mostrar",
+    "showMore": "mais",
+    "showLess": "menos"
+  },
+  "youMayAlsoBeInteresed": "Você também pode se interessar",
+  "colors": {
+    "text": {
+      "color": "Cor",
+      "colors": "Cores"
+    },
+    "black": "Preto",
+    "white": "Branco",
+    "inox": "Inox",
+    "golden": "Dourado",
+    "blankAndWhite": "Branco e Preto",
+    "blackAndGray": "Preto e Cinza",
+    "RedAndBlack": "Vermelho - Preto",
+    "BlueAndWhite": "Branco - Azul",
+    "GrayAndBronze": "Cinza - Bronze",
+    "grafite": "Grafite",
+    "blueFire": "Azul Fogo",
+    "redFire": "Vermelho Fogo",
+    "hiphop": "Hip Hop",
+    "pinkCamouflage": "Rosa Camuflado",
+    "purple": "Roxo Galáxia",
+    "blueCamouflage": "Azul Camuflado",
+    "rosePink": "Rosa Pink",
+    "blue" : "Azul",
+    "blueSpider": "Azul Aranha",
+    "redSpider" : "Vermelho Aranha",
+    "pinkButterfly" : "Borboleta Rosa",
+    "redBlue" : "Vermelho e Azul",
+    "greenBlack" : "Verde e Preto"
+  },
+  "airfryer": {
+    "id": "airfryer",
+    "name": "Airfryer",
+    "description": "Cozinhe de maneira saudável e sem\nóleo com nossas fritadeiras de ar.",
+    "shortDescription": "Cozinhe mais saudável.",
+    "children": {
+      "s10": {
+        "id": "s10",
+        "name": "Airfryer S10",
+        "info": {
+          "review": "O Air Fryer S10 da Interbras é perfeita para uso familiar, permitindo cozinhar de maneira saudável com uma redução de 80% no uso de óleo. \nCom uma potência de 1200W e uma capacidade de 4 litros, esta fritadeira oferece sete funções de cozimento diferentes, adaptando-se às suas necessidades culinárias.\nSeu controle de temperatura ajustável de 80°C a 200°C e seu temporizador facilitam a preparação de seus pratos favoritos com resultados perfeitos.",
+          "specs": "Potência: 1200W\nRedução de óleo: 80%\nFaixa de temperatura: 80°C - 200°C\nFunções de cozimento: 7\nCapacidade: 4L\nControle de temperatura: Sim\nTemporizador: Sim\nVisor: Sim\nCesta: Removível"
+        }
+      },
+      "s20": {
+        "id": "s20",
+        "name": "Airfryer S20",
+        "info": {
+          "review": "Esta fritadeira de ar é seu aliado perfeito na cozinha, projetada para preparar pratos crocantes e suculentos sem a necessidade de usar grandes quantidades de óleo. \nIdeal para aqueles que buscam uma opção mais saudável sem sacrificar o sabor nem a textura de suas comidas favoritas. \nCom esta fritadeira, você poderá desfrutar de batatas fritas, frango, peixe e muito mais, tudo com 80% menos óleo. \nSua capacidade de 7 litros e seu desempenho potente de 1500W asseguram um cozimento uniforme e rápido, permitindo preparar refeições deliciosas para toda a família. \nAlém disso, sua faixa de temperatura ajustável de 80°C a 200°C dá total controle sobre o processo de cozimento, adaptando-se a diferentes receitas e preferências.",
+          "specs": "1500W de potência\n80% menos óleo\n80°C até 200°C\n7 Litros"
+        }
+      },
+      "s30": {
+        "id": "s30",
+        "name": "Airfryer S30",
+        "info": {
+          "review": "O airfryer interbras pode cozinhar uma grande variedade de alimentos de forma saudável, utilizando tecnologia de ar quente para preparar pratos sem necessidade de óleo. \nÉ ideal para quem deseja desfrutar de refeições crocantes e suculentas sem o uso excessivo de gorduras. \nDesde batatas fritas até frango e vegetais, esta fritadeira de ar permite preparar suas receitas favoritas de maneira rápida e eficiente. \nAlém disso, seu design moderno e fácil de usar garante uma experiência de cozinha confortável e agradável, ajudando a manter uma alimentação balanceada sem sacrificar o sabor.",
+          "specs": "1700W\n80% menos óleo\n80°C até 200°C\n8 Litros\nGavetas com janela e luz interna"
+        }
+      },
+      "s40": {
+        "id": "s40",
+        "name": "Airfryer S40",
+        "info": {
+          "review": "Maximize sua cozinha com a AirFryer Interbras Dupla, que oferece alta eficiência com uma redução significativa no uso de óleo. \nCom uma capacidade de 8 litros distribuídos em duas cestas de 4 litros cada, permite a preparação simultânea de vários pratos, otimizando tempo e energia. \nEste inovador eletrodoméstico é ideal para famílias grandes ou para quem gosta de preparar refeições variadas em uma única sessão. \nA tecnologia avançada de ar quente garante um cozimento uniforme, conservando o sabor e a textura dos alimentos sem a necessidade de adicionar gordura. \nAlém disso, seu design moderno e funcional se adapta perfeitamente a qualquer cozinha, proporcionando uma experiência de usuário confortável e eficiente. \nCom a AirFryer Interbras Dupla, você desfrutará de uma alimentação mais saudável sem renunciar aos seus pratos favoritos, fazendo de cada refeição uma ocasião especial.",
+          "specs": "1000+1000W\nRedução de 80% no uso de óleo\n80°C até 200°C\nCozimento simultâneo\n4L + 4L"
+        }
+      }
+    }
+  },
+  "scooters": {
+    "id": "scooters",
+    "name": "Patinetes Eletricos",
+    "description": "Mobilidade urbana eficiente e ecológica.",
+    "shortDescription": "Mobilidade mais ecológica.",
+    "children": {
+      "85": {
+        "id": "8.5",
+        "name": "Patinete Eletrico 8.5",
+        "info": {
+          "review": "O X-Patinete Eletrico Pro 8.5 da Interbras é ideal para quem busca uma mistura de elegância e funcionalidade.\nEquipado com um motor de 350W e uma bateria de 36V/10.4Ah, este Patinete Eletrico garante uma condução estável e eficiente.\nSua suspensão avançada e o sistema de freios E-ABS oferecem uma viagem confortável e segura.\nAlém disso, você pode controlar todas as suas funções através do aplicativo móvel, garantindo sempre uma experiência personalizada e conveniente.",
+          "specs": "Motor: 350W\nBateria: 36V/10.4Ah, autonomia estendida\nVelocidade: Estável e controlada\nSuspensão avançada: Para maior conforto\nFreios: E-ABS, sistema de freios eletrônicos\nConectividade: Controle por aplicativo móvel\nIluminação LED: Segurança noturna melhorada"
+        }
+      },
+      "10pro": {
+        "id": "10.5pro",
+        "name": "Patinete Eletrico 10.5 Pro",
+        "info": {
+          "review": "O X-Patinete Eletrico Pro 10.5 da Interbras é a solução definitiva para os entusiastas do transporte elétrico urbano.\nCom seu motor otimizado de 350W e uma bateria potente de 36V/10.5Ah, este Patinete Eletrico oferece uma autonomia estendida para aventuras mais longas.\nSeu sistema de recuperação de energia cinética e os freios E-ABS garantem máxima eficiência e segurança.\nO design dobrável em três segundos permite um armazenamento rápido e conveniente, ideal para a vida urbana acelerada.",
+          "specs": "Motor: 350W\nBateria: 36V/10.4Ah, \nVelocidade: Estável e eficiente\nRecuperação de energia: Sistema cinético\nFreios: E-ABS, sistema de freios eletrônicos\nConectividade: Controle por aplicativo móvel\nDesign dobrável: Armazenamento rápido e fácil\nSuspensão avançada: Maior conforto e segurança\nIluminação LED: Segurança noturna melhorada"
+        }
+      },
+      "cross": {
+        "id": "cross",
+        "name": "Patinete Eletrico Cross",
+        "info": {
+          "review": "O X-Patinete Eletrico Cross da Interbras é perfeito para os entusiastas da vida urbana que procuram um Patinete Eletrico robusto e confiável.\nEquipado com um motor de 500W, este Patinete Eletrico pode alcançar uma velocidade máxima de 45 km/h, oferecendo um desempenho impressionante em qualquer trajeto.\nA bateria de 48V 10Ah proporciona uma autonomia de até 50 km, ideal para deslocamentos longos sem se preocupar com a recarga.\nSua suspensão dianteira e traseira garante uma condução suave e estável, enquanto os pneus de 10 polegadas asseguram uma excelente tração em diversas superfícies.",
+          "specs": "Velocidade máxima: 45 km/h\nMotor: 500W\nBateria: 48V 10Ah\nAplicativo móvel: Minirobot App\nSuspensão: Dianteira + traseira\nPneus: 10 polegadas\nAutonomia: 45-50 km\nResistência à água: IP54\nIluminação LED: Segurança noturna melhorada"
+        }
+      },
+      "crosspro": {
+        "id": "crosspro",
+        "name": "Patinete Eletrico Cross Pro",
+        "info": {
+          "review": "O X-Patinete Eletrico Cross Pro da Interbras combina tecnologia avançada e design robusto para oferecer uma experiência de condução superior. \nCom um motor de 500W, atinge uma velocidade máxima de 45 km/h, permitindo deslocamentos rápidos e eficientes.\nSua bateria de 48V 12.5Ah oferece uma autonomia estendida de até 50 km, ideal para longas distâncias.\nEquipado com suspensão dianteira e traseira, garante uma viagem confortável e segura em qualquer terreno.",
+          "specs": "Velocidade máxima: 45 km/h\nMotor: 500W\nBateria: 48V 12.5Ah\nAplicativo móvel: Minirobot App\nSuspensão: Dianteira + traseira\nPneus: 10 polegadas\nAutonomia: 45-50 km\nResistência à água: IP54\nIluminação LED: Segurança noturna melhorada"
+        }
+      },
+      "GT": {
+        "id": "GT",
+        "name": "Scooter GT",
+        "popular": true,
+        "info": {
+          "review": "O Scooter GT é uma máquina de alto desempenho, projetada para aqueles que buscam velocidade e potência sem compromissos. Com uma velocidade máxima de 80 km/h, este scooter está preparado para alcançar grandes distâncias em alta velocidade, ideal para trajetos longos e aventureiros. Seu motor de 8000W (2x4000W) oferece uma potência incrível, garantindo um desempenho superior mesmo nos terrenos mais desafiadores. A bateria de 60V 30Ah permite uma autonomia de até 80 km, tornando-o perfeito para viagens urbanas longas ou escapadas fora da cidade. Seu design robusto e a qualidade de seus componentes garantem uma experiência de condução confortável e segura, enquanto seus pneus de alta resistência e suspensão avançada proporcionam estabilidade e controle o tempo todo. Com uma capacidade máxima de 150 kg, o Scooter GT é a escolha ideal para quem busca uma experiência de condução potente, rápida e sem limitações.",
+          "included": null,
+          "specs": "Motor: 8000W (2x4000W)\nBateria: 60V 30Ah\nAutonomia: 80 km\nVelocidade máxima: 80 km/h\nCapacidade máxima: 150 kg\nChave NFC\nFreios ABS"
+        },
+        "variants": [
+          {
+            "id": "GT",
+            "name": "GT",
+            "color": "colors.black",
+            "photos": ["/productos/scooters/GT.webp"]
+          }
+        ]
+      },
+      "GT-S": {
+        "id": "GT-S",
+        "name": "Scooter GT-S",
+        "popular": false,
+        "info": {
+          "review": "O Scooter GT-S é a versão mais avançada e potente da linha GT, projetado para aqueles que buscam a máxima velocidade e desempenho. Com uma velocidade máxima de 120 km/h, este scooter é feito para os entusiastas da velocidade e adrenalina. Seu motor de 8000W (2x4000W) proporciona uma potência excepcional que permite conquistar qualquer terreno com facilidade e rapidez. A bateria de 72V 40Ah oferece uma autonomia estendida de até 100 km, permitindo percorrer longas distâncias sem preocupações. Seu design aerodinâmico e seus componentes de alta qualidade garantem uma experiência de condução fluida e confortável, enquanto seus pneus robustos **semi-slick** e seu sistema de suspensão avançada proporcionam estabilidade e segurança o tempo todo. O GT-S é o scooter definitivo para aqueles que buscam uma experiência de condução extrema e sem limitações.",
+          "included": null,
+          "specs": "Motor: 8000W (2x4000W)\nBateria: 72V 40Ah\nAutonomia: 100 km\nVelocidade máxima: 120 km/h\nCapacidade máxima: 150 kg\nRodas: Semi-slick\nChave NFC\nFreios ABS"
+        },
+        "variants": [
+          {
+            "id": "GT-S",
+            "name": "GT-S",
+            "color": "colors.black",
+            "photos": ["/productos/scooters/GT-S.webp"]
+          }
+        ]
+      },
+      "TITAN": {
+        "id": "TITAN",
+        "name": "Scooter TITAN",
+        "popular": true,
+        "info": {
+          "review": "The TITAN scooter combines excellent power with a robust design to offer a unique riding experience. With its 500W motor, it is ideal for urban commuting, offering a top speed of 45 km/h for fast and efficient travel. Its 48V 13Ah battery provides a range of 35 to 40 km, ensuring reliable transportation. Additionally, it features front and rear suspension for a comfortable ride and 10-inch tires that enhance stability. Its IP54 water resistance makes it suitable for various weather conditions. With Minirobot app connectivity, the TITAN becomes the perfect choice for those seeking technology, performance, and comfort in one vehicle.",
+          "included": null,
+          "specs": "Motor: 500W\nBattery: 48V 13Ah\nRange: 35-40 km\nTop speed: 45 km/h\nSuspension: Front + Rear\nTires: 10 inches\nWater resistance: IP54\nApp: Minirobot"
+        },
+        "variants": [
+          {
+            "id": "TITAN",
+            "name": "TITAN",
+            "color": "colors.black",
+            "photos": ["/productos/scooters/TITAN.webp"]
+          }
+        ]
+      },
+      "XTREME": {
+        "id": "XTREME",
+        "name": "Scooter XTREME",
+        "popular": false,
+        "info": {
+          "review": "The XTREME scooter is specially designed for speed and adventure enthusiasts, combining power and style in every detail. With its dual 800W motor, reaching a total of 1600W, this scooter can reach a top speed of 50 km/h, making it an ideal option for those looking for outstanding performance in urban or adventure rides. Its 48V 15Ah battery offers a range of up to 50 km, allowing you to cover long distances without constantly worrying about recharging. Additionally, it features front and rear suspension, ensuring a comfortable and stable ride even on uneven terrain. With 10-inch tires and a load capacity of 150 kg, the XTREME is robust and reliable. Its IPX54 water resistance and IPX7-certified battery make it even more durable under various weather conditions. Moreover, it is compatible with the Minirobot app for smarter and more efficient control.",
+          "included": null,
+          "specs": "Motor: Dual 800W, total 1600W\nBattery: 48V 15Ah\nRange: 50 km\nTop speed: 50 km/h\nSuspension: Front + Rear\nTires: 10 inches\nLoad capacity: 150 kg\nWater resistance: IPX54\nWater-resistant battery: IPX7\nApp: Minirobot"
+        },
+        "variants": [
+          {
+            "id": "XTREME",
+            "name": "XTREME",
+            "color": "colors.black",
+            "photos": ["/productos/scooters/XTREME.webp"]
+          }
+        ]
+      }
+    }
+  },
+  "aires": {
+    "id": "aires",
+    "name": "Ar condicionado",
+    "description": "Eficientes, silenciosos e elegantes.\nPerfeitos para climatizar sua casa ou escritório.",
+    "shortDescription": "Eficientes e elegantes.",
+    "children": {
+      "1": {
+        "id": "itb-12000iv",
+        "name": "ITB 12000IV Inverter (Brasil 60Hz)",
+        "popular": false,
+        "info": {
+          "review": "O ar condicionado ITB 12000IV de 12000 BTU é perfeito para manter sua casa fresca e confortável o ano todo.\nGraças à sua tecnologia Inverter, ajusta o uso de energia para máxima eficiência, ajudando a reduzir custos.",
+          "included": null,
+          "specs": "Modelo: ITB 12000IV\nTipo: Inverter\nCapacidade de Resfriamento: 12,000 BTU (2700~13000)\nCapacidade de Aquecimento: 12,000 BTU (2700~13000)\nConsumo de Energia (Resfriamento): 1295W (150~1650W)\nConsumo de Energia (Aquecimento): 1200W (150~1650W)\nCorrente Nominal (Resfriamento): 6.0A (0.7~8.5A)\nCorrente Nominal (Aquecimento): 5.6A (0.7~8.5A)\nConsumo Máximo: 1650W\nCorrente Máxima: 8.5A\nCompressor: Tipo rotativo, marca GMCC\nRefrigerante: R410A, carga de 600g\nDimensões Unidade Interna (Largura x Altura x Profundidade):\n800 x 292 x 190 mm\nPeso Líquido Unidade Interna: 7.3 kg\nNível de Ruído Unidade Interna: 39/37/34 dB (Hi/Mi/Lo)\nDimensões Unidade Externa (Largura x Altura x Profundidade): \n700 x 276 x 550 mm\nPeso Líquido Unidade Externa: 24 kg\nNível de Ruído Unidade Externa: 49 dB\nTemperatura de Operação: -7°C a 43°C\nTemperatura Ambiental de Operação: -7°C a 48°C\nAlimentação Elétrica: 220-240V / 60Hz\nÁrea de Aplicação: 14~21 m²"
+        },
+        "variants": [
+          {
+            "id": "itb-12000iv-1",
+            "name": "ITB 12000IV - 1",
+            "color": "Branco"
+          }
+        ]
+      },
+      "2": {
+        "id": "itp-12000iv",
+        "name": "ITP 12000IV Inverter (Paraguai 50Hz)",
+        "popular": false,
+        "info": {
+          "review": "O ITP 12000IV é um ar condicionado de 12000 BTU que oferece uma climatização eficiente e confortável para qualquer espaço. \nSua tecnologia Inverter permite um ajuste preciso da temperatura, garantindo um ambiente agradável o ano todo.",
+          "included": null,
+          "specs": "Modelo: ITP 12000IV\nTipo: Inverter\nCapacidade de Resfriamento: 12,000 BTU (2700~13000)\nCapacidade de Aquecimento: 12,000 BTU (2700~13000)\nConsumo de Energia (Resfriamento): 1295W (150~1650W)\nConsumo de Energia (Aquecimento): 1200W (150~1650W)\nCorrente Nominal (Resfriamento): 6.0A (0.7~8.5A)\nCorrente Nominal (Aquecimento): 5.6A (0.7~8.5A)\nConsumo Máximo: 1650W\nCorrente Máxima: 8.5A\nCompressor: Tipo rotativo, marca GMCC\nRefrigerante: R410A, carga de 600g\nDimensões Unidade Interna (Largura x Altura x Profundidade):\n800 x 292 x 190 mm\nPeso Líquido Unidade Interna: 7.3 kg\nNível de Ruído Unidade Interna: 39/37/34 dB (Hi/Mi/Lo)\nDimensões Unidade Externa (Largura x Altura x Profundidade):\n700 x 276 x 550 mm\nPeso Líquido Unidade Externa: 24 kg\nNível de Ruído Unidade Externa: 49 dB\nTemperatura de Operação: -7°C a 43°C\nTemperatura Ambiental de Operação: -7°C a 48°C\nAlimentação Elétrica: 220-240V / 50Hz\nÁrea de Aplicação: 14~21 m²"
+        },
+        "variants": [
+          {
+            "id": "itp-12000iv-1",
+            "name": "ITP 12000IV - 1",
+            "color": "Branco",
+            "photos": [
+              "/productos/aires/general.webp"
+            ]
+          }
+        ]
+      },
+      "3": {
+        "id": "itb-12000of",
+        "name": "ITB 12000OF On/Off (Brasil 60Hz)",
+        "popular": false,
+        "info": {
+          "review": "O ar condicionado ITB 12000OF, com capacidade de 12000 BTU,\né uma excelente opção para quem procura uma solução de climatização eficiente e direta.\nSeu design On/Off proporciona um controle simples e eficaz, ideal para aqueles que valorizam a praticidade.\nCom um funcionamento silencioso e um design elegante, é perfeito para áreas de 13 a 27 m2.\nAlém disso, sua tecnologia avançada garante um resfriamento rápido e uniforme,\nenquanto seu modo de economia de energia ajuda a reduzir os custos de eletricidade.\nEste ar condicionado também possui um filtro de ar lavável que melhora a qualidade do ar interno,\ntornando o ambiente mais saudável e confortável.\nSua instalação é simples e sua manutenção, mínima, o que o torna uma opção prática e conveniente para qualquer casa.",
+          "included": null,
+          "specs": "Modelo: ITB 12000OF\nTipo: On/Off\nCapacidade de Resfriamento: 12,000 BTU\nCapacidade de Aquecimento: 12,000 BTU\nConsumo de Energia (Resfriamento): 1165W\nConsumo de Energia (Aquecimento): 1050W\nCorrente Nominal (Resfriamento): 5.46A\nCorrente Nominal (Aquecimento): 4.92A\nConsumo Máximo: 1650W\nCorrente Máxima: 7.89A\nCompressor: Tipo rotativo, marca GREE\nRefrigerante: R410A, carga de 575g\nDimensões Unidade Interna (Largura x Altura x Profundidade): \n800 x 292 x 190 mm\nPeso Líquido Unidade Interna: 7.6 kg\nNível de Ruído Unidade Interna: 39/37/34 dB (Hi/Mi/Lo)\nDimensões Unidade Externa (Largura x Altura x Profundidade): \n700 x 276 x 550 mm\nPeso Líquido Unidade Externa: 26 kg\nNível de Ruído Unidade Externa: 49 dB\nTemperatura de Operação: -7°C a 43°C\nTemperatura Ambiental de Operação: -7°C a 48°C\nAlimentação Elétrica: 220-240V / 60Hz\nÁrea de Aplicação: 13~27 m²"
+        },
+        "variants": [
+          {
+            "id": "itp-12000iv-1",
+            "name": "ITB 12000OF - 1",
+            "color": "Branco",
+            "photos": [
+              "/productos/aires/general.webp"
+            ]
+          }
+        ]
+      },
+      "4": {
+        "id": "itp-12000of",
+        "name": "ITP 12000OF On/Off (Paraguai 50Hz)",
+        "popular": false,
+        "info": {
+          "review": "O ar condicionado ITP 12000OF de 12000 BTU é ideal para quem precisa de uma climatização eficaz e sem complicações. \nCom seu sistema On/Off, oferece uma experiência de uso simples e direta, mantendo seu espaço na temperatura desejada tanto no verão quanto no inverno. \nEste modelo é perfeito para quem busca conforto e eficiência, pois sua tecnologia avançada garante um resfriamento rápido e uniforme. \nAlém disso, seu modo de economia de energia ajuda a reduzir os custos de eletricidade, tornando-o uma opção econômica e sustentável. \nO design elegante e discreto do ITP 12000OF se adapta a qualquer decoração, enquanto seu funcionamento silencioso garante um ambiente tranquilo e confortável. \nIdeal para cômodos de tamanho médio a grande, este ar condicionado é fácil de instalar e manter, tornando-o uma opção prática e conveniente para casa ou escritório.",
+          "included": null,
+          "specs": "Modelo: ITP 12000OF\nTipo: On/Off\nCapacidade de Resfriamento: 12.000 BTU\nCapacidade de Aquecimento: 12.000 BTU\nConsumo de Energia (Resfriamento): 1165W\nConsumo de Energia (Aquecimento): 1050W\nCorrente Nominal (Resfriamento): 5.46A\nCorrente Nominal (Aquecimento): 4.92A\nConsumo Máximo: 1650W\nCorrente Máxima: 7.89A\nCompressor: Tipo rotativo, marca GMCC\nRefrigerante: R410A, carga de 575g\nDimensões Unidade Interna (Largura x Altura x Profundidade): 800 x 292 x 190 mm\nPeso Líquido Unidade Interna: 7.6 kg\nNível de Ruído Unidade Interna: 39/37/34 dB (Hi/Mi/Lo)\nDimensões Unidade Externa (Largura x Altura x Profundidade): 700 x 276 x 550 mm\nPeso Líquido Unidade Externa: 26 kg\nNível de Ruído Unidade Externa: 49 dB\nTemperatura de Operação: -7°C a 43°C\nTemperatura Ambiental de Operação: -7°C a 48°C\nAlimentação Elétrica: 220-240V / 50Hz\nÁrea de Aplicação: 13~27 m²"
+        },
+        "variants": [
+          {
+            "id": "itp-12000iv-1",
+            "name": "ITP 12000OF - 1",
+            "color": "Branco",
+            "photos": [
+              "/productos/aires/general.webp"
+            ]
+          }
+        ]
+      },
+      "5": {
+        "id": "itb-18000iv",
+        "name": "ITB 18000IV Inverter (Brasil 60Hz)",
+        "popular": false,
+        "info": {
+          "review": "O modelo ITB 18000IV, com uma capacidade de 18000 BTU, combina eficiência e desempenho para oferecer um ambiente sempre confortável. \nSua tecnologia Inverter assegura um uso eficiente da energia, enquanto seu design elegante facilita a instalação e manutenção.",
+          "included": null,
+          "specs": "Modelo: ITB 18000IV\nTipo: Inverter\nCapacidade de Resfriamento: 18.000 BTU (2700~19000)\nCapacidade de Aquecimento: 18.000 BTU (2700~19000)\nConsumo de Energia (Resfriamento): 2000W (150~2500W)\nConsumo de Energia (Aquecimento): 1850W (150~2500W)\nCorrente Nominal (Resfriamento): 9.3A (0.7~11.6A)\nCorrente Nominal (Aquecimento): 8.12A (0.7~11.6A)\nCompressor: Tipo rotativo, marca SANYO\nRefrigerante: R410A, carga de 1160g\nDimensões Unidade Interna (Largura x Altura x Profundidade): 850 x 292 x 190 mm\nPeso Líquido Unidade Interna: 8.5 kg\nNível de Ruído Unidade Interna: 45/42/39 dB (Hi/Mi/Lo)\nDimensões Unidade Externa (Largura x Altura x Profundidade): 760 x 276 x 550 mm\nPeso Líquido Unidade Externa: 28.5 kg\nNível de Ruído Unidade Externa: 55 dB\nTemperatura de Operação: -7°C a 43°C\nAlimentação Elétrica: 220-240V / 60Hz\nÁrea de Aplicação: 20~40 m²"
+        },
+        "variants": [
+          {
+            "id": "itb-18000iv-1",
+            "name": "ITB 18000IV - 1",
+            "color": "Branco",
+            "photos": [
+              "/productos/aires/general.webp"
+            ]
+          }
+        ]
+      },
+      "6": {
+        "id": "itb-24000iv",
+        "name": "ITB 24000IV Inverter (Brasil 50Hz)",
+        "popular": false,
+        "info": {
+          "review": "Descrição: O ITB 24000IV é um ar condicionado potente com 24000 BTU, projetado para manter grandes espaços frescos e confortáveis. \nA tecnologia Inverter ajusta o uso de energia para maior eficiência e economia.",
+          "included": null,
+          "specs": "Modelo: ITB 24000IV\nTipo: Inverter\nCapacidade de Resfriamento: 24.000 BTU (2700~25000)\nCapacidade de Aquecimento: 24.000 BTU (2700~25000)\nConsumo de Energia (Resfriamento): 2880W (300~3000W)\nConsumo de Energia (Aquecimento): 2650W (300~3000W)\nCorrente Nominal (Resfriamento): 13.3A (1.4~14.35A)\nCorrente Nominal (Aquecimento): 12.3A (1.4~14.35A)\nConsumo Máximo: 3000W\nCorrente Máxima: 14.35A\nCompressor: Tipo rotativo, marca SANYO\nRefrigerante: R410A, carga de 1500g\nDimensões Unidade Interna (Largura x Altura x Profundidade): 970 x 310 x 230 mm\nPeso Líquido Unidade Interna: 12.5 kg\nNível de Ruído Unidade Interna: 49/47/45 dB (Hi/Mi/Lo)\nDimensões Unidade Externa (Largura x Altura x Profundidade): 820 x 318 x 597 mm\nPeso Líquido Unidade Externa: 36 kg\nNível de Ruído Unidade Externa: 57 dB\nTemperatura de Operação: -7°C a 43°C\nTemperatura Ambiental de Operação: -7°C a 48°C\nAlimentação Elétrica: 220-240V / 60Hz\nÁrea de Aplicação: 30~55 m²"
+        },
+        "variants": [
+          {
+            "id": "itb-24000iv-1",
+            "name": "ITB 24000IV Inverter (Brasil 50Hz)",
+            "color": "Branco",
+            "photos": [
+              "/productos/aires/general.webp"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "tvs": {
+    "id": "tvs",
+    "name": "Televisores",
+    "description": "A melhor qualidade de imagem e som.",
+    "shortDescription": "A melhor qualidade.",
+    "children": {
+      "1": {
+        "id": "IN3200TV",
+        "name": "TV 32'' - IN3200TV",
+        "popular": false,
+        "info": {
+          "review": "A Smart TV de 32 polegadas modelo IN3200TV QLED HD da Interbras é a escolha perfeita para quem busca uma experiência completa de entretenimento em um tamanho compacto. \nCom sua tela QLED HD, oferece cores vibrantes e detalhes nítidos, transformando qualquer espaço em um centro de entretenimento.",
+          "included": null,
+          "specs": "Tamanho da tela: 32 polegadas\nResolução: QLED HD\nFunções adicionais:\nAcesso a uma vasta biblioteca de filmes e séries com Xplus Prime e Cinema Prime\nConectividade: HDMI, USB, WiFi, Bluetooth\nServiços de streaming compatíveis: Netflix, YouTube, HBO Max, Prime Video, Spotify, YouTube Kids\nSistema operacional: Android\nTecnologia de imagem: Frameless (sem moldura), True Colors, Smart\nSintonizador: ISDB-T"
+        },
+        "variants": [
+          {
+            "id": "IN3200TV-1",
+            "name": "IN3200TV - 1",
+            "color": "Preto",
+            "photos": [
+              "/productos/tvs/IN3200TV-1.webp",
+              "/productos/tvs/IN3200TV-2.webp",
+              "/productos/tvs/IN3200TV-3.webp"
+            ]
+          }
+        ]
+      },
+      "2": {
+        "id": "IN4300TV",
+        "name": "TV 43'' - IN4300TV",
+        "popular": false,
+        "info": {
+          "review": "A Smart TV de 43 polegadas modelo IN4300TV QLED FHD da Interbras oferece uma experiência visual superior com sua tela QLED Full HD. \nDesfrute de cores intensas e detalhes precisos, transformando sua casa em um cinema pessoal. \nCom acesso a plataformas de streaming como Netflix e YouTube, você tem entretenimento ilimitado ao seu alcance. \nSeu design estilizado e sem moldura complementa qualquer espaço, proporcionando um toque de modernidade e elegância.",
+          "included": null,
+          "specs": "Tamanho da tela: 43 polegadas\nResolução: QLED FHD\nFunções adicionais:\nAcesso a uma vasta biblioteca de filmes e séries com Xplus Prime e Cinema Prime\nConectividade: HDMI, USB, WiFi, Bluetooth\nServiços de streaming compatíveis: Netflix, YouTube, HBO Max, Prime Video, Spotify, YouTube Kids\nSistema operacional: Android\nTecnologia de imagem: Frameless (sem moldura), True Colors, Smart\nSintonizador: ISDB-T"
+        },
+        "variants": [
+          {
+            "id": "IN4300TV-1",
+            "name": "IN4300TV - 1",
+            "color": "Preto",
+            "photos": [
+              "/productos/tvs/IN4300TV-1.webp",
+              "/productos/tvs/IN4300TV-2.webp",
+              "/productos/tvs/IN4300TV-3.webp",
+              "/productos/tvs/IN4300TV-4.webp"
+            ]
+          }
+        ]
+      },
+      "3": {
+        "id": "IN5000TV",
+        "name": "TV 50'' - IN5000TV",
+        "popular": false,
+        "info": {
+          "review": "A Smart TV de 50 polegadas modelo IN5000TV QLED da Interbras é ideal para aqueles que desejam uma tela grande com uma qualidade de imagem excepcional. \nCom tecnologia QLED, você desfrutará de cores vivas e contrastes profundos. \nAcesse facilmente seus conteúdos favoritos em plataformas como Netflix e HBO Max, transformando sua sala em um centro de entretenimento. \nSeu design elegante e sem moldura integra-se perfeitamente em qualquer ambiente, oferecendo uma experiência visual ampla e imersiva.",
+          "included": null,
+          "specs": "Tamanho da tela: 50 polegadas\nResolução: QLED\nFunções adicionais:\nAcesso a uma vasta biblioteca de filmes e séries com Xplus Prime e Cinema Prime\nConectividade: HDMI, USB, WiFi, Bluetooth\nServiços de streaming compatíveis: Netflix, YouTube, HBO Max, Prime Video, Spotify, YouTube Kids\nSistema operacional: Android\nTecnologia de imagem: Frameless (sem moldura), True Colors, Smart\nSintonizador: ISDB-T"
+        },
+        "variants": [
+          {
+            "id": "IN5000TV-1",
+            "name": "IN5000TV - 1",
+            "color": "Preto",
+            "photos": [
+              "/productos/tvs/IN5000TV-1.webp",
+              "/productos/tvs/IN5000TV-2.webp",
+              "/productos/tvs/IN5000TV-3.webp",
+              "/productos/tvs/IN5000TV-4.webp"
+            ]
+          }
+        ]
+      },
+      "4": {
+        "id": "IN5500TV",
+        "name": "TV 55'' - IN5500TV",
+        "popular": false,
+        "info": {
+          "review": "A Smart TV de 55 polegadas modelo IN5500TV QLED da Interbras leva o entretenimento em casa a um novo nível. \nCom sua tela QLED, oferece uma qualidade de imagem impressionante com cores vibrantes e detalhes nítidos. \nDesfrute de acesso ilimitado a uma variedade de serviços de streaming, incluindo Netflix e YouTube, para nunca ficar sem opções de entretenimento. \nSeu design sem moldura adiciona um toque sofisticado a qualquer espaço, criando uma experiência visual mais imersiva e moderna.",
+          "included": null,
+          "specs": "Tamanho da tela: 55 polegadas\nResolução: QLED\nFunções adicionais:\nAcesso a uma vasta biblioteca de filmes e séries com Xplus Prime e Cinema Prime\nConectividade: HDMI, USB, WiFi, Bluetooth\nServiços de streaming compatíveis: Netflix, YouTube, HBO Max, Prime Video, Spotify, YouTube Kids\nSistema operacional: Android\nTecnologia de imagem: Frameless (sem moldura), True Colors, Smart\nSintonizador: ISDB-T"
+        },
+        "variants": [
+          {
+            "id": "IN5500TV-1",
+            "name": "IN5500TV - 1",
+            "color": "Preto",
+            "photos": [
+              "/productos/tvs/IN5500TV-1.webp",
+              "/productos/tvs/IN5500TV-2.webp",
+              "/productos/tvs/IN5500TV-3.webp",
+              "/productos/tvs/IN5500TV-4.webp"
+            ]
+          }
+        ]
+      },
+      "5": {
+        "id": "IN6500TV",
+        "name": "TV 65'' - IN6500TV",
+        "popular": false,
+        "info": {
+          "review": "A Smart TV de 65 polegadas modelo IN6500TV SQLED da Interbras é ideal para quem busca uma experiência visual envolvente em uma tela grande. \nGraças à sua tecnologia SQLED, você desfrutará de cores intensas e uma clareza impressionante. \nEsta TV permite acesso fácil às suas plataformas de streaming favoritas como Netflix e HBO Max, transformando sua sala em um centro de entretenimento. \nCom seu design sem moldura, não só aporta modernidade, mas também se integra harmoniosamente em qualquer espaço.",
+          "included": null,
+          "specs": "Tamanho da tela: 65 polegadas\nResolução: SQLED\nFunções adicionais:\nAcesso a uma vasta biblioteca de filmes e séries com Xplus Prime e Cinema Prime\nConectividade: HDMI, USB, WiFi, Bluetooth\nServiços de streaming compatíveis: Netflix, YouTube, HBO Max, Prime Video, Spotify, YouTube Kids\nSistema operacional: Android\nTecnologia de imagem: Frameless (sem moldura), True Colors, Smart\nSintonizador: ISDB-T"
+        },
+        "variants": [
+          {
+            "id": "IN6500TV-1",
+            "name": "IN6500TV - 1",
+            "color": "Preto",
+            "photos": [
+              "/productos/tvs/IN6500TV-1.webp",
+              "/productos/tvs/IN6500TV-2.webp",
+              "/productos/tvs/IN6500TV-3.webp",
+              "/productos/tvs/IN6500TV-4.webp"
+            ]
+          }
+        ]
+      },
+      "6": {
+        "id": "IN7500TV",
+        "name": "TV 75'' - IN7500TV",
+        "popular": false,
+        "info": {
+          "review": "A Smart TV de 75 polegadas modelo IN7500TV SQLED da Interbras leva o entretenimento em casa a outro nível com seu grande tamanho e qualidade de imagem superior. \nA tecnologia SQLED garante cores vibrantes e detalhes nítidos, ideais para uma experiência cinematográfica. \nCom acesso a plataformas de streaming como Netflix e Prime Video, você terá todo o conteúdo que ama ao alcance de um botão. \nSeu design elegante e sem moldura aporta um toque de sofisticação a qualquer sala.",
+          "included": null,
+          "specs": "Tamanho da tela: 75 polegadas\nResolução: SQLED\nFunções adicionais:\nAcesso a uma vasta biblioteca de filmes e séries com Xplus Prime e Cinema Prime\nConectividade: HDMI, USB, WiFi, Bluetooth\nServiços de streaming compatíveis: Netflix, YouTube, HBO Max, Prime Video, Spotify, YouTube Kids\nSistema operacional: Android\nTecnologia de imagem: Frameless (sem moldura), True Colors, Smart\nSintonizador: ISDB-T"
+        },
+        "variants": [
+          {
+            "id": "IN7500TV-1",
+            "name": "IN7500TV - 1",
+            "color": "Preto",
+            "photos": [
+              "/productos/tvs/IN7500TV-1.webp",
+              "/productos/tvs/IN7500TV-2.webp",
+              "/productos/tvs/IN7500TV-3.webp",
+              "/productos/tvs/IN7500TV-4.webp"
+            ]
+          }
+        ]
+      },
+      "7": {
+        "id": "IN8500TV",
+        "name": "TV 85'' - IN8500TV",
+        "popular": false,
+        "info": {
+          "review": "A Smart TV de 85 polegadas modelo IN8500TV SQLED da Interbras leva o entretenimento em casa a outro nível com seu grande tamanho e qualidade de imagem superior. \nA tecnologia SQLED garante cores vibrantes e detalhes nítidos, ideais para uma experiência cinematográfica. \nCom acesso a plataformas de streaming como Netflix e Prime Video, você terá todo o conteúdo que ama ao alcance de um botão. \nSeu design elegante e sem moldura aporta um toque de sofisticação a qualquer sala.",
+          "included": null,
+          "specs": "Tamanho da tela: 85 polegadas\nResolução: SQLED\nFunções adicionais:\nAcesso a uma vasta biblioteca de filmes e séries com Xplus Prime e Cinema Prime\nConectividade: HDMI, USB, WiFi, Bluetooth\nServiços de streaming compatíveis: Netflix, YouTube, HBO Max, Prime Video, Spotify, YouTube Kids\nSistema operacional: Android\nTecnologia de imagem: Frameless (sem moldura), True Colors, Smart\nSintonizador: ISDB-T"
+        },
+        "variants": [
+          {
+            "id": "IN8500TV-1",
+            "name": "IN8500TV - 1",
+            "color": "Preto",
+            "photos": [
+              "/productos/tvs/IN8500TV-1.webp",
+              "/productos/tvs/IN8500TV-2.webp",
+              "/productos/tvs/IN8500TV-3.webp",
+              "/productos/tvs/IN8500TV-4.webp"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "mixteras": {
+    "id": "mixteras",
+    "name": "Sanduicheiras",
+    "description": "Sanduíches perfeitos, sem esforço.",
+    "shortDescription": "Sanduíches, sem esforço.",
+    "children": {
+      "G10": {
+        "id": "G10",
+        "name": "Sanduicheira G10",
+        "info": {
+          "review": "A Sanduicheira G10 da Interbras é ideal para transformar ingredientes simples em lanches incríveis. \nPerfeita para preparar sanduíches deliciosos de forma rápida e prática, garantindo resultados crocantes e saborosos a cada uso.",
+          "included": null,
+          "specs": "Potência: 750W\nIndicadores: de Ligado e Pronto\nTamanho: Compacta e Fácil de Armazenar\nDesign: Acabamento Elegante"
+        }
+      },
+      "G20": {
+        "id": "G20",
+        "name": "Sanduicheira G20",
+        "popular": false,
+        "info": {
+          "review": "A Sanduicheira G20 da Interbras é projetada para quem busca conveniência na preparação de sanduíches. \nOferece um aquecimento rápido e uniforme para resultados dourados e crocantes, com operação fácil e armazenamento compacto.",
+          "included": null,
+          "specs": "Potência: 750W\nIndicadores: Ligado e Pronto\nTamanho: Compacta e Fácil de Armazenar\nDesign: Acabamento Elegante"
+        }
+      },
+      "G30": {
+        "id": "G30",
+        "name": "Sanduicheira G30",
+        "popular": false,
+        "info": {
+          "review": "A Sanduicheira G30 da Interbras é perfeita para preparar sanduíches crocantes e quentes rapidamente. \nSeu design compacto e elegante facilita o uso e armazenamento, proporcionando resultados deliciosos com facilidade.",
+          "included": null,
+          "specs": "Potência: 1400W\nIndicadores: Ligado e Pronto\nTamanho: Compacta e Fácil de Armazenar\nDesign: Acabamento Elegante"
+        }
+      },
+      "G40": {
+        "id": "G40",
+        "name": "Sanduicheira G40",
+        "popular": false,
+        "info": {
+          "review": "A Sanduicheira 3 em 1 G40 da Interbras é a escolha perfeita para quem busca versatilidade na cozinha. \nInclui 3 placas intercambiáveis para preparar diferentes tipos de alimentos: grill, sanduíche e waffle. \nIdeal para variar suas receitas e obter sempre resultados deliciosos.",
+          "included": null,
+          "specs": "Potência: 800W\nIndicadores: Ligado e Pronto\nTamanho: Compacta e Fácil de Guardar\nFuncionalidade: 3 em 1: grill, sanduíche e waffle"
+        }
+      },
+      "G50": {
+        "id": "G50",
+        "name": "Sanduicheira G50",
+        "popular": false,
+        "info": {
+          "review": "A Sanduicheira 4 em 1, G50 da Interbras oferece uma versatilidade inigualável na preparação de lanches. \nCom 4 placas intercambiáveis, permite preparar diferentes tipos de alimentos: grill, sanduíche, nutty e waffle, garantindo sempre um resultado perfeito e saboroso.",
+          "included": null,
+          "specs": "Potência: 800W\nIndicadores: Ligado e Pronto\nTamanho: Compacta e Fácil de Guardar\nFuncionalidade: 4 em 1: grill, sanduíche, nutty e waffle"
+        }
+      },
+      "H10": {
+        "id": "H10",
+        "name": "Parrilla Grill Elétrica H10",
+        "info": {
+          "review": "A Parrilla Grill Elétrica H10 da Interbras é perfeita para quem deseja um preparo saudável e rápido. Reduz até 50% da gordura graças ao seu design inclinado, mantendo o sabor e a textura dos seus alimentos favoritos.",
+          "included": null,
+          "specs": "Potência: 750W\nRedução de Gordura: 50% Menos Gordura\nDesign: Compacta e Fácil de Guardar"
+        }
+      },
+      "H20": {
+        "id": "H20",
+        "name": "Parrilla Grill Elétrica H20",
+        "info": {
+          "review": "A Parrilla Grill Elétrica H20 da Interbras combina potência e praticidade para um preparo mais eficiente. Com seus 1000W, aquece mais rápido e ainda oferece redução de até 50% de gordura, ideal para quem busca uma alimentação mais saudável.",
+          "included": null,
+          "specs": "Potência: 1000W\nRedução de Gordura: 50% Menos Gordura\nDesign: Compacta e Fácil de Guardar"
+        }
+      }
+    }
+  },
+  "cocinas": {
+    "id": "cocinas",
+    "name": "Cozinhas",
+    "description": "Inovação compacta para sua cozinha na mesa.",
+    "shortDescription": "Inovação compacta.",
+    "children": {
+      "C10": {
+        "id": "C10",
+        "name": "Cozinha elétrica C10",
+        "popular": false,
+        "info": {
+          "review": "A cozinha elétrica C10 da Interbras é a solução ideal para quem busca uma forma eficiente e prática de aquecer alimentos. \nCom uma placa de operação e múltiplas opções de aquecimento, esta cozinha é perfeita para o uso diário em qualquer lar.",
+          "included": null,
+          "specs": "Potência: 1000W\nCaracterísticas destacadas: \nProteção contra superaquecimento\nOperação simples\nFácil limpeza."
+        },
+        "variants": [
+          {
+            "id": "C10",
+            "name": "C10",
+            "color": "colors.white",
+            "photos": [
+              "/productos/cocinas/C10-1.webp"
+            ]
+          }
+        ]
+      },
+      "C20": {
+        "id": "C20",
+        "name": "Cozinha elétrica C20",
+        "popular": false,
+        "info": {
+          "review": "A cozinha elétrica C20 da Interbras proporciona uma excelente opção para cozinhar com rapidez e eficiência. \nCom seu design compacto e elegante, é perfeita para qualquer espaço de cozinha, oferecendo múltiplas opções de aquecimento.",
+          "included": null,
+          "specs": "Potência: 1000W\nCaracterísticas destacadas: \nProteção contra superaquecimento\nOperação simples\nFácil limpeza"
+        },
+        "variants": [
+          {
+            "id": "C20",
+            "name": "C20",
+            "color": "colors.black",
+            "photos": [
+              "/productos/cocinas/C20-1.webp"
+            ]
+          }
+        ]
+      },
+      "C30": {
+        "id": "C30",
+        "name": "Cozinha elétrica C30",
+        "popular": false,
+        "info": {
+          "review": "A cozinha elétrica C30 da Interbras é perfeita para quem precisa de maior capacidade de cocção. \nCom duas placas de operação e luz indicadora, oferece uma versatilidade superior para preparar uma ampla variedade de alimentos de forma rápida e eficiente.",
+          "included": null,
+          "specs": "Potência: 1000W por placa\nCaracterísticas destacadas: \nProteção contra superaquecimento\nOperação simples\nFácil limpeza"
+        },
+        "variants": [
+          {
+            "id": "C30",
+            "name": "C30",
+            "color": "colors.black",
+            "photos": [
+              "/productos/cocinas/C30-1.webp"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "hervidoras": {
+    "id": "hervidoras",
+    "name": "Jarra Elétrica",
+    "description": "Ideais para qualquer cozinha moderna.",
+    "shortDescription": "Seguras e fáceis de usar.",
+    "children": {
+      "T10": {
+        "id": "T10",
+        "name": "Jarra Elétrica T10",
+        "popular": false,
+        "info": {
+          "review": "A Jarra Elétrica Elétrica Clássica da Interbras com capacidade de 1.8 litros e 1500W de potência é ideal para qualquer cozinha moderna. \nSeu design ergonômico e funcional permite um manuseio fácil e seguro. \nAquece a água rapidamente, perfeita para preparar chá, café e outras bebidas quentes.",
+          "included": null,
+          "specs": "Capacidade: 1.8L\nPotência: 1500W\nRápida\nPrática\nVersátil"
+        },
+        "variants": [
+          {
+            "id": "T10",
+            "name": "T10",
+            "color": "Inox",
+            "photos": [
+              "/productos/hervidoras/T10-1.webp"
+            ]
+          }
+        ]
+      },
+      "T20": {
+        "id": "T20",
+        "name": "Jarra Elétrica T20",
+        "popular": false,
+        "info": {
+          "review": "A Jarra Elétrica Elétrica T20 da Interbras oferece uma solução rápida e eficiente para aquecer água. \nCom capacidade de 1.8 litros e potência de 1500W, esta hervidora se destaca por sua durabilidade e design elegante. \nMantém o calor por mais tempo, o que a torna perfeita para qualquer lar ou escritório.",
+          "included": null,
+          "specs": "Capacidade: 1.8L\nPotência: 1500W\nRápida\nPrática\nVersátil\nMantém o calor"
+        },
+        "variants": [
+          {
+            "id": "T20",
+            "name": "T20",
+            "color": "colors.white",
+            "photos": [
+              "/productos/hervidoras/T20-1.webp"
+            ]
+          }
+        ]
+      },
+      "T30": {
+        "id": "T30",
+        "name": "Jarra Elétrica T30",
+        "popular": false,
+        "info": {
+          "review": "A Jarra Elétrica Elétrica T30 da Interbras oferece uma solução rápida e eficiente para aquecer água. \nCom capacidade de 1.8 litros e potência de 1500W, esta hervidora se destaca por sua durabilidade e design elegante. \nMantém o calor por mais tempo, o que a torna perfeita para qualquer lar ou escritório.",
+          "included": null,
+          "specs": "Capacidade: 1.8L\nPotência: 1500W\nRápida\nPrática\nVersátil\nMantém o calor"
+        },
+        "variants": [
+          {
+            "id": "T30",
+            "name": "T30",
+            "color": "colors.black",
+            "photos": [
+              "/productos/hervidoras/T30-1.webp"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "cafeteras": {
+    "id": "cafeteras",
+    "name": "Cafeteiras",
+    "description": "Desfrute de uma xícara de café perfeita todas as manhãs.",
+    "shortDescription": "Qualidade em cada xícara.",
+    "children": {
+      "E10": {
+        "id": "E10",
+        "name": "Cafeteira E10",
+        "popular": false,
+        "info": {
+          "review": "A cafeteira E10 da Interbras é a escolha perfeita para os amantes de café que buscam versatilidade e qualidade em cada xícara.",
+          "included": null,
+          "specs": "Café em pó\nPotência: 1500W\nTanque de água: 1.24 litros\nSeleção de tamanho da xícara: 80 ml a 420 ml\nSistema de aquecimento instantâneo\nDesligamento automático em 2 minutos\nIndicador de limpeza\nAcessórios removíveis\nPrograma de limpeza automatizado\nProteção contra superaquecimento"
+        },
+        "variants": [
+          {
+            "id": "E10",
+            "name": "E10",
+            "color": "Inox",
+            "photos": [
+              "/productos/cafeteras/E10-1.webp"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "planchas": {
+    "id": "planchas",
+    "name": "Ferros de passar",
+    "description": "Passar roupas perfeitas em cada peça.",
+    "shortDescription": "Passar roupas perfeitas.",
+    "children": {
+      "F10": {
+        "id": "F10",
+        "name": "Ferro de passar F10",
+        "popular": false,
+        "info": {
+          "review": "Ferro de passar a Vapor Elétrica F10 da Interbras foi projetada para facilitar o seu dia a dia. \nCom um reservatório de água de 270 ml, esta ferro de passar oferece desempenho confiável e eficaz para todas as suas necessidades de passadoria. \nSua base de cerâmica garante um deslizamento suave e uniforme, enquanto a função de vapor vertical permite eliminar rugas de roupas penduradas.",
+          "included": null,
+          "specs": "Potência: 1200W\nReservatório de água: 270 ml\nBase: Cerâmica\nFunções: Spray de água, vapor vertical"
+        },
+        "variants": [
+          {
+            "id": "F10",
+            "name": "F10",
+            "color": "Vermelho - preto",
+            "photos": [
+              "/productos/planchas/F10-1.webp"
+            ]
+          }
+        ]
+      },
+      "F20": {
+        "id": "F20",
+        "name": "Ferro de passar F20",
+        "popular": false,
+        "info": {
+          "review": "Ferro de passar a Vapor Elétrica F20 da Interbras é ideal para quem busca eficiência e conforto ao passar roupas. \nCom capacidade de reservatório de 270 ml e base de cerâmica, este ferro proporciona resultados excepcionais. \nSua função de vapor vertical é perfeita para eliminar rugas em roupas penduradas, oferecendo versatilidade no uso.",
+          "included": null,
+          "specs": "Potência: 1200W\nReservatório de água: 270 ml\nBase: Cerâmica\nFunções: Spray de água, vapor vertical"
+        },
+        "variants": [
+          {
+            "id": "F20",
+            "name": "F20",
+            "color": "Vermelho - preto",
+            "photos": [
+              "/productos/planchas/F20-1.webp"
+            ]
+          }
+        ]
+      },
+      "F30": {
+        "id": "F30",
+        "name": "Ferro de passar F30",
+        "popular": false,
+        "info": {
+          "review": "Ferro de passar a Vapor Elétrica F30 da Interbras oferece um desempenho excepcional com a força do vapor. \nCom controle de vapor variável, permite ajustar a quantidade de vapor conforme suas necessidades. \nSeu reservatório de água de 270 ml e a base de cerâmica garantem um deslizamento suave e resultados de alta qualidade em cada passada.",
+          "included": null,
+          "specs": "Potência: 1200W\nReservatório de água: 270 ml\nBase: Cerâmica\nFunções: Controle de vapor variável, spray de água, vapor vertical"
+        },
+        "variants": [
+          {
+            "id": "F30",
+            "name": "F30",
+            "color": "Azul - branco",
+            "photos": [
+              "/productos/planchas/F30-1.webp"
+            ]
+          }
+        ]
+      },
+      "F40": {
+        "id": "F40",
+        "name": "Ferro de passar F40",
+        "popular": false,
+        "info": {
+          "review": "Ferro de passar a Vapor Elétrica F40 da Interbras é equipada com uma base de cerâmica de alta qualidade que proporciona um deslizamento suave e eficiente. \nSeu design ergonômico e a função de vapor vertical permitem um uso confortável e versátil. \nCom potência de 2200W, este ferro oferece um desempenho superior para todas as suas necessidades de passadoria.",
+          "included": null,
+          "specs": "Potência: 2200W\nReservatório de água: 330 ml\nBase: Cerâmica com ponta de precisão dupla\nFunções: Spray de água, vapor vertical, golpe de vapor"
+        },
+        "variants": [
+          {
+            "id": "F40",
+            "name": "F40",
+            "color": "Cinza - Bronze",
+            "photos": [
+              "/productos/planchas/F40-1.webp"
+            ]
+          }
+        ]
+      },
+      "F50": {
+        "id": "F50",
+        "name": "Ferro de passar F50",
+        "popular": false,
+        "info": {
+          "review": "Ferro de passar a Vapor Elétrica F50 da Interbras é perfeita para quem busca um desempenho excepcional ao passar roupas. \nCom um reservatório de água de 270 ml e base de cerâmica, este ferro garante um deslizamento suave e resultados impecáveis. \nSua capacidade de vapor contínuo e funções avançadas tornam-no ideal para eliminar rugas de forma eficiente.",
+          "included": null,
+          "specs": "Potência: 2200W\nReservatório de água: 270 ml\nBase: Cerâmica\nFunções: Spray de água, vapor vertical, vapor contínuo"
+        },
+        "variants": [
+          {
+            "id": "F50",
+            "name": "F50",
+            "color": "preto",
+            "photos": [
+              "/productos/planchas/F50-1.webp"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "licuadoras": {
+    "id": "licuadoras",
+    "name": "Liquidificadores",
+    "description": "Liquidificadores rápidas, potentes e multifuncionais para todas as suas receitas.",
+    "shortDescription": "Potentes e rápidas.",
+    "children": {
+      "L10": {
+        "id": "L10",
+        "name": "Liquidificador L10",
+        "popular": false,
+        "info": {
+          "review": "O Liquidificador L10 da Interbras é ideal para preparar sucos frescos todos os dias. \nCom potência de 1000W e quatro lâminas de aço inoxidável, garante uma mistura eficiente e rápida. \nSeu vaso de plástico de 1.5L é perfeito para preparar grandes quantidades de vitaminas e outras bebidas. \nAlém disso, conta com quatro velocidades e modo pulsar, permitindo um controle preciso da textura desejada.",
+          "included": "Vaso medidor removível\nInclui 1 vaso",
+          "specs": "Potência: 1000W\nLâminas: 4 de aço inoxidável\nCapacidade do vaso: 1.5L (plástico)\nVelocidades: 4 + modo pulsar"
+        },
+        "variants": [
+          {
+            "id": "L10",
+            "name": "L10",
+            "color": "branco",
+            "photos": [
+              "/productos/licuadoras/L10-1.webp"
+            ]
+          }
+        ]
+      },
+      "L20": {
+        "id": "L20",
+        "name": "Liquidificador L20",
+        "popular": false,
+        "info": {
+          "review": "O Liquidificador L20 da Interbras combina potência e eficiência em um design compacto. \nCom 350W de potência e seis lâminas de aço inoxidável, é ideal para preparar suas bebidas favoritas rapidamente. \nSeu vaso de plástico de 1.5L é resistente e fácil de limpar. \nDuas velocidades e modo pulsar para ajustar a mistura às suas preferências.",
+          "included": "Vaso medidor removível\n1 Processador",
+          "specs": "Potência: 350W\nLâminas: 6 de aço inoxidável\nCapacidade do vaso: 1.5L (plástico)\nVelocidades: 2 + modo pulsar"
+        },
+        "variants": [
+          {
+            "id": "L20",
+            "name": "L20",
+            "color": "branco",
+            "photos": [
+              "/productos/licuadoras/L20-1.webp",
+              "/productos/licuadoras/L20-2.webp",
+              "/productos/licuadoras/L20-3.webp"
+            ]
+          }
+        ]
+      },
+      "L30": {
+        "id": "L30",
+        "name": "Liquidificador L30",
+        "popular": false,
+        "info": {
+          "review": "O Liquidificador L30 da Interbras é projetada para oferecer um desempenho superior na preparação de sucos e vitaminas. \nCom potência de 350W e seis lâminas de aço inoxidável, esta licuadora mistura ingredientes com facilidade. \nSeu vaso de plástico de 1.5L é durável e ideal para preparar grandes quantidades. \nOferece duas velocidades e modo pulsar para um controle preciso.",
+          "included": "Vaso medidor removível\n1 Processador",
+          "specs": "Potência: 350W\nLâminas: 6 de aço inoxidável\nCapacidade do vaso: 1.5L (plástico)\nVelocidades: 2 + modo pulsar"
+        },
+        "variants": [
+          {
+            "id": "L30",
+            "name": "L30",
+            "color": "branco",
+            "photos": [
+              "/productos/licuadoras/L30-1.webp"
+            ]
+          }
+        ]
+      },
+      "L40": {
+        "id": "L40",
+        "name": "Liquidificador L40",
+        "popular": false,
+        "info": {
+          "review": "O Liquidificador 3 em 1, L40 da Interbras é a ferramenta definitiva para sua cozinha. \nCom 350W de potência e seis lâminas de aço inoxidável, esta licuadora oferece um desempenho excepcional. \nSeu vaso de plástico de 1.5L é ideal para preparar sucos e vitaminas, enquanto seus acessórios adicionais permitem moer e triturar uma variedade de alimentos. \nInclui duas velocidades e modo pulsar para uma mistura perfeita.",
+          "included": "3 recipientes de aço inoxidável\nMotor da licuadora\nFácil de usar e lavar",
+          "specs": "Potência: 350W\nLâminas: 6 de aço inoxidável\nCapacidade do vaso: 1.5L (plástico)\nAcessórios: Vaso de moagem, vaso de carne\nVelocidades: 2 + modo pulsar\nVaso medidor removível: Sim"
+        },
+        "variants": [
+          {
+            "id": "L40",
+            "name": "L40",
+            "color": "branco",
+            "photos": [
+              "/productos/licuadoras/L40-1.webp",
+              "/productos/licuadoras/L40-2.webp",
+              "/productos/licuadoras/L40-3.webp"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "beauty": {
+    "id": "beauty",
+    "name": "Beleza",
+    "description": "Cuidados pessoais e beleza.",
+    "shortDescription": "Cuidados pessoais.",
+    "children": {
+      "603D": {
+        "id": "603D",
+        "name": "Chapinha 603D",
+        "popular": false,
+        "info": {
+          "review": "A Chapinha de Cabelo da Interbras proporciona um alisamento rápido sem danificar os cabelos. \nCom um design elegante e características avançadas, essa chapinha é perfeita para obter resultados profissionais em casa.",
+          "included": null,
+          "specs": "Potência: 1500W\nFunção 2 em 1: Secador e escova\nVelocidades: 3 ajustes de velocidade/calor\nRotação: 360° para manuseio fácil\nDesign Ergonômico: Para uma manipulação confortável\nAquecimento Rápido: Pronto para usar em minutos\nCerdas Suaves: Para um penteado sem puxões\nCabo Giratório: 360° para maior comodidade"
+        },
+        "variants": [
+          {
+            "id": "603D",
+            "name": "603D",
+            "color": "Preto",
+            "photos": [
+              "/productos/beauty/603D-1.webp"
+            ]
+          }
+        ]
+      },
+      "HB40": {
+        "id": "HB40",
+        "name": "Escova secadora HB40",
+        "popular": false,
+        "info": {
+          "review": "A Escova Secadora Spin 1500 da Interbras combina a potência de um secador com a conveniência de uma escova, proporcionando um penteado rápido e eficaz. \nIdeal para alisar, dar volume e criar cachos suaves com um único dispositivo.",
+          "included": null,
+          "specs": "Potência: 1500W\nFunção 2 em 1: Secador e escova\nVelocidades: 3 ajustes de velocidade/calor\nRotação: 360° para manuseio fácil\nDesign Ergonômico: Para uma manipulação confortável\nAquecimento Rápido: Pronto para usar em minutos\nCerdas Suaves: Para um penteado sem puxões\nCabo Giratório: 360° para maior comodidade"
+        },
+        "variants": [
+          {
+            "id": "HB40",
+            "name": "HB40",
+            "color": "Preto",
+            "photos": [
+              "/productos/beauty/HB40-1.webp"
+            ]
+          }
+        ]
+      },
+      "HD008": {
+        "id": "HD008",
+        "name": "Secador de cabelo HD008",
+        "popular": false,
+        "info": {
+          "review": "O secador de cabelo Hair Style PRO 2200 da Interbras é a ferramenta definitiva para alcançar resultados profissionais no penteado. \nCom uma potência de 2200W, este secador proporciona uma secagem rápida e eficaz, enquanto sua tecnologia iônica ajuda a eliminar o frizz, deixando o cabelo macio e brilhante.",
+          "included": null,
+          "specs": "Potência: 2200W\nFunção Iônica: Ideal para eliminar o frizz e suavizar o cabelo\nConfigurações: 3 ajustes de temperatura e 2 de velocidade\nFunção de Ar Frio: Para fixar o penteado\nAcessórios: Com concentrador e difusor"
+        },
+        "variants": [
+          {
+            "id": "HD008",
+            "name": "HD008",
+            "color": "Preto",
+            "photos": [
+              "/productos/beauty/HD008-1.webp"
+            ]
+          }
+        ]
+      },
+      "RFCD865": {
+        "id": "RFCD865",
+        "name": "Aparador de barba RFCD865",
+        "popular": false,
+        "info": {
+          "review": "O Aparador de Barba Recarregável PRO VINTAGE da Interbras combina estilo e funcionalidade para oferecer um corte de cabelo profissional no conforto de sua casa. \nCom uma lâmina profissional de titânio e design sem fio, esta máquina proporciona precisão e conforto em cada uso.",
+          "included": null,
+          "specs": "Lâmina: Profissional de Titânio\nTempo de Uso: 120 minutos de uso contínuo\nSem Fio: Recarregável com USB-C\nIndicador: LED de bateria\nPentes Guia: 5 pentes (1, 2, 3, 4, 5 mm)"
+        },
+        "variants": [
+          {
+            "id": "RFCD865",
+            "name": "RFCD865",
+            "color": "Dourado",
+            "photos": [
+              "/productos/beauty/RFCD865-1.webp"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "batidoras": {
+    "id": "batidoras",
+    "name": "Batedeiras",
+    "description": "Batedeiras potentes e versáteis para todas as suas receitas.",
+    "shortDescription": "Potentes e versáteis.",
+    "children": {
+      "B10": {
+        "id": "B10",
+        "name": "Batedeira B10",
+        "popular": false,
+        "info": {
+          "review": "A Batedeira Manual B10 da Interbras é a solução perfeita para uma mistura eficiente e rápida. \nCom uma velocidade de 19500 rpm e potência de 250W, esta batedeira oferece sete velocidades para se adaptar às suas necessidades. \nSeu bowl de 2.0 litros é ideal para preparar diversas receitas. \nInclui dois ganchos e dois batedores para diferentes tipos de misturas.",
+          "included": null,
+          "specs": "Potência: 250W\nVelocidades: 7\nCapacidade do bowl: 2.0 litros\nAcessórios: 2 ganchos, 2 batedores\nVelocidade máxima: 19500 rpm"
+        },
+        "variants": [
+          {
+            "id": "B10",
+            "name": "B10",
+            "color": "Preto e Branco",
+            "photos": [
+              "/productos/batidoras/B10-1.webp"
+            ]
+          }
+        ]
+      },
+      "B20": {
+        "id": "B20",
+        "name": "Batedeira B20",
+        "popular": false,
+        "info": {
+          "review": "A Batedeira Manual B20 da Interbras destaca-se por sua alta velocidade de 15000 rpm e potência de 350W, ideal para realizar preparações rapidamente. \nCom três velocidades e capacidade de 2.3 litros, é perfeita para diversas receitas. \nInclui dois ganchos e dois batedores para maior versatilidade na cozinha. \nSeu design fácil de limpar e operação suave a tornam uma opção prática e eficiente.",
+          "included": null,
+          "specs": "Potência: 350W\nVelocidades: 3\nCapacidade do bowl: 2.3 litros\nAcessórios: 2 ganchos, 2 batedores\nVelocidade máxima: 15000 rpm"
+        },
+        "variants": [
+          {
+            "id": "B20",
+            "name": "B20",
+            "color": "Preto e Cinza",
+            "photos": [
+              "/productos/batidoras/B20-1.webp"
+            ]
+          }
+        ]
+      },
+      "B30": {
+        "id": "B30",
+        "name": "Batedeira B30",
+        "popular": false,
+        "info": {
+          "review": "A Batedeira Planetária B30 da Interbras é perfeita para quem busca versatilidade e potência na cozinha. \nCom potência de 250W e cinco velocidades de operação, esta batedeira oferece um desempenho eficiente para misturar, bater e amassar. \nSeu bowl de 3.5 litros permite preparar grandes quantidades de massa de maneira fácil e rápida. \nAlém disso, seu design ergonômico e operação suave garantem uma experiência de uso confortável.",
+          "included": null,
+          "specs": "Potência: 250W\nVelocidades: 5\nCapacidade do bowl: 3.5 litros\nProteção anti-respingo: Sim\nOperação suave: Sim"
+        },
+        "variants": [
+          {
+            "id": "B30",
+            "name": "B30",
+            "color": "Preto",
+            "photos": [
+              "/productos/batidoras/B30-1.webp"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "arroceras": {
+    "id": "arroceras",
+    "name": "Panelas",
+    "description": "Projetadas para tornar sua vida mais fácil e saborosa.",
+    "shortDescription": "Cozinhar mais fácil.",
+    "children": {
+      "A10": {
+        "id": "A10",
+        "name": "Arrocera A10",
+        "popular": false,
+        "info": {
+          "review": "A Panela Multicooker Interbras A10 é a solução perfeita para uma cozinha rápida, versátil e de grande capacidade. \nCom uma capacidade de 5 litros e uma potência de 900W, esta panela multifuncional permite preparar uma ampla variedade de comidas com facilidade. \nSuas 11 opções diferentes de cocção e a função de manter quente garantem que seus pratos estejam sempre no ponto certo, enquanto seu design moderno e a tela LCD facilitam o uso diário.",
+          "included": "Arrocera A10\nColher de plástico\nEspátula para arroz\nCesta de armazenamento\nCopo medidor\nManual",
+          "specs": "Capacidade: 5L\nPotência: 900W\n11 opções diferentes de cocção\nFunção de manter quente\nTela LCD"
+        },
+        "variants": [
+          {
+            "id": "A10",
+            "name": "A10",
+            "color": "Inox",
+            "photos": [
+              "/productos/arroceras/A10-1.webp"
+            ]
+          }
+        ]
+      },
+      "P10": {
+        "id": "P10",
+        "name": "Panela de Pressão Elétrica P10",
+        "popular": false,
+        "info": {
+          "review": "Descubra uma nova maneira de cozinhar com a Panela de Pressão Elétrica Interbras P10. \nCom uma potência máxima de 1000W e uma capacidade de 6 litros, esta panela multifuncional permite preparar suas refeições favoritas de maneira rápida e eficiente. \nSeu design moderno e suas múltiplas funções programáveis tornam o cozimento mais fácil do que nunca, permitindo que você desfrute de pratos deliciosos com o mínimo de esforço.",
+          "included": null,
+          "specs": "Potência: 1000W máxima\nCapacidade: 6 litros\nMultifuncional\nDispositivo de Proteção de Temperatura\nFunção Manter Quente"
+        },
+        "variants": [
+          {
+            "id": "P10",
+            "name": "P10",
+            "color": "Inox",
+            "photos": [
+              "/productos/arroceras/P10-1.webp"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "bebederos": {
+    "id": "bebederos",
+    "name": "Bebedouros",
+    "description": "Água pura e fresca o tempo todo.",
+    "shortDescription": "Água pura.",
+    "children": {
+      "W10": {
+        "id": "W10",
+        "name": "Bebedouro W10",
+        "popular": false,
+        "info": {
+          "review": "O Dispensador de Água Interbras W10 oferece uma solução conveniente e versátil para sua casa ou escritório. \nCom a capacidade de dispensar água quente e fria, é perfeito para preparar bebidas instantâneas ou se refrescar a qualquer momento. \nSeu design compacto e moderno se adapta facilmente a qualquer espaço, enquanto seu funcionamento eficiente garante um uso econômico e confiável.",
+          "included": null,
+          "specs": "Peso Líquido: 4.0 kg\nPeso Bruto: 4.8 kg\nDimensões: 260 x 280 x 320 mm\nTemperatura da Água Quente: 85°C – 95°C\nTemperatura da Água Fria: 5°C – 10°C"
+        },
+        "variants": [
+          {
+            "id": "W10",
+            "name": "W10",
+            "color": "Branco",
+            "photos": [
+              "/productos/bebederos/W10-1.webp"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "hoverboards": {
+    "id": "hoverboards",
+    "name": "Hoverboards",
+    "description": "Ideal para se mover com estilo e diversão.",
+    "shortDescription": "Estilo e diversão",
+    "children": {
+      "hoverboards1": {
+        "id": "hoverboards1",
+        "name": "Hoverboard Preto",
+        "popular": false,
+        "info": {
+          "review": "Combina estilo e funcionalidade, com um design robusto e leve que garante uma experiência de condução suave e segura. Sua tecnologia de autoequilíbrio facilita o controle, enquanto as luzes integradas adicionam um toque moderno e atraente.",
+          "included": null,
+          "specs": "Pneus: rodas de fibra de carbono.\nMaterial: estrutura de placas de alumínio.\nPlaca-mãe: controle dual inteligente autoequilibrado.\nCapacidade da bateria: bateria de 36V 2,4AH.\nAutonomia: 8-10 km.\nCapacidade de carga: 20-120 kg.\nVersão de Bluetooth: música Bluetooth 4Ω.\nLuzes: luzes de flash galopante.\nTamanho do produto: 612121 cm.\nTamanho do pacote: 6422,522,5 cm.\nPeso: 7 kg.\nTamanho da roda: 6,5 polegadas."
+        },
+        "variants": [
+          {
+            "id": "hoverboards1",
+            "name": "hoverboards1",
+            "color": "colors.black",
+            "photos": []
+          }
+        ]
+      },
+      "hoverboards2": {
+        "id": "hoverboards2",
+        "name": "Hoverboard Grafite",
+        "popular": false,
+        "info": {
+          "review": "Combina estilo e funcionalidade, com um design robusto e leve que garante uma experiência de condução suave e segura. Sua tecnologia de autoequilíbrio facilita o controle, enquanto as luzes integradas adicionam um toque moderno e atraente.",
+          "included": null,
+          "specs": "Pneus: rodas de fibra de carbono.\nMaterial: estrutura de placas de alumínio.\nPlaca-mãe: controle dual inteligente autoequilibrado.\nCapacidade da bateria: bateria de 36V 2,4AH.\nAutonomia: 8-10 km.\nCapacidade de carga: 20-120 kg.\nVersão de Bluetooth: música Bluetooth 4Ω.\nLuzes: luzes de flash galopante.\nTamanho do produto: 612121 cm.\nTamanho do pacote: 6422,522,5 cm.\nPeso: 7 kg.\nTamanho da roda: 6,5 polegadas."
+        },
+        "variants": [
+          {
+            "id": "hoverboards2",
+            "name": "hoverboards2",
+            "color": "colors.grafite",
+            "photos": []
+          }
+        ]
+      },
+      "hoverboards3": {
+        "id": "hoverboards3",
+        "name": "Hoverboard Azul Fogo",
+        "popular": false,
+        "info": {
+          "review": "Combina estilo e funcionalidade, com um design robusto e leve que garante uma experiência de condução suave e segura. Sua tecnologia de autoequilíbrio facilita o controle, enquanto as luzes integradas adicionam um toque moderno e atraente.",
+          "included": null,
+          "specs": "Pneus: rodas de fibra de carbono.\nMaterial: estrutura de placas de alumínio.\nPlaca-mãe: controle dual inteligente autoequilibrado.\nCapacidade da bateria: bateria de 36V 2,4AH.\nAutonomia: 8-10 km.\nCapacidade de carga: 20-120 kg.\nVersão de Bluetooth: música Bluetooth 4Ω.\nLuzes: luzes de flash galopante.\nTamanho do produto: 612121 cm.\nTamanho do pacote: 6422,522,5 cm.\nPeso: 7 kg.\nTamanho da roda: 6,5 polegadas."
+        },
+        "variants": [
+          {
+            "id": "hoverboards3",
+            "name": "hoverboards3",
+            "color": "colors.blueFire",
+            "photos": []
+          }
+        ]
+      },
+      "hoverboards4": {
+        "id": "hoverboards4",
+        "name": "Hoverboard Vermelho Fogo",
+        "popular": false,
+        "info": {
+          "review": "Combina estilo e funcionalidade, com um design robusto e leve que garante uma experiência de condução suave e segura. Sua tecnologia de autoequilíbrio facilita o controle, enquanto as luzes integradas adicionam um toque moderno e atraente.",
+          "included": null,
+          "specs": "Pneus: rodas de fibra de carbono.\nMaterial: estrutura de placas de alumínio.\nPlaca-mãe: controle dual inteligente autoequilibrado.\nCapacidade da bateria: bateria de 36V 2,4AH.\nAutonomia: 8-10 km.\nCapacidade de carga: 20-120 kg.\nVersão de Bluetooth: música Bluetooth 4Ω.\nLuzes: luzes de flash galopante.\nTamanho do produto: 612121 cm.\nTamanho do pacote: 6422,522,5 cm.\nPeso: 7 kg.\nTamanho da roda: 6,5 polegadas."
+        },
+        "variants": [
+          {
+            "id": "hoverboards4",
+            "name": "hoverboards4",
+            "color": "colors.redFire",
+            "photos": []
+          }
+        ]
+      },
+      "hoverboards5": {
+        "id": "hoverboards5",
+        "name": "Hoverboard Hip Hop",
+        "popular": false,
+        "info": {
+          "review": "Combina estilo e funcionalidade, com um design robusto e leve que garante uma experiência de condução suave e segura. Sua tecnologia de autoequilíbrio facilita o controle, enquanto as luzes integradas adicionam um toque moderno e atraente.",
+          "included": null,
+          "specs": "Pneus: rodas de fibra de carbono.\nMaterial: estrutura de placas de alumínio.\nPlaca-mãe: controle dual inteligente autoequilibrado.\nCapacidade da bateria: bateria de 36V 2,4AH.\nAutonomia: 8-10 km.\nCapacidade de carga: 20-120 kg.\nVersão de Bluetooth: música Bluetooth 4Ω.\nLuzes: luzes de flash galopante.\nTamanho do produto: 612121 cm.\nTamanho do pacote: 6422,522,5 cm.\nPeso: 7 kg.\nTamanho da roda: 6,5 polegadas."
+        },
+        "variants": [
+          {
+            "id": "hoverboards5",
+            "name": "hoverboards5",
+            "color": "colors.hiphop",
+            "photos": []
+          }
+        ]
+      },
+      "hoverboards6": {
+        "id": "hoverboards6",
+        "name": "Hoverboard Camuflagem Rosa",
+        "popular": false,
+        "info": {
+          "review": "Combina estilo e funcionalidade, com um design robusto e leve que garante uma experiência de condução suave e segura. Sua tecnologia de autoequilíbrio facilita o controle, enquanto as luzes integradas adicionam um toque moderno e atraente.",
+          "included": null,
+          "specs": "Pneus: rodas de fibra de carbono.\nMaterial: estrutura de placas de alumínio.\nPlaca-mãe: controle dual inteligente autoequilibrado.\nCapacidade da bateria: bateria de 36V 2,4AH.\nAutonomia: 8-10 km.\nCapacidade de carga: 20-120 kg.\nVersão de Bluetooth: música Bluetooth 4Ω.\nLuzes: luzes de flash galopante.\nTamanho do produto: 612121 cm.\nTamanho do pacote: 6422,522,5 cm.\nPeso: 7 kg.\nTamanho da roda: 6,5 polegadas."
+        },
+        "variants": [
+          {
+            "id": "hoverboards6",
+            "name": "hoverboards6",
+            "color": "colors.pinkCamouflage",
+            "photos": []
+          }
+        ]
+      },
+      "hoverboards7": {
+        "id": "hoverboards7",
+        "name": "Hoverboard Roxo Galáxia",
+        "popular": false,
+        "info": {
+          "review": "Combina estilo e funcionalidade, com um design robusto e leve que garante uma experiência de condução suave e segura. Sua tecnologia de autoequilíbrio facilita o controle, enquanto as luzes integradas adicionam um toque moderno e atraente.",
+          "included": null,
+          "specs": "Pneus: rodas de fibra de carbono.\nMaterial: estrutura de placas de alumínio.\nPlaca-mãe: controle dual inteligente autoequilibrado.\nCapacidade da bateria: bateria de 36V 2,4AH.\nAutonomia: 8-10 km.\nCapacidade de carga: 20-120 kg.\nVersão de Bluetooth: música Bluetooth 4Ω.\nLuzes: luzes de flash galopante.\nTamanho do produto: 612121 cm.\nTamanho do pacote: 6422,522,5 cm.\nPeso: 7 kg.\nTamanho da roda: 6,5 polegadas."
+        },
+        "variants": [
+          {
+            "id": "hoverboards7",
+            "name": "hoverboards7",
+            "color": "colors.purple",
+            "photos": []
+          }
+        ]
+      },
+      "hoverboards8": {
+        "id": "hoverboards8",
+        "name": "Hoverboard Camuflagem Azul",
+        "popular": false,
+        "info": {
+          "review": "Combina estilo e funcionalidade, com um design robusto e leve que garante uma experiência de condução suave e segura. Sua tecnologia de autoequilíbrio facilita o controle, enquanto as luzes integradas adicionam um toque moderno e atraente.",
+          "included": null,
+          "specs": "Pneus: rodas de fibra de carbono.\nMaterial: estrutura de placas de alumínio.\nPlaca-mãe: controle dual inteligente autoequilibrado.\nCapacidade da bateria: bateria de 36V 2,4AH.\nAutonomia: 8-10 km.\nCapacidade de carga: 20-120 kg.\nVersão de Bluetooth: música Bluetooth 4Ω.\nLuzes: luzes de flash galopante.\nTamanho do produto: 612121 cm.\nTamanho do pacote: 6422,522,5 cm.\nPeso: 7 kg.\nTamanho da roda: 6,5 polegadas."
+        },
+        "variants": [
+          {
+            "id": "hoverboards8",
+            "name": "hoverboards8",
+            "color": "colors.blueCamouflage",
+            "photos": []
+          }
+        ]
+      },
+      "hoverboards9": {
+        "id": "hoverboards9",
+        "name": "Hoverboard Rosa Pink",
+        "popular": false,
+        "info": {
+          "review": "Combina estilo e funcionalidade, com um design robusto e leve que garante uma experiência de condução suave e segura. Sua tecnologia de autoequilíbrio facilita o controle, enquanto as luzes integradas adicionam um toque moderno e atraente.",
+          "included": null,
+          "specs": "Pneus: rodas de fibra de carbono.\nMaterial: estrutura de placas de alumínio.\nPlaca-mãe: controle dual inteligente autoequilibrado.\nCapacidade da bateria: bateria de 36V 2,4AH.\nAutonomia: 8-10 km.\nCapacidade de carga: 20-120 kg.\nVersão de Bluetooth: música Bluetooth 4Ω.\nLuzes: luzes de flash galopante.\nTamanho do produto: 612121 cm.\nTamanho do pacote: 6422,522,5 cm.\nPeso: 7 kg.\nTamanho da roda: 6,5 polegadas."
+        },
+        "variants": [
+          {
+            "id": "hoverboards9",
+            "name": "hoverboards9",
+            "color": "colors.rosePink",
+            "photos": []
+          }
+        ]
+      }
+    }
+  },
+  "triciclos": {
+    "id": "triciclos",
+    "name": "Triciclos",
+    "description": "Triciclos para crianças, com designs divertidos e cores chamativas para que os pequenos desfrutem de um passeio seguro e confortável.",
+    "shortDescription": "Triciclos para crianças",
+    "children": {
+      "65-N1": {
+        "id": "65-N1",
+        "name": "Triciclo 6.5-N1",
+        "info": {
+          "review": "Excelente opção para os mais pequenos. Oferece uma experiência de passeio confortável e segura, com um design atraente e resistente. Ideal para quem busca durabilidade e facilidade de uso, garantindo diversão sem preocupações.",
+          "included": null,
+          "specs": "Estrutura de aço carbono: Durabilidade e resistência.\nCarga máxima de 120 kg: Perfeito para qualquer usuário.\nBateria de 36V 3.0Ah: Energia de longa duração.\nMotor de 350W: Potência confiável em cada trajeto.\nAlcance de 9-10 km: Percursos eficientes sem preocupações.\nTroca de velocidade de 3 níveis: Ajuste entre baixo, médio e alto conforme a necessidade."
+        }
+      },
+      "65-N2": {
+        "id": "65-N2",
+        "name": "Triciclo 6.5-N2",
+        "info": {
+          "review": "Excelente opção para os mais pequenos. Oferece uma experiência de passeio confortável e segura, com um design atraente e resistente. Ideal para quem busca durabilidade e facilidade de uso, garantindo diversão sem preocupações.",
+          "included": null,
+          "specs": "Estrutura de aço carbono: Durabilidade e resistência.\nCarga máxima de 120 kg: Perfeito para qualquer usuário.\nBateria de 36V 3.0Ah: Energia de longa duração.\nMotor de 350W: Potência confiável em cada trajeto.\nAlcance de 9-10 km: Percursos eficientes sem preocupações.\nTroca de velocidade de 3 níveis: Ajuste entre baixo, médio e alto conforme a necessidade."
+        }
+      },
+      "65-N4": {
+        "id": "65-N4",
+        "name": "Triciclo 6.5-N4",
+        "info": {
+          "review": "Excelente opção para os mais pequenos. Oferece uma experiência de passeio confortável e segura, com um design atraente e resistente. Ideal para quem busca durabilidade e facilidade de uso, garantindo diversão sem preocupações.",
+          "included": null,
+          "specs": "Estrutura de aço carbono: Durabilidade e resistência.\nCarga máxima de 120 kg: Perfeito para qualquer usuário.\nBateria de 36V 3.0Ah: Energia de longa duração.\nMotor de 350W: Potência confiável em cada trajeto.\nAlcance de 9-10 km: Percursos eficientes sem preocupações.\nTroca de velocidade de 3 níveis: Ajuste entre baixo, médio e alto conforme a necessidade."
+        }
+      },
+      "65-N8": {
+        "id": "65-N8",
+        "name": "Triciclo 6.5-N8",
+        "info": {
+          "review": "Excelente opção para os mais pequenos. Oferece uma experiência de passeio confortável e segura, com um design atraente e resistente. Ideal para quem busca durabilidade e facilidade de uso, garantindo diversão sem preocupações.",
+          "included": null,
+          "specs": "Estrutura de aço carbono: Durabilidade e resistência.\nCarga máxima de 120 kg: Perfeito para qualquer usuário.\nBateria de 36V 3.0Ah: Energia de longa duração.\nMotor de 350W: Potência confiável em cada trajeto.\nAlcance de 9-10 km: Percursos eficientes sem preocupações.\nTroca de velocidade de 3 níveis: Ajuste entre baixo, médio e alto conforme a necessidade."
+        }
+      },
+      "65-N11": {
+        "id": "65-N11",
+        "name": "Triciclo 6.5-N11",
+        "info": {
+          "review": "Excelente opção para os mais pequenos. Oferece uma experiência de passeio confortável e segura, com um design atraente e resistente. Ideal para quem busca durabilidade e facilidade de uso, garantindo diversão sem preocupações.",
+          "included": null,
+          "specs": "Estrutura de aço carbono: Durabilidade e resistência.\nCarga máxima de 120 kg: Perfeito para qualquer usuário.\nBateria de 36V 3.0Ah: Energia de longa duração.\nMotor de 350W: Potência confiável em cada trajeto.\nAlcance de 9-10 km: Percursos eficientes sem preocupações.\nTroca de velocidade de 3 níveis: Ajuste entre baixo, médio e alto conforme a necessidade."
+        }
+      },
+      "65-N13": {
+        "id": "65-N13",
+        "name": "Triciclo 6.5-N13",
+        "info": {
+          "review": "Excelente opção para os mais pequenos. Oferece uma experiência de passeio confortável e segura, com um design atraente e resistente. Ideal para quem busca durabilidade e facilidade de uso, garantindo diversão sem preocupações.",
+          "included": null,
+          "specs": "Estrutura de aço carbono: Durabilidade e resistência.\nCarga máxima de 120 kg: Perfeito para qualquer usuário.\nBateria de 36V 3.0Ah: Energia de longa duração.\nMotor de 350W: Potência confiável em cada trajeto.\nAlcance de 9-10 km: Percursos eficientes sem preocupações.\nTroca de velocidade de 3 níveis: Ajuste entre baixo, médio e alto conforme a necessidade."
+        }
+      },
+      "65-N14": {
+        "id": "65-N14",
+        "name": "Triciclo 6.5-N14",
+        "info": {
+          "review": "Excelente opção para os mais pequenos. Oferece uma experiência de passeio confortável e segura, com um design atraente e resistente. Ideal para quem busca durabilidade e facilidade de uso, garantindo diversão sem preocupações.",
+          "included": null,
+          "specs": "Estrutura de aço carbono: Durabilidade e resistência.\nCarga máxima de 120 kg: Perfeito para qualquer usuário.\nBateria de 36V 3.0Ah: Energia de longa duração.\nMotor de 350W: Potência confiável em cada trajeto.\nAlcance de 9-10 km: Percursos eficientes sem preocupações.\nTroca de velocidade de 3 níveis: Ajuste entre baixo, médio e alto conforme a necessidade."
+        }
+      },
+      "65-N29": {
+        "id": "65-N29",
+        "name": "Triciclo 6.5-N29",
+        "info": {
+          "review": "Excelente opção para os mais pequenos. Oferece uma experiência de passeio confortável e segura, com um design atraente e resistente. Ideal para quem busca durabilidade e facilidade de uso, garantindo diversão sem preocupações.",
+          "included": null,
+          "specs": "Estrutura de aço carbono: Durabilidade e resistência.\nCarga máxima de 120 kg: Perfeito para qualquer usuário.\nBateria de 36V 3.0Ah: Energia de longa duração.\nMotor de 350W: Potência confiável em cada trajeto.\nAlcance de 9-10 km: Percursos eficientes sem preocupações.\nTroca de velocidade de 3 níveis: Ajuste entre baixo, médio e alto conforme a necessidade."
+        }
+      },
+      "65-N30": {
+        "id": "65-N30",
+        "name": "Triciclo 6.5-N30",
+        "info": {
+          "review": "Excelente opção para os mais pequenos. Oferece uma experiência de passeio confortável e segura, com um design atraente e resistente. Ideal para quem busca durabilidade e facilidade de uso, garantindo diversão sem preocupações.",
+          "included": null,
+          "specs": "Estrutura de aço carbono: Durabilidade e resistência.\nCarga máxima de 120 kg: Perfeito para qualquer usuário.\nBateria de 36V 3.0Ah: Energia de longa duração.\nMotor de 350W: Potência confiável em cada trajeto.\nAlcance de 9-10 km: Percursos eficientes sem preocupações.\nTroca de velocidade de 3 níveis: Ajuste entre baixo, médio e alto conforme a necessidade."
+        }
+      },
+      "65-N40": {
+        "id": "65-N40",
+        "name": "Triciclo 6.5-N40",
+        "info": {
+          "review": "Excelente opção para os mais pequenos. Oferece uma experiência de passeio confortável e segura, com um design atraente e resistente. Ideal para quem busca durabilidade e facilidade de uso, garantindo diversão sem preocupações.",
+          "included": null,
+          "specs": "Estrutura de aço carbono: Durabilidade e resistência.\nCarga máxima de 120 kg: Perfeito para qualquer usuário.\nBateria de 36V 3.0Ah: Energia de longa duração.\nMotor de 350W: Potência confiável em cada trajeto.\nAlcance de 9-10 km: Percursos eficientes sem preocupações.\nTroca de velocidade de 3 níveis: Ajuste entre baixo, médio e alto conforme a necessidade."
+        }
+      },
+      "65-N9": {
+        "id": "65-N9",
+        "name": "Triciclo 6.5-N9",
+        "info": {
+          "review": "Excelente opção para os mais pequenos. Oferece uma experiência de passeio confortável e segura, com um design atraente e resistente. Ideal para quem busca durabilidade e facilidade de uso, garantindo diversão sem preocupações.",
+          "included": null,
+          "specs": "Estrutura de aço carbono: Durabilidade e resistência.\nCarga máxima de 120 kg: Perfeito para qualquer usuário.\nBateria de 36V 3.0Ah: Energia de longa duração.\nMotor de 350W: Potência confiável em cada trajeto.\nAlcance de 9-10 km: Percursos eficientes sem preocupações.\nTroca de velocidade de 3 níveis: Ajuste entre baixo, médio e alto conforme a necessidade."
+        }
+      },
+      "65-N10": {
+        "id": "65-N10",
+        "name": "Triciclo 6.5-N10",
+        "info": {
+          "review": "Excelente opção para os mais pequenos. Oferece uma experiência de passeio confortável e segura, com um design atraente e resistente. Ideal para quem busca durabilidade e facilidade de uso, garantindo diversão sem preocupações.",
+          "included": null,
+          "specs": "Estrutura de aço carbono: Durabilidade e resistência.\nCarga máxima de 120 kg: Perfeito para qualquer usuário.\nBateria de 36V 3.0Ah: Energia de longa duração.\nMotor de 350W: Potência confiável em cada trajeto.\nAlcance de 9-10 km: Percursos eficientes sem preocupações.\nTroca de velocidade de 3 níveis: Ajuste entre baixo, médio e alto conforme a necessidade."
+        }
+      },
+      "65-N12": {
+        "id": "65-N12",
+        "name": "Triciclo 6.5-N12",
+        "info": {
+          "review": "Excelente opção para os mais pequenos. Oferece uma experiência de passeio confortável e segura, com um design atraente e resistente. Ideal para quem busca durabilidade e facilidade de uso, garantindo diversão sem preocupações.",
+          "included": null,
+          "specs": "Estrutura de aço carbono: Durabilidade e resistência.\nCarga máxima de 120 kg: Perfeito para qualquer usuário.\nBateria de 36V 3.0Ah: Energia de longa duração.\nMotor de 350W: Potência confiável em cada trajeto.\nAlcance de 9-10 km: Percursos eficientes sem preocupações.\nTroca de velocidade de 3 níveis: Ajuste entre baixo, médio e alto conforme a necessidade."
+        }
+      },
+      "65-N36": {
+        "id": "65-N36",
+        "name": "Triciclo 6.5-N36",
+        "info": {
+          "review": "Excelente opção para os mais pequenos. Oferece uma experiência de passeio confortável e segura, com um design atraente e resistente. Ideal para quem busca durabilidade e facilidade de uso, garantindo diversão sem preocupações.",
+          "included": null,
+          "specs": "Estrutura de aço carbono: Durabilidade e resistência.\nCarga máxima de 120 kg: Perfeito para qualquer usuário.\nBateria de 36V 3.0Ah: Energia de longa duração.\nMotor de 350W: Potência confiável em cada trajeto.\nAlcance de 9-10 km: Percursos eficientes sem preocupações.\nTroca de velocidade de 3 níveis: Ajuste entre baixo, médio e alto conforme a necessidade."
+        }
+      },
+      "80-N1": {
+        "id": "80-N1",
+        "name": "Triciclo 8.0-N1",
+        "info": {
+          "review": "Excelente opção para os mais pequenos. Oferece uma experiência de passeio confortável e segura, com um design atraente e resistente. Ideal para quem busca durabilidade e facilidade de uso, garantindo diversão sem preocupações.",
+          "included": null,
+          "specs": "Estrutura de aço carbono: Durabilidade e resistência.\nCarga máxima de 120 kg: Perfeito para qualquer usuário.\nBateria de 36V 3.0Ah: Energia de longa duração.\nMotor de 350W: Potência confiável em cada trajeto.\nAlcance de 9-10 km: Percursos eficientes sem preocupações.\nTroca de velocidade de 3 níveis: Ajuste entre baixo, médio e alto conforme a necessidade."
+        }
+      },
+      "80-N2": {
+        "id": "80-N2",
+        "name": "Triciclo 8.0-N2",
+        "info": {
+          "review": "Excelente opção para os mais pequenos. Oferece uma experiência de passeio confortável e segura, com um design atraente e resistente. Ideal para quem busca durabilidade e facilidade de uso, garantindo diversão sem preocupações.",
+          "included": null,
+          "specs": "Estrutura de aço carbono: Durabilidade e resistência.\nCarga máxima de 120 kg: Perfeito para qualquer usuário.\nBateria de 36V 3.0Ah: Energia de longa duração.\nMotor de 350W: Potência confiável em cada trajeto.\nAlcance de 9-10 km: Percursos eficientes sem preocupações.\nTroca de velocidade de 3 níveis: Ajuste entre baixo, médio e alto conforme a necessidade."
+        }
+      },
+      "80-N4": {
+        "id": "80-N4",
+        "name": "Triciclo 8.0-N4",
+        "info": {
+          "review": "Excelente opção para os mais pequenos. Oferece uma experiência de passeio confortável e segura, com um design atraente e resistente. Ideal para quem busca durabilidade e facilidade de uso, garantindo diversão sem preocupações.",
+          "included": null,
+          "specs": "Estrutura de aço carbono: Durabilidade e resistência.\nCarga máxima de 120 kg: Perfeito para qualquer usuário.\nBateria de 36V 3.0Ah: Energia de longa duração.\nMotor de 350W: Potência confiável em cada trajeto.\nAlcance de 9-10 km: Percursos eficientes sem preocupações.\nTroca de velocidade de 3 níveis: Ajuste entre baixo, médio e alto conforme a necessidade."
+        }
+      },
+      "80-N8": {
+        "id": "80-N8",
+        "name": "Triciclo 8.0-N8",
+        "info": {
+          "review": "Excelente opção para os mais pequenos. Oferece uma experiência de passeio confortável e segura, com um design atraente e resistente. Ideal para quem busca durabilidade e facilidade de uso, garantindo diversão sem preocupações.",
+          "included": null,
+          "specs": "Estrutura de aço carbono: Durabilidade e resistência.\nCarga máxima de 120 kg: Perfeito para qualquer usuário.\nBateria de 36V 3.0Ah: Energia de longa duração.\nMotor de 350W: Potência confiável em cada trajeto.\nAlcance de 9-10 km: Percursos eficientes sem preocupações.\nTroca de velocidade de 3 níveis: Ajuste entre baixo, médio e alto conforme a necessidade."
+        }
+      },
+      "80-N11": {
+        "id": "80-N11",
+        "name": "Triciclo 8.0-N11",
+        "info": {
+          "review": "Excelente opção para os mais pequenos. Oferece uma experiência de passeio confortável e segura, com um design atraente e resistente. Ideal para quem busca durabilidade e facilidade de uso, garantindo diversão sem preocupações.",
+          "included": null,
+          "specs": "Estrutura de aço carbono: Durabilidade e resistência.\nCarga máxima de 120 kg: Perfeito para qualquer usuário.\nBateria de 36V 3.0Ah: Energia de longa duração.\nMotor de 350W: Potência confiável em cada trajeto.\nAlcance de 9-10 km: Percursos eficientes sem preocupações.\nTroca de velocidade de 3 níveis: Ajuste entre baixo, médio e alto conforme a necessidade."
+        }
+      },
+      "80-N13": {
+        "id": "80-N13",
+        "name": "Triciclo 8.0-N13",
+        "info": {
+          "review": "Excelente opção para os mais pequenos. Oferece uma experiência de passeio confortável e segura, com um design atraente e resistente. Ideal para quem busca durabilidade e facilidade de uso, garantindo diversão sem preocupações.",
+          "included": null,
+          "specs": "Estrutura de aço carbono: Durabilidade e resistência.\nCarga máxima de 120 kg: Perfeito para qualquer usuário.\nBateria de 36V 3.0Ah: Energia de longa duração.\nMotor de 350W: Potência confiável em cada trajeto.\nAlcance de 9-10 km: Percursos eficientes sem preocupações.\nTroca de velocidade de 3 níveis: Ajuste entre baixo, médio e alto conforme a necessidade."
+        }
+      },
+      "80-N14": {
+        "id": "80-N14",
+        "name": "Triciclo 8.0-N14",
+        "info": {
+          "review": "Excelente opção para os mais pequenos. Oferece uma experiência de passeio confortável e segura, com um design atraente e resistente. Ideal para quem busca durabilidade e facilidade de uso, garantindo diversão sem preocupações.",
+          "included": null,
+          "specs": "Estrutura de aço carbono: Durabilidade e resistência.\nCarga máxima de 120 kg: Perfeito para qualquer usuário.\nBateria de 36V 3.0Ah: Energia de longa duração.\nMotor de 350W: Potência confiável em cada trajeto.\nAlcance de 9-10 km: Percursos eficientes sem preocupações.\nTroca de velocidade de 3 níveis: Ajuste entre baixo, médio e alto conforme a necessidade."
+        }
+      },
+      "80-N29": {
+        "id": "80-N29",
+        "name": "Triciclo 8.0-N29",
+        "info": {
+          "review": "Excelente opção para os mais pequenos. Oferece uma experiência de passeio confortável e segura, com um design atraente e resistente. Ideal para quem busca durabilidade e facilidade de uso, garantindo diversão sem preocupações.",
+          "included": null,
+          "specs": "Estrutura de aço carbono: Durabilidade e resistência.\nCarga máxima de 120 kg: Perfeito para qualquer usuário.\nBateria de 36V 3.0Ah: Energia de longa duração.\nMotor de 350W: Potência confiável em cada trajeto.\nAlcance de 9-10 km: Percursos eficientes sem preocupações.\nTroca de velocidade de 3 níveis: Ajuste entre baixo, médio e alto conforme a necessidade."
+        }
+      },
+      "80-N30": {
+        "id": "80-N30",
+        "name": "Triciclo 8.0-N30",
+        "info": {
+          "review": "Excelente opção para os mais pequenos. Oferece uma experiência de passeio confortável e segura, com um design atraente e resistente. Ideal para quem busca durabilidade e facilidade de uso, garantindo diversão sem preocupações.",
+          "included": null,
+          "specs": "Estrutura de aço carbono: Durabilidade e resistência.\nCarga máxima de 120 kg: Perfeito para qualquer usuário.\nBateria de 36V 3.0Ah: Energia de longa duração.\nMotor de 350W: Potência confiável em cada trajeto.\nAlcance de 9-10 km: Percursos eficientes sem preocupações.\nTroca de velocidade de 3 níveis: Ajuste entre baixo, médio e alto conforme a necessidade."
+        }
+      },
+      "80-N40": {
+        "id": "80-N40",
+        "name": "Triciclo 8.0-N40",
+        "info": {
+          "review": "Excelente opção para os mais pequenos. Oferece uma experiência de passeio confortável e segura, com um design atraente e resistente. Ideal para quem busca durabilidade e facilidade de uso, garantindo diversão sem preocupações.",
+          "included": null,
+          "specs": "Estrutura de aço carbono: Durabilidade e resistência.\nCarga máxima de 120 kg: Perfeito para qualquer usuário.\nBateria de 36V 3.0Ah: Energia de longa duração.\nMotor de 350W: Potência confiável em cada trajeto.\nAlcance de 9-10 km: Percursos eficientes sem preocupações.\nTroca de velocidade de 3 níveis: Ajuste entre baixo, médio e alto conforme a necessidade."
+        }
+      },
+      "80-N9": {
+        "id": "80-N9",
+        "name": "Triciclo 8.0-N9",
+        "info": {
+          "review": "Excelente opção para os mais pequenos. Oferece uma experiência de passeio confortável e segura, com um design atraente e resistente. Ideal para quem busca durabilidade e facilidade de uso, garantindo diversão sem preocupações.",
+          "included": null,
+          "specs": "Estrutura de aço carbono: Durabilidade e resistência.\nCarga máxima de 120 kg: Perfeito para qualquer usuário.\nBateria de 36V 3.0Ah: Energia de longa duração.\nMotor de 350W: Potência confiável em cada trajeto.\nAlcance de 9-10 km: Percursos eficientes sem preocupações.\nTroca de velocidade de 3 níveis: Ajuste entre baixo, médio e alto conforme a necessidade."
+        }
+      },
+      "80-N10": {
+        "id": "80-N10",
+        "name": "Triciclo 8.0-N10",
+        "info": {
+          "review": "Excelente opção para os mais pequenos. Oferece uma experiência de passeio confortável e segura, com um design atraente e resistente. Ideal para quem busca durabilidade e facilidade de uso, garantindo diversão sem preocupações.",
+          "included": null,
+          "specs": "Estrutura de aço carbono: Durabilidade e resistência.\nCarga máxima de 120 kg: Perfeito para qualquer usuário.\nBateria de 36V 3.0Ah: Energia de longa duração.\nMotor de 350W: Potência confiável em cada trajeto.\nAlcance de 9-10 km: Percursos eficientes sem preocupações.\nTroca de velocidade de 3 níveis: Ajuste entre baixo, médio e alto conforme a necessidade."
+        }
+      },
+      "80-N12": {
+        "id": "80-N12",
+        "name": "Triciclo 8.0-N12",
+        "info": {
+          "review": "Excelente opção para os mais pequenos. Oferece uma experiência de passeio confortável e segura, com um design atraente e resistente. Ideal para quem busca durabilidade e facilidade de uso, garantindo diversão sem preocupações.",
+          "included": null,
+          "specs": "Estrutura de aço carbono: Durabilidade e resistência.\nCarga máxima de 120 kg: Perfeito para qualquer usuário.\nBateria de 36V 3.0Ah: Energia de longa duração.\nMotor de 350W: Potência confiável em cada trajeto.\nAlcance de 9-10 km: Percursos eficientes sem preocupações.\nTroca de velocidade de 3 níveis: Ajuste entre baixo, médio e alto conforme a necessidade."
+        }
+      },
+      "80-N36": {
+        "id": "80-N36",
+        "name": "Triciclo 8.0-N36",
+        "info": {
+          "review": "Excelente opção para os mais pequenos. Oferece uma experiência de passeio confortável e segura, com um design atraente e resistente. Ideal para quem busca durabilidade e facilidade de uso, garantindo diversão sem preocupações.",
+          "included": null,
+          "specs": "Estrutura de aço carbono: Durabilidade e resistência.\nCarga máxima de 120 kg: Perfeito para qualquer usuário.\nBateria de 36V 3.0Ah: Energia de longa duração.\nMotor de 350W: Potência confiável em cada trajeto.\nAlcance de 9-10 km: Percursos eficientes sem preocupações.\nTroca de velocidade de 3 níveis: Ajuste entre baixo, médio e alto conforme a necessidade."
+        }
+      }
+    }
+  }
+}

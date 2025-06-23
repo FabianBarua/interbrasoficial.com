@@ -1,0 +1,87 @@
+---
+import { getI18NGlobal, getI18NProducts, getValueFromKey } from "@/i18n";
+
+const { currentLocale } = Astro;
+const i18n = getI18NProducts({ currentLocale });
+const t = (key:string) => getValueFromKey(key, i18n );
+
+const i18n2 = getI18NGlobal({ currentLocale });
+const t2 = (key:string) => getValueFromKey(key, i18n2 );
+
+interface Props {
+  info : {
+    review: string;
+    included: string | null;
+    specs: string;
+  }
+}	
+
+const { info } = Astro.props;
+
+---
+
+<div class="flex flex-col gap-6 lg:mt-16 mx-auto sm:w-[55%] w-[100%]">
+
+    
+    {
+        info.review && (
+        <div class="flex px-4 lg:px-0 flex-col lg:flex-row  gap-2 my-3">
+          <h4 class="lg:w-96 text-xl">
+            {t2('productPage.review')}
+        </h4>
+
+
+
+        <div  class=" flex-1 leading-5 flex flex-col gap-2">
+            {info.review.split('\n').map((item:string) => (
+                <p class="">
+                        <span>
+                        {item}
+                        </span>
+                </p>
+            ))}
+        </div>
+        </div>
+        )
+    }
+
+    {
+        info.included && (
+        <hr class="border-black/25" />
+        <div class="flex flex-col lg:flex-row gap-2 my-3">
+            <h4 class="lg:w-96 px-4 lg:px-0 text-xl">
+                {t2('productPage.whatAreIncluded')}
+            </h4>
+            <p class="px-4 lg:px-0 flex-1">
+                {info.included.split('\n').map((item:string) => (
+                    <span>
+                    {item}
+                    <br />
+                    </span>
+                ))}
+            </p>
+        </div>
+        )
+    }
+    
+    <hr class="border-black/25" />
+    
+    {
+        info.specs && (
+        <div class="flex flex-col lg:flex-row gap-2 my-3">
+            <h4 class="lg:w-96 px-4 lg:px-0 text-xl">
+                {t2('productPage.specs')}
+            </h4>
+            <p class="px-4 lg:px-0 flex-1">
+                {info.specs.split('\n').map((item:string) => (
+                    <span>
+                    {item}
+                    <br />
+                    </span>
+                ))}
+            </p>
+        </div>
+        )
+    }
+
+</div>

@@ -1,0 +1,20 @@
+{
+    "noCategory": "Sem categoria",
+    "noDescription": "Sem descrição",
+    "noShortDescription": "Sem descrição curta",
+    "noCode": "Sem código",
+    "noName": "Sem nome",
+    "noPrice": "Sem preço",
+    "noReview": "Sem avaliação",
+    "noSpecs": "Sem especificações",
+    "specs": "Características",
+    "title": "Catálogo de Produtos",
+    "subtitle": "Encontre os melhores produtos para sua casa",
+    "download": "Baixar catálogo",
+    "included": "Inclui",
+    "perBox": "Productos por caja",
+    "setCover": "Adicionar capa",
+    "updateCover": "Atualizar capa",
+    "removeCover": "Remover capa"
+
+ }

@@ -1,0 +1,199 @@
+---
+import Logo from "@/components/Logo.astro";
+
+import WhereWeAreSection from "@/components/WhereWeAreSection.astro";
+import WeProductsSection from "@/components/WeProductsSection.astro";
+import WhoWeAreSection from "@/components/WhoWeAreSection.astro";
+import SwitchButton from "@/components/SwitchButton.astro";
+import { getRelativeLocaleUrl } from "astro:i18n";
+
+import { MobileNav } from "./react/header/MobileNav";
+import { getI18NGlobal, getValueFromKey } from "@/i18n";
+import { getUrls } from "@/shared/newUtils";
+
+const { currentLocale } = Astro;
+const i18n = getI18NGlobal({ currentLocale });
+
+const t = (key: string) => {
+  return getValueFromKey(key, i18n);
+};
+
+const urls = await getUrls({
+  currentLocale,
+  table: "categories",
+});
+---
+
+<header
+  transition:persist="true"
+  id="header-client"
+  class="xl:fixed relative w-full z-[40] flex flex-col py-4 transition-all backdrop-blur bg-[#08850ec4] text-white"
+>
+  <div class="flex xl:justify-around justify-center">
+    <a
+      hreflang={currentLocale === "pt" ? "pt-BR" : currentLocale || "es"}
+      aria-label="Logo Interbras"
+      class="cursor-pointer"
+      href={getRelativeLocaleUrl(currentLocale || "es", "/")}
+      hreflang={currentLocale === "pt" ? "pt-BR" : currentLocale || "es"}
+    >
+      <Logo />
+    </a>
+
+    <nav class="w-min flex">
+      <ul
+        class="xl:flex fixed xl:relative right-4 xl:mx-auto justify-center text-nowrap items-center gap-14 xl:w-full"
+      >
+        <li class="xl:block hidden">
+          <button id="whereWeAre">{t("header.whereWeAre.title")}</button>
+        </li>
+        <li class="xl:block hidden">
+          <button id="weProducts">{t("header.products.title")}</button>
+        </li>
+
+        <li class="w-full flex max-w-96 justify-start gap-8">
+          <div class="xl:block hidden">
+            <button id="whoWeAre">{t("header.whoWeAre.title")}</button>
+          </div>
+        </li>
+
+        <li class="w-full flex max-w-96 justify-start gap-8">
+          <a
+            class="xl:block hidden"
+            hreflang={currentLocale === "pt" ? "pt-BR" : currentLocale || "es"}
+            href={getRelativeLocaleUrl(currentLocale || "", "/downloads")}
+          >
+            <p>{t("header.download")}</p>
+          </a>
+        </li>
+
+        <li class="w-20 shrink-0">
+          <SwitchButton />
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <div id="section-nav-items" class="transition-all h-0 duration-700">
+    <WhereWeAreSection />
+    <WeProductsSection />
+    <WhoWeAreSection />
+  </div>
+
+  <MobileNav urls={urls} client:only="react" />
+</header>
+
+<script is:inline>
+  const initHeaderScript = () => {
+    let selectedNavItem = null;
+    const sectionNavItems = document.getElementById("section-nav-items");
+    const whereWeAre = document.getElementById("whereWeAre");
+    const whereWeAreSection = document.getElementById("WhereWeAreSection");
+    const headerClient = document.getElementById("header-client");
+    const whoWeAre = document.getElementById("whoWeAre");
+    const weProducts = document.getElementById("weProducts");
+    const updateSelectedNavItem = () => {
+      const selectedNavItemHidden = document.querySelector(
+        "#section-nav-items > div:not(.hidden)"
+      );
+      if (selectedNavItemHidden) {
+        selectedNavItemHidden.classList.add("hidden");
+        selectedNavItemHidden.classList.remove("flex");
+        selectedNavItemHidden.classList.remove("fadeIn");
+      }
+      if (selectedNavItem) {
+        selectedNavItem.classList.remove("hidden");
+        selectedNavItem.classList.add("flex");
+        selectedNavItem.classList.add("fadeIn");
+      }
+    };
+    if (
+      !whereWeAre ||
+      !whereWeAreSection ||
+      !sectionNavItems ||
+      !whoWeAre ||
+      !weProducts ||
+      !headerClient
+    )
+      return;
+    headerClient.addEventListener("mouseleave", () => {
+      sectionNavItems.style.height = "0rem";
+      selectedNavItem = null;
+      updateSelectedNavItem();
+    });
+    whereWeAre.addEventListener("mouseenter", () => {
+      sectionNavItems.style.height = "24rem";
+      if (selectedNavItem === whereWeAreSection) return;
+      selectedNavItem = whereWeAreSection;
+      updateSelectedNavItem();
+    });
+    whoWeAre.addEventListener("mouseenter", () => {
+      sectionNavItems.style.height = "24rem";
+      selectedNavItem = document.querySelector("#WhoWeAreSection");
+      updateSelectedNavItem();
+    });
+    weProducts.addEventListener("mouseenter", () => {
+      sectionNavItems.style.height = "24rem";
+      selectedNavItem = document.querySelector("#WeProductsSection");
+      updateSelectedNavItem();
+    });
+  };
+
+  document.addEventListener("astro:page-load", initHeaderScript);
+</script>
+<style is:global>
+  /* hidden for 1 seccond with displaynone and before flex */
+
+  .hiddenTemp {
+    display: flex;
+    animation: hiddenTempAnimation 0.4s forwards;
+  }
+
+  @keyframes hiddenTempAnimation {
+    0% {
+      display: none;
+    }
+
+    90% {
+      display: none;
+    }
+
+    100% {
+      display: flex;
+    }
+  }
+
+  .fadeIn {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  .fadeOut {
+    animation: fadeOut 0.3s ease-in-out;
+  }
+
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+
+    50% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

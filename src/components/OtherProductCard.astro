@@ -1,0 +1,49 @@
+---
+import { motion } from 'framer-motion'
+
+import { getI18NGlobal, getValueFromKey } from "@/i18n";
+import PrimaryButton from './PrimaryButton.astro';
+const { currentLocale } = Astro;
+const i18n = getI18NGlobal({ currentLocale });
+
+const t = (key: string) => {
+  return getValueFromKey(key, i18n);
+};
+
+interface Props {
+  name: string
+  image: string
+  url: string
+  delay?: number
+}
+
+const {name,image,url,delay}: Props = Astro.props
+
+---
+
+
+<motion.div
+initial='hidden'
+client:idle
+whileInView='visible'
+viewport={{ once: true }}
+variants={{
+  visible: { opacity: 1, y: 0 },
+  hidden: { opacity: 0, y: 40 }
+}}
+transition={{ duration: 0.5, delay: delay !== undefined ? delay : 0.5 }}
+className=' w-full relative  h-full overflow-hidden rounded-[40px]'
+>
+<img loading="lazy"  src={image} alt={name} class=' h-full w-full object-cover' />
+
+<div class='text-center w-full flex flex-col  absolute bottom-5 lg:bottom-10  '>
+  <h2 class=' text-white line-clamp-1 text-xl md:text-4xl  lg:mb-2 mb-1 font-semibold  leading-5'>
+    {
+      t(name).split(' ')[0]
+    }
+  </h2>
+  <div class=' w-min mx-auto'>
+    <PrimaryButton to={url} />
+  </div>
+</div>
+</motion.div>

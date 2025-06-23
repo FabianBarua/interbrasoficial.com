@@ -1,0 +1,77 @@
+---
+import { cn } from "@/shared/tailwind";
+
+interface Props {
+  title: string;
+  description: string;
+  image: string;
+  url: string;
+  customClass?: string;
+}
+
+const { title, description, image, url, customClass = "" }: Props = Astro.props;
+---
+
+<div
+  class={cn(
+    `
+      cursor-pointer rounded-[30px]  hover:scale-[1.015] transition-transform relative  overflow-hidden border border-interbrasGreen-800
+      
+      sm:h-[290px] h-[190px] 
+      
+      flex-1  
+      
+      sm:min-w-32 
+      
+      max-w-full
+    
+    `,
+    customClass
+  )}
+>
+  <a
+    href={url}
+    class="w-full flex justify-center items-center rounded-t-[30px] h-full"
+  >
+    <img
+      src={image}
+      alt="air fryer"
+      class="w-full h-full object-cover"
+      sizes="(max-width: 640px) 100vw, 640px"
+    />
+  </a>
+
+  <div
+    class="p-4 pb-4 sm:p-6 absolute bottom-0 sm:top-0 sm:left-0 sm:text-left z-20 pointer-events-none"
+  >
+    <div class="relative text-white w-full">
+      <div
+        class="w-full h-full bg-black absolute top-0 right-0 blur-2xl z-[-1]"
+      >
+      </div>
+
+      <p class="sm:text-base sm:leading-4 leading-4 text-balance">
+        {description}
+      </p>
+
+      <h2 class="text-2xl leading-6 mt-1 font-bold text-balance">
+        {title}
+      </h2>
+    </div>
+  </div>
+
+  <a
+    href={url}
+    class="absolute hidden sm:block bottom-4 right-4 rounded-full size-9 p-2 text-white/75 hover:text-white bg-[#00000057] hover:bg-[#0000009d] hover:scale-[1.15] transition-transform"
+  >
+    <svg
+      id="fi_7472635"
+      viewBox="0 0 48 48"
+      class="w-full h-full fill-current translate-x-[2px]"
+      xmlns="http://www.w3.org/2000/svg"
+      ><path
+        d="m39.87 24.09a3.6338 3.6338 0 0 1 -1.9 3.22l-24.51 13.61a3.6734 3.6734 0 0 1 -1.78.47 3.7181 3.7181 0 0 1 -1.87-.52 3.6516 3.6516 0 0 1 -1.81-3.17v-27.21a3.6788 3.6788 0 0 1 5.46-3.22l24.51 13.61a3.63 3.63 0 0 1 1.9 3.21z"
+      ></path></svg
+    >
+  </a>
+</div>

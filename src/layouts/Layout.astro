@@ -1,0 +1,377 @@
+---
+import Header from "@/components/Header.astro";
+import Logo from "@/components/Logo.astro";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { ViewTransitions } from "astro:transitions";
+import SEO from "@/components/SEO.astro";
+import "@/styles/global.css";
+import { getI18NGlobal, getValueFromKey } from "@/i18n";
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  image?: string;
+}
+
+const { currentLocale } = Astro;
+
+const urlbase = getRelativeLocaleUrl(currentLocale || "", "/");
+
+const { title, description, canonical, image } = Astro.props;
+
+const i18n_global = getI18NGlobal({ currentLocale });
+const t_global = (key: string) => {
+  return getValueFromKey(key, i18n_global);
+};
+
+const pagesWithoutCache = ["pdf", "es/pdf", "pt/pdf"];
+
+const URL = Astro.url;
+
+const pathnames = URL.pathname.split("/").filter((path) => path !== "");
+const pathname = pathnames.join("/");
+const isPageWithoutCache = pagesWithoutCache.includes(pathname);
+---
+
+<!doctype html>
+<html lang={currentLocale === "pt" ? "pt-BR" : currentLocale || "es"}>
+  <head>
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    {isPageWithoutCache && (
+          <meta
+      http-equiv="Cache-Control"
+      content="no-store, no-cache, must-revalidate, max-age=0"
+    />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    )}
+
+
+
+    <!-- Google Tag Manager -->
+    <script is:inline>
+      document.addEventListener(
+        "astro:page-load",
+        (function (w, d, s, l, i) {
+          w[l] = w[l] || [];
+          w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+          var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != "dataLayer" ? "&l=" + l : "";
+          j.async = true;
+          j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+          f.parentNode.insertBefore(j, f);
+        })(window, document, "script", "dataLayer", "GTM-W6FST2NM")
+      );
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      is:inline
+      data-astro-rerun
+      src="https://www.googletagmanager.com/gtag/js?id=G-0SC2NFKG05"></script>
+    <script is:inline>
+      document.addEventListener("astro:page-load", () => {
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
+        gtag("config", "G-0SC2NFKG05");
+      });
+    </script>
+    <!-- End Google tag (gtag.js) -->
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+    <meta
+      property="og:locale"
+      content={currentLocale === "es"
+        ? "es_ES"
+        : currentLocale === "pt"
+          ? "pt_BR"
+          : "en_US"}
+    />
+    <link
+      rel="sitemap"
+      type="application/xml"
+      title="Sitemap"
+      href={currentLocale === "pt" ? "/sitemappt.xml" : "/sitemap.xml"}
+    />
+    <link rel="preload" href="/home/logo.webp" as="image" />
+
+    <SEO
+      canonical={canonical}
+      description={description}
+      image={image}
+      title={title}
+    />
+
+    <ViewTransitions fallback="none" />
+  </head>
+  <body
+    class="font-interbras flex flex-col min-h-dvh bg-white text-black fill-black"
+  >
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-W6FST2NM"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"></iframe></noscript
+    >
+    <!-- End Google Tag Manager (noscript) -->
+
+    <Header />
+    <main class="xl:pt-12 flex-1 flex flex-col">
+      <slot />
+    </main>
+
+    <hr class="mt-20" />
+
+    <footer
+      class="w-[90%] sm:w-[80%] mx-auto py-10 flex justify-between flex-col-reverse items-center sm:flex-row gap-3"
+    >
+      <p class="text-center text-balance sm:text-left">
+        {t_global("footer.copy")}
+      </p>
+      <a
+        hreflang={currentLocale === "pt" ? "pt-BR" : currentLocale || "es"}
+        aria-label="interbras"
+        href={urlbase}
+        class="text-interbrasGreen-500"
+      >
+        <Logo />
+      </a>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 40;
+  }
+
+  .back-test {
+    background: rgb(255, 255, 255);
+  }
+
+  .background {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    bottom: 0;
+    width: 100dvw;
+    height: 100dvh;
+    view-transition-name: background;
+  }
+
+  .button {
+    outline: none;
+    border: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    cursor: pointer;
+    position: fixed;
+    top: 18px;
+    left: 15px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: transparent;
+  }
+
+  .ul,
+  .li {
+    margin: 0;
+    padding: 0;
+  }
+
+  .ul {
+    background-color: rgba(0, 0, 0, 0.278);
+    padding: 25px;
+    position: fixed;
+    top: 100px;
+    width: 230px;
+  }
+
+  .li {
+    list-style: none;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .icon-placeholder {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    flex: 40px 0;
+    margin-right: 20px;
+  }
+
+  .text-placeholder {
+    border-radius: 5px;
+    width: 200px;
+    height: 20px;
+    flex: 1;
+  }
+
+  .refresh {
+    padding: 10px;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    width: 20px;
+    height: 20px;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .PhotoView-Slider__ArrowLeft svg,
+  .PhotoView-Slider__ArrowRight svg {
+    border-radius: 1rem !important;
+    background: rgb(189, 189, 189) !important;
+  }
+  .PhotoView-Slider__BannerWrap {
+    background: rgb(189, 189, 189) !important;
+  }
+
+  /* Gilroy-100 - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: "Gilroy";
+    font-style: normal;
+    font-weight: 100;
+    src: url("/fonts/100.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+  /* Gilroy-200 - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: "Gilroy";
+    font-style: normal;
+    font-weight: 200;
+    src: url("/fonts/200.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+  /* Gilroy-300 - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: "Gilroy";
+    font-style: normal;
+    font-weight: 300;
+    src: url("/fonts/300.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+  /* Gilroy-regular - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: "Gilroy";
+    font-style: normal;
+    font-weight: 400;
+    src: url("/fonts/400.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+  /* Gilroy-500 - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: "Gilroy";
+    font-style: normal;
+    font-weight: 500;
+    src: url("/fonts/500.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+  /* Gilroy-600 - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: "Gilroy";
+    font-style: normal;
+    font-weight: 600;
+    src: url("/fonts/600.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+  /* Gilroy-700 - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: "Gilroy";
+    font-style: normal;
+    font-weight: 700;
+    src: url("/fonts/700.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+  /* Gilroy-800 - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: "Gilroy";
+    font-style: normal;
+    font-weight: 800;
+    src: url("/fonts/800.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+  /* Gilroy-900 - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: "Gilroy";
+    font-style: normal;
+    font-weight: 900;
+    src: url("/fonts/900.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+
+  html,
+  body {
+    -ms-overflow-style: none; /* IE y Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar {
+    display: none; /* Chrome, Safari y Opera */
+  }
+
+  .hideScrollBar {
+    -ms-overflow-style: none; /* IE y Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  .hideScrollBar::-webkit-scrollbar {
+    display: none; /* Chrome, Safari y Opera */
+  }
+
+  .mask {
+    mask-image: linear-gradient(transparent 10%, black 100%);
+  }
+
+  .no-select {
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE 10+ y Edge */
+    user-select: none; /* Standard syntax */
+  }
+
+  .doublemask {
+    mask-image: linear-gradient(
+      90deg,
+      transparent 0%,
+      black 20%,
+      black 80%,
+      transparent 100%
+    );
+  }
+
+  .shadow-custom {
+    box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.415);
+  }
+
+  ::view-transition-group(background) {
+    animation-fill-mode: both;
+    z-index: 10;
+  }
+</style>

@@ -1,0 +1,37 @@
+---
+import { getI18NGlobal } from "@/i18n";
+
+const { currentLocale } = Astro;
+
+const i18n = getI18NGlobal({ currentLocale });
+---
+
+<div
+  id="WhereWeAreSection"
+  class="h-full w-full hidden justify-center lg:justify-between"
+>
+  <div class="lg:flex hidden items-end h-full">
+    <img  
+      src="/arrowDondeEstamos.svg"
+      class="h-52 pointer-events-none"
+      alt="Arrow"
+    />
+  </div>
+  <div
+    class="text-white justify-center text-center text-3xl flex items-center h-full"
+  >
+    <p>
+      {i18n.header.whereWeAre.line1}
+      <br />
+      {i18n.header.whereWeAre.line2}
+      <strong>{i18n.header.whereWeAre.line3}</strong>! <img  src='/paraguayFLAG.png' class=' -translate-y-1 w-auto h-8 inline' alt='Emoji' />
+    </p>
+  </div>
+  <div class="lg:flex hidden relative items-end h-full">
+    <img 
+      src="/edificiosDondeEstamos.svg"
+      class="h-60 mr-6 pointer-events-none"
+      alt="Arrow"
+    />
+  </div>
+</div>

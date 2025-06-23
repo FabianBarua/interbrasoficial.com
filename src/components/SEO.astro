@@ -1,0 +1,66 @@
+---
+import RichResults from "@/components/RichResults.astro"
+
+
+interface Props {
+	title: string
+	description: string
+	canonical?: string
+	image?: string
+}
+
+const {
+	title,
+	description,
+	canonical,
+	image = "https://interbrasoficial.com/og-image.webp",
+} = Astro.props as Props
+
+const determineCanonicalURL = () => {
+	if (Astro.url.host.includes("localhost")) return "http://localhost:4321"
+	return canonical || Astro.url.pathname
+}
+
+const canonicalURL = new URL(determineCanonicalURL(), Astro.site)
+---
+
+<title>{title}</title>
+
+<meta charset="UTF-8" />
+<meta name="description" content={description} />
+
+<link rel="canonical" href={canonicalURL} />
+<meta name="viewport" content="width=device-width" />
+<meta name="theme-color" content="#36a53c" />
+
+<meta name="keywords" content="airfryers, scooters, aires acondicionados, televisores, mixeras, cocinas, hervidoras, cafeteras, planchas, licuadoras, productos de belleza, batidoras, arroceras, bebederos, electrodomésticos, gadgets, hogar, cocina">
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={new URL(image, Astro.url)} />
+
+<meta property="og:image" content={new URL(image, Astro.url)} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={Astro.url} />
+<meta property="og:site_name" content="Interbras" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="es_ES" />
+
+<meta name="robots" content="index, follow" />
+<meta name="googlebot" content="index, follow" />
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+<link rel="manifest" href="/manifest.webmanifest" />
+
+<link rel="icon" type="image/png" href="/favicon-48x48.png" sizes="48x48" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+<RichResults />

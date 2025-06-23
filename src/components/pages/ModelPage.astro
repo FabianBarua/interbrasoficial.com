@@ -1,0 +1,276 @@
+---
+import { getI18NProducts, getValueFromKey } from "@/i18n";
+import ProductInfo from "../model/ProductInfo.astro";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { convertToSlug, getCategories, getProducts } from "@/shared/newUtils";
+
+const { category, model } = Astro.params;
+const { currentLocale } = Astro;
+
+const t = (key: string) =>
+  getValueFromKey(key, getI18NProducts({ currentLocale }));
+
+const categories = await getCategories();
+
+const categorySelected = categories.find(
+  (cat) => convertToSlug(t(cat.name)) === category
+);
+
+const products = await getProducts({
+  category_id: categorySelected?.id,
+});
+
+products.map((product) => {
+  product.name = t(product.name || "");
+  product.review = t(product.review || "");
+  product.included = product.included ? t(product.included) : null;
+  product.specs = t(product.specs || "");
+
+  product.variants = product.variants
+    .map((variant) => ({
+      ...variant,
+      color: variant.color
+        ? { ...variant.color, color: t(variant.color.color || "") }
+        : null,
+    }))
+    .sort((a, b) => (a.color?.id === 2 ? -1 : b.color?.id === 2 ? 1 : 0));
+
+  // dejar colores unicos
+  product.variants = product.variants.filter((variant, index, self) => {
+    const i = self.findIndex((v) => v.color?.color === variant.color?.color);
+    return i === index;
+  });
+});
+
+const modelSelected = products.find(
+  (prod) => convertToSlug(prod.name) === model
+);
+
+const categoryOrdenedByActive = products.sort((a, b) => {
+  if (a.name === modelSelected?.name) return -1;
+  if (b.name === modelSelected?.name) return 1;
+  return 0;
+});
+---
+
+<section
+  class="pt-24 w-full justify-center flex flex-col items-center relative"
+>
+  <div
+    class="flex w-[90%] lg:w-[55%] lg:flex-row flex-col justify-center gap-12"
+  >
+    <div class="">
+      <div
+        transition:name={`photo-viewer-${modelSelected?.name}`}
+        class="p-10 rounded-[25px] h-80 w-full lg:w-80 bg-neutral-200 flex justify-center items-center"
+      >
+        <img
+          id="princialPhoto"
+          transition:name={`photo-0-${modelSelected?.name}`}
+          src={modelSelected?.variants[0].photos[0].url || ""}
+          alt={modelSelected?.name}
+          class="size-full object-contain rounded-lg cursor-pointer"
+        />
+      </div>
+
+      <ul
+        id="photos"
+        class="bg-neutral-200 w-full grid grid-cols-3 mt-2 rounded-[25px] p-2 overflow-auto max-w-full lg:max-w-80 gap-2 max-h-32"
+      >
+        {
+          modelSelected?.variants.map((variant, i) =>
+            variant.photos.map((photo) => (
+              <li
+                style={{ display: i > 2 ? "none" : "block" }}
+                class="flex max-h-28 justify-center items-center gap-2 flex-shrink-0 w-full bg-neutral-300 h-full rounded-[22px] p-3"
+              >
+                <a
+                  href={photo.url}
+                  data-pswp-width="500"
+                  data-pswp-height="500"
+                  target="_blank"
+                >
+                  <img
+                    src={photo.url}
+                    alt={modelSelected.name}
+                    class="size-full object-contain rounded-lg"
+                    loading="lazy"
+                  />
+                </a>
+              </li>
+            ))
+          )
+        }
+      </ul>
+    </div>
+
+    <div class="w-full">
+      <h1 class="text-4xl font-bold text-neutral-900">
+        {modelSelected?.name}
+      </h1>
+      <p class="text-xl my-2 leading-5 text-neutral-700">
+        {t(categorySelected?.description || "")}
+      </p>
+
+      <div class="mt-2 flex gap-2">
+        <a
+          class="px-5 py-[2px] text-white bg-interbrasGreen-500 hover:bg-interbrasGreen-700 transition-colors rounded-xl"
+          href={getRelativeLocaleUrl(
+            currentLocale || "",
+            `/productos/${convertToSlug(t(categorySelected?.name || ""))}`
+          )}
+        >
+          {t(categorySelected?.name || "")}
+        </a>
+
+        <span
+          class="px-5 py-[2px] text-white bg-black rounded-xl cursor-default uppercase"
+        >
+          {modelSelected?.id}
+        </span>
+      </div>
+
+      <hr class="my-4" />
+
+      <div id="container" class="relative">
+        <div
+          id="containerShadowOnScroll"
+          class="gap-2 h-[305px] overflow-auto hideScrollBar flex flex-col"
+        >
+          {
+            categoryOrdenedByActive.map((product) => {
+              const active = product.name === modelSelected?.name;
+
+              return (
+                <a
+                  href={getRelativeLocaleUrl(
+                    currentLocale || "",
+                    `/productos/${convertToSlug(t(categorySelected?.name || "") || "")}/${convertToSlug(product.name)}`
+                  )}
+                  class={`
+                  w-full text-lg flex p-2 py-0 rounded-3xl transition-colors border-2   
+                  ${active ? "  bg-interbrasGreen-500" : "bg-neutral-200 hover:bg-neutral-300 "}
+                  `}
+                >
+                  <img
+                    loading="lazy"
+                    src={product.variants[0].photos[0].url}
+                    class=" size-20 p-3 object-contain rounded-3xl "
+                    alt=""
+                  />
+
+                  <div
+                    class={` flex-1 ml-3 text-left my-auto ${active ? "text-white " : "text-neutral-800"}`}
+                  >
+                    <p class={`text-lg font-medium leading-5`}>
+                      {product.name}
+                    </p>
+                    <div class=" flex text-base  ">
+                      {product.variants.length > 1
+                        ? t("colors.text.colors") + ":"
+                        : t("colors.text.color") + ":"}
+                      <div class=" flex gap-1 items-center ml-1">
+                        {product.variants.map((variant) => (
+                          <p class="">
+                            {variant.color?.color}
+                            {product.variants.length > 1 &&
+                            variant !==
+                              product.variants[product.variants.length - 1]
+                              ? ","
+                              : ""}
+                          </p>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              );
+            })
+          }
+
+          <div
+            id="shadowBottom"
+            class="pointer-events-none w-full h-20 mask bottom-[-1px] absolute transition-all z-20 bg-[#fff]"
+            style="height: 50px; display: block;"
+          >
+          </div>
+          <div
+            id="shadowTop"
+            class="pointer-events-none w-full h-20 mask -top-[1px] absolute transition-all duration-100 z-20 bg-[#fff] rotate-180"
+            style="height: 0px; display: block;"
+          >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ProductInfo
+    info={{
+      specs: modelSelected?.specs || "",
+      review: modelSelected?.review || "",
+      included: modelSelected?.included || null,
+    }}
+  />
+</section>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const containerShadowOnScroll = document.getElementById(
+      "containerShadowOnScroll"
+    );
+    const shadowTop = document.getElementById("shadowTop");
+    const shadowBottom = document.getElementById("shadowBottom");
+
+    if (!containerShadowOnScroll || !shadowTop || !shadowBottom) return;
+
+    containerShadowOnScroll.addEventListener("scroll", () => {
+      const { scrollTop, scrollHeight, clientHeight } = containerShadowOnScroll;
+
+      if (scrollTop > 0) {
+        shadowTop.style.height = "50px";
+      } else {
+        shadowTop.style.height = "0px";
+      }
+
+      if (scrollHeight - clientHeight - 10 <= scrollTop) {
+        shadowBottom.style.height = "0px";
+      } else {
+        shadowBottom.style.height = "50px";
+      }
+    });
+  });
+</script>
+
+<script>
+  import PhotoSwipeLightbox from "photoswipe/lightbox";
+  import "photoswipe/style.css";
+
+  document.addEventListener("astro:page-load", () => {
+    const lightbox = new PhotoSwipeLightbox({
+      gallery: "#photos",
+      children: "a",
+      pswpModule: () => import("photoswipe"),
+    });
+    lightbox.init();
+  });
+</script>
+
+<script is:inline>
+  document.addEventListener("astro:page-load", () => {
+    const principalPhoto = document.getElementById("princialPhoto");
+    const photos = document.getElementById("photos");
+
+    if (principalPhoto && photos) {
+      principalPhoto.addEventListener("click", () => {
+        const firstPhoto = photos.querySelector("li");
+        if (firstPhoto) {
+          const a = firstPhoto.querySelector("a");
+          if (a) {
+            a.click();
+          }
+        }
+      });
+    }
+  });
+</script>

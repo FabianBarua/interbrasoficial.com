@@ -1,0 +1,19 @@
+{
+    "noCategory": "No hay categoría",
+    "noDescription": "No hay descripción",
+    "noShortDescription" : "No hay descripción corta",
+    "noCode": "No hay código",
+    "noName": "No hay nombre",
+    "noPrice": "No hay precio",
+    "noReview" : "No hay reseña",
+    "noSpecs": "No hay especificaciones",
+    "specs": "Características",
+    "title": "Catalogo de Productos",
+    "subtitle" : "Encuentra los mejores productos para tu hogar",
+    "download": "Descargar catalogo",
+    "included": "Incluye",
+    "perBox": "Productos por caja",
+    "setCover": "Agregar portada",
+    "updateCover": "Actualizar portada",
+    "removeCover": "Quitar portada"
+ }

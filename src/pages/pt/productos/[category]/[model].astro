@@ -1,0 +1,44 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { convertToSlug, getCategories, getProducts } from "@/shared/newUtils";
+import { getI18NProducts, getValueFromKey } from "@/i18n";
+import ModelPage from "@/components/pages/ModelPage.astro";
+
+export const getStaticPaths = async () => {
+  const lang = "pt";
+  const i18n = getI18NProducts({ currentLocale: lang });
+  const t = (key: string) => getValueFromKey(key, i18n);
+  const products = await getProducts();
+  const params = products.map((product) => {
+    return {
+      params: {
+        category: convertToSlug(t(product.category.name)),
+        model: convertToSlug(t(product.name)),
+      },
+    };
+  });
+  return params;
+};
+
+const { category, model } = Astro.params;
+const { currentLocale } = Astro;
+const i18n = getI18NProducts({ currentLocale });
+const t = (key: string) => getValueFromKey(key, i18n);
+const categories = await getCategories();
+const categorySelected = categories.find((cat) => {
+  return convertToSlug(t(cat.name)) === category;
+});
+const products = await getProducts({
+  category_id: categorySelected?.id,
+});
+const modelSelected = products.find(
+  (prod) => convertToSlug(t(prod.name)) === model
+);
+---
+
+<Layout
+  title={t(modelSelected?.name || "")}
+  description={t(modelSelected?.review || "")}
+>
+  <ModelPage />
+</Layout>

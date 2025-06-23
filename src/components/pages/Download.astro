@@ -1,0 +1,143 @@
+---
+import { VelocityScroll } from "@/components/react/download/VelocityScroll";
+import { AppsSection } from "@/components/react/download/AppsSection";
+import { getI18NGlobal, getValueFromKey } from "@/i18n";
+
+const { currentLocale } = Astro;
+
+const i18n = getI18NGlobal({ currentLocale });
+
+const t = (key: string) => {
+  return getValueFromKey(key, i18n);
+};
+---
+
+<div
+  class="h-full flex w-full lg:w-[80%] xl:w-[70%] mx-auto flex-col mb-12"
+  style="opacity: 1; will-change: auto;"
+>
+  <main
+    class="w-full h-full flex-1 lg:flex-row flex-col-reverse flex items-center lg:mt-16"
+  >
+    <div
+      class="lg:min-w-[400px] text-center lg:text-left lg:px-5 px-7 flex h-[30rem] w-full lg:w-auto flex-col justify-end flex-1 mt-12 lg:mt-0"
+    >
+      <div class="mx-auto lg:mx-0 relative mb-6 flex">
+        <img
+          loading="lazy"
+          src="/home/slideSection/3.svg"
+          class="size-24 p-4 bg-interbrasGreen-500 rounded-3xl shadow-2xl rotate-[-15deg] z-10"
+          alt=""
+        /><img
+          loading="lazy"
+          src="/home/slideSection/1.svg"
+          class="size-24 p-4 bg-interbrasGreen-800 rounded-3xl shadow-2xl rotate-[5deg] -translate-y-3 -translate-x-5"
+          alt=""
+        />
+      </div>
+      <h1 class="text-5xl font-bold mt-0 lg:mt-5">
+        {
+          t("downloads.title")
+            .split("\n")
+            .map((line: string) => <span class="block">{line}</span>)
+        }
+      </h1>
+      <p class="text-balance leading-5 text-neutral-800/65 mt-3">
+        {
+          t("downloads.p1")
+            .split("\n")
+            .map((line: string) => <span class="block">{line}</span>)
+        }
+      </p>
+      <a
+        hreflang={currentLocale === "pt" ? "pt-BR" : currentLocale || "es"}
+        href="#apps"
+        class="mx-auto lg:mx-0 w-min mt-10 bg-interbrasGreen-500 text-white inline-flex items-center justify-center whitespace-nowrap text-base font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 shadow hover:bg-primary/90 h-9 px-12 py-2 translate-y-[-1rem] animate-fade-in gap-1 rounded-lg ease-in-out [--animation-delay:600ms]"
+      >
+        <span>
+          {t("downloads.callToAction")}
+        </span>
+        <svg
+          width="15"
+          height="15"
+          viewBox="0 0 15 15"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          class="ml-1 size-4 transition-transform duration-300 ease-in-out group-hover:translate-x-1 rotate-90"
+        >
+          <path
+            d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
+            fill="currentColor"
+            fill-rule="evenodd"
+            clip-rule="evenodd"></path>
+        </svg>
+      </a>
+    </div>
+    <div
+      class="2xl::max-w-3xl
+         xl:max-w-2xl
+         lg:rounded-[3rem] lg:h-[30rem] lg:max-w-xl
+         rounded-b-[3rem] h-[20rem] w-full bg-interbrasGreen-500 relative overflow-hidden flex flex-col justify-end"
+    >
+      <div
+        class="absolute inset-0 flex items-center justify-center bg-white/5 [mask-image:linear-gradient(to_bottom,white,transparent)]"
+      >
+        <div
+          class="absolute animate-ripple rounded-full bg-foreground/25 shadow-xl border top-1/2 left-1/2 translate-x-1/2 translate-y-1/2 [--i:0]"
+          style="width: 210px; height: 210px; opacity: 0.24; animation-delay: 0s; border-style: solid; border-width: 1px; border-color: rgba(var(--foreground-rgb), 0.05);"
+        >
+        </div>
+        <div
+          class="absolute animate-ripple rounded-full bg-foreground/25 shadow-xl border top-1/2 left-1/2 translate-x-1/2 translate-y-1/2 [--i:1]"
+          style="width: 280px; height: 280px; opacity: 0.21; animation-delay: 0.06s; border-style: solid; border-width: 1px; border-color: rgba(var(--foreground-rgb), 0.1);"
+        >
+        </div>
+        <div
+          class="absolute animate-ripple rounded-full bg-foreground/25 shadow-xl border top-1/2 left-1/2 translate-x-1/2 translate-y-1/2 [--i:2]"
+          style="width: 350px; height: 350px; opacity: 0.18; animation-delay: 0.12s; border-style: solid; border-width: 1px; border-color: rgba(var(--foreground-rgb), 0.15);"
+        >
+        </div>
+        <div
+          class="absolute animate-ripple rounded-full bg-foreground/25 shadow-xl border top-1/2 left-1/2 translate-x-1/2 translate-y-1/2 [--i:3]"
+          style="width: 420px; height: 420px; opacity: 0.15; animation-delay: 0.18s; border-style: solid; border-width: 1px; border-color: rgba(var(--foreground-rgb), 0.2);"
+        >
+        </div>
+        <div
+          class="absolute animate-ripple rounded-full bg-foreground/25 shadow-xl border top-1/2 left-1/2 translate-x-1/2 translate-y-1/2 [--i:4]"
+          style="width: 490px; height: 490px; opacity: 0.12; animation-delay: 0.24s; border-style: solid; border-width: 1px; border-color: rgba(var(--foreground-rgb), 0.25);"
+        >
+        </div>
+        <div
+          class="absolute animate-ripple rounded-full bg-foreground/25 shadow-xl border top-1/2 left-1/2 translate-x-1/2 translate-y-1/2 [--i:5]"
+          style="width: 560px; height: 560px; opacity: 0.09; animation-delay: 0.3s; border-style: solid; border-width: 1px; border-color: rgba(var(--foreground-rgb), 0.3);"
+        >
+        </div>
+        <div
+          class="absolute animate-ripple rounded-full bg-foreground/25 shadow-xl border top-1/2 left-1/2 translate-x-1/2 translate-y-1/2 [--i:6]"
+          style="width: 630px; height: 630px; opacity: 0.06; animation-delay: 0.36s; border-style: solid; border-width: 1px; border-color: rgba(var(--foreground-rgb), 0.35);"
+        >
+        </div>
+        <div
+          class="absolute animate-ripple rounded-full bg-foreground/25 shadow-xl border top-1/2 left-1/2 translate-x-1/2 translate-y-1/2 [--i:7]"
+          style="width: 700px; height: 700px; opacity: 0.03; animation-delay: 0.42s; border-style: dashed; border-width: 1px; border-color: rgba(var(--foreground-rgb), 0.4);"
+        >
+        </div>
+      </div>
+      <img
+        loading="lazy"
+        src="/downloads/phone.png"
+        alt="phone"
+        class="object-cover h-full w-auto z-10 mx-auto relative"
+      />
+    </div>
+  </main>
+  <div class="text-5xl lg:my-32 my-10 relative">
+    <VelocityScroll text={t("downloads.callToAction")} client:only="react" />
+  </div>
+  <div
+    class="w-full flex-wrap flex gap-3 lg:justify-start justify-center"
+    id="apps"
+  >
+    <AppsSection lang={currentLocale || ""} client:idle />
+  </div>
+</div>

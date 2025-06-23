@@ -1,0 +1,89 @@
+---
+
+/** https://developers.google.com/search/docs/appearance/structured-data/organization */
+const organizationSchema = {
+	"@context": "https://schema.org",
+	"@type": "Organization",
+	"url": "https://interbrasoficial.com/",
+	"image": "https://interbrasoficial.com/og-image.webp",
+	"sameAs": [
+		"https://www.instagram.com/interbrasofc",
+	],
+	"logo": "https://interbrasoficial.com/og-image.webp",
+	"name": "Interbras",
+	"alternateName": "Interbras Oficial",
+	"description":"Descubre con Interbras una gran gama de productos para el hogar y la cocina. ¡Conoce nuestros productos y disfruta de la calidad que nos caracteriza!",
+}
+
+
+export const FAQs = ({
+	currentLocale
+}:{
+	currentLocale: string | undefined
+}
+
+) => {
+
+	const FAQsinPortugues = [
+		{
+			question: "Quais produtos temos?",
+			answer: "Na Interbras temos uma grande variedade de produtos para o lar e a cozinha. Descubra-os!",
+		},
+		{
+			question: "Como posso fazer um pedido?",
+			answer: "Você pode encontrar nossos produtos nas melhores lojas do Paraguai. Visite-nos!",
+		},
+		{
+			question: "Vocês têm descontos para compras no atacado?",
+			answer: "Sim, oferecemos descontos especiais para compras no atacado. Entre em contato com nossa equipe de vendas para mais informações.",
+		},
+		{
+			question: "Onde posso encontrar as instruções dos produtos?",
+			answer: "As instruções e manuais de uso estão disponíveis junto com cada produto.",
+		}
+	];
+
+	 const FAQsinEspanol = [
+		{
+			question: "¿Qué productos tenemos?",
+			answer: "En Interbras tenemos una gran variedad de productos para el hogar y la cocina. ¡Descúbrelos!",
+		},
+		{
+			question: "¿Cómo puedo hacer un pedido?",
+			answer: "Puedes encontrar nuestros productos en las mejores tiendas del Paraguay. ¡Visítanos!",
+		},
+		{
+			question: "¿Tienen descuentos para compras al por mayor?",
+			answer: "Sí, ofrecemos descuentos especiales para compras al por mayor. Contacta con nuestro equipo de ventas para más información.",
+		},
+		{
+			question: "¿Dónde puedo encontrar las instrucciones de los productos?",
+			answer: "Las instrucciones y manuales de uso están disponibles junto con cada producto.",
+		}
+	];
+
+	if (currentLocale === "es" || currentLocale === undefined) return FAQsinEspanol;
+	return FAQsinPortugues;
+};
+
+
+/** https://developers.google.com/search/docs/appearance/structured-data/faqpage */
+const FAQSchema = {
+	"@context": "https://schema.org",
+	"@type": "FAQPage",
+	"mainEntity": FAQs({
+		currentLocale: "es"
+	}).map(({ answer, question }) => ({
+		"@type": "Question",
+		"name": question,
+		"acceptedAnswer": {
+			"@type": "Answer",
+			"text": answer,
+		},
+	})),
+}
+
+---
+
+<script type="application/ld+json" is:inline set:html={JSON.stringify(organizationSchema)} />
+<script type="application/ld+json" is:inline set:html={JSON.stringify(FAQSchema)} />

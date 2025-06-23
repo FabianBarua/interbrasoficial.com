@@ -1,0 +1,244 @@
+---
+import { getI18NGlobal, getValueFromKey } from "@/i18n";
+import { getUrls } from "@/shared/newUtils";
+
+const { currentLocale } = Astro;
+const i18n_global = getI18NGlobal({ currentLocale });
+const t_global = (key: string) => {
+  return getValueFromKey(key, i18n_global);
+};
+
+const categories = [
+  "airfryer",
+  "licuadoras",
+  "planchas",
+  "beauty",
+  "batidoras",
+  "arroceras",
+].map((category) => {
+  return getUrls({
+    currentLocale,
+    table: "categories",
+    category_id: category,
+  });
+});
+
+const [airfryer, licuadoras, planchas, beauty, batidoras, arroceras] =
+  await Promise.all(categories);
+
+const productList = [
+  {
+    title: t_global("home.scrolled.airfryer.title"),
+    description: t_global("home.scrolled.airfryer.description"),
+    image: "/newVersion/scroll-1.webp",
+    direction: "right",
+    url: airfryer[0].url,
+  },
+  {
+    title: t_global("home.scrolled.blender.title"),
+    description: t_global("home.scrolled.blender.description"),
+    image: "/newVersion/scroll-2.webp",
+    direction: "left",
+    url: licuadoras[0].url,
+  },
+  {
+    title: t_global("home.scrolled.iron.title"),
+    description: t_global("home.scrolled.iron.description"),
+    image: "/newVersion/scroll-3.webp",
+    direction: "right",
+    url: planchas[0].url,
+  },
+];
+
+const productList2 = [
+  {
+    title: t_global("home.scrolled.beauty.title"),
+    description: t_global("home.scrolled.beauty.description"),
+    image: "/newVersion/scroll-4.webp",
+    direction: "right",
+    url: beauty[0].url,
+  },
+  {
+    title: t_global("home.scrolled.mixer.title"),
+    description: t_global("home.scrolled.mixer.description"),
+    image: "/newVersion/scroll-5.webp",
+    direction: "right",
+    url: batidoras[0].url,
+  },
+  {
+    title: t_global("home.scrolled.ricecooker.title"),
+    description: t_global("home.scrolled.ricecooker.description"),
+    image: "/newVersion/scroll-6.webp",
+    direction: "right",
+    url: arroceras[0].url,
+  },
+];
+---
+
+<section
+  class={` bg-neutral-100 mx-auto max-w-[1536px]  py-12 lg:pt-32 w-full lg:w-[80%] `}
+>
+  <div class="text-center space-y-4 pb-10 mx-auto">
+    <h2
+      class="text-sm text-interbrasGreen-500 text-balance font-mono font-semibold tracking-wider uppercase"
+      style="opacity: 1; transform: none;"
+    >
+      {t_global("home.scrolled.our_essence")}
+    </h2>
+    <h3
+      class="mt-4 max-w-lg text-5xl text-center mx-auto text-balance font-bold sm:max-w-none sm:text-4xl md:text-5xl lg:text-6xl leading-[1.2] tracking-tighter text-foreground lowercase"
+    >
+      {t_global("home.scrolled.title")}
+    </h3>
+  </div>
+
+  <ul class="mx-auto w-[80%]">
+    {
+      productList.map((element) => (
+        <li
+          data-direction={element.direction}
+          class="flex flex-col-reverse gap-5 items-center justify-between pb-10 transition-all duration-500 ease-out data-[direction=left]:lg:flex-row lg:flex-row-reverse"
+        >
+          <div class="w-full lg:w-[50%] ">
+            <div
+              id="scroll-animate"
+              data-direction={element.direction}
+              class="flex flex-col gap-4 max-w-sm text-center lg:text-left mx-auto "
+            >
+              <h2 class="text-xl md:text-2xl lg:text-4xl font-bold transition-all text-balance ">
+                {element.title}
+              </h2>
+              <p class="text-lg md:text-xl transition-all">
+                {element.description}
+              </p>
+              <div class="transition-all">
+                <a
+                  class="inline-flex  items-center justify-center whitespace-nowrap font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-interbrasGreen-500 hover:bg-interbrasGreen-500/90 h-11 px-8 text-white rounded-full group text-lg mx-auto lg:mx-0"
+                  href={element.url}
+                >
+                  {t_global("primaryButton.text")}
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="w-full lg:w-[50%] ">
+            <img
+              src={element.image}
+              alt={element.title}
+              class="w-full max-w-[300px] mx-auto  px-2"
+            />
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+</section>
+
+<script is:inline>
+  document.addEventListener("astro:page-load", () => {
+    const allElements = document.querySelectorAll("#scroll-animate");
+
+    const ismobile = () => window.innerWidth < 768;
+
+    const animateIn = (element, delay) => {
+      const transition = `all 0.2s ease-out ${delay}s`;
+      const opacity = "1";
+      const transform = "translateX(0px)";
+
+      element.style.transition = transition;
+      element.style.opacity = opacity;
+      element.style.transform = transform;
+    };
+
+    const animateOut = (element, direction) => {
+      const transition = `all 0.2s ease-out 0s`;
+      const opacity = "0";
+      const transform = `translateX(${direction * 20}px)`;
+
+      element.style.transition = transition;
+      element.style.opacity = opacity;
+      element.style.transform = transform;
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (ismobile()) return;
+
+        entries.forEach((entry) => {
+          const direction =
+            entry.target.getAttribute("data-direction") === "right" ? 1 : -1;
+
+          if (entry.isIntersecting) {
+            const p = entry.target.querySelector("p");
+            const h2 = entry.target.querySelector("h2");
+            const a = entry.target.querySelector("a");
+
+            animateIn(h2, 0, direction);
+            animateIn(p, 0.1, direction);
+            animateIn(a, 0.2, direction);
+          } else {
+            const p = entry.target.querySelector("p");
+            const h2 = entry.target.querySelector("h2");
+            const a = entry.target.querySelector("a");
+
+            animateOut(h2, direction);
+            animateOut(p, direction);
+            animateOut(a, direction);
+          }
+        });
+      },
+      {
+        threshold: 0.5,
+        rootMargin: "-200px 0px -100px 0px",
+      }
+    );
+
+    allElements.forEach((element) => {
+      observer.observe(element);
+    });
+  });
+</script>
+
+<section>
+  <!-- 
+
+this section is composed by 3 cards
+
+-->
+
+  <div class="bg-neutral-100 mx-auto max-w-[1536px] w-full lg:w-[80%] pb-20">
+    <ul class="flex w-[90%] mx-auto justify-center flex-wrap gap-4">
+      {
+        productList2.map((element) => (
+          <li data-direction="right" class=" flex-1  ">
+            <div class=" h-60 w-full from-neutral-200 to-transparent bg-gradient-to-b rounded-t-[50px]  flex  justify-center items-center">
+              <img
+                src={element.image}
+                alt={element.title}
+                class=" size-40 object-contain"
+              />
+            </div>
+
+            <div class=" w-full  px-6  text-center">
+              <h2 class="text-xl md:text-2xl  font-bold transition-all text-balance ">
+                {element.title}
+              </h2>
+              <p class="text-lg max-w-64 transition-all text-balance leading-5 mb-3 mx-auto">
+                {element.description}
+              </p>
+
+              <div class="transition-all">
+                <a
+                  class="inline-flex  items-center justify-center whitespace-nowrap font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-interbrasGreen-500 hover:bg-interbrasGreen-500/90 h-9 px-8 text-white rounded-full group text-lg mx-auto lg:mx-0"
+                  href={element.url}
+                >
+                  {t_global("primaryButton.text")}
+                </a>
+              </div>
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

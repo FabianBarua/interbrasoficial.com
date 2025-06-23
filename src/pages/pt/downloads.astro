@@ -1,0 +1,21 @@
+---
+import App from "@/components/pages/Download.astro";
+import Layout from "@/layouts/Layout.astro";
+
+import { getI18NGlobal, getValueFromKey } from "@/i18n";
+const { currentLocale } = Astro;
+const i18n = getI18NGlobal({ currentLocale });
+
+const t = (key: string) => {
+  return getValueFromKey(key, i18n);
+};
+
+
+---
+
+<Layout 
+  title={t('downloadsPage.title')}
+  description={t('downloadsPage.description')}
+>
+  <App />
+</Layout>

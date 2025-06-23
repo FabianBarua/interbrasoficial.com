@@ -1,0 +1,114 @@
+---
+import { getI18NGlobal, getI18NProducts, getValueFromKey } from "@/i18n";
+import Layout from "@/layouts/Layout.astro";
+import { convertToSlug, getCategories, getProducts } from "@/shared/newUtils";
+import { getRelativeLocaleUrl } from "astro:i18n";
+
+const { currentLocale } = Astro;
+
+const { category } = Astro.params;
+
+const t = (key: string) =>
+  getValueFromKey(key, getI18NProducts({ currentLocale }));
+
+const t2 = (key: string) =>
+  getValueFromKey(key, getI18NGlobal({ currentLocale }));
+
+const categorySelected = (await getCategories()).find(
+  (cat) => convertToSlug(t(cat.name)) === category
+);
+
+const products = await getProducts({
+  category_id: categorySelected?.id,
+});
+
+products.forEach((product) => {
+  product.variants = product.variants.sort((a, b) =>
+    a.color?.id === 2 ? -1 : b.color?.id === 2 ? 1 : 0
+  );
+});
+---
+
+<Layout
+  title={categorySelected?.name
+    ? t(categorySelected.name) + " - Interbras"
+    : "Interbras"}
+  description={categorySelected?.description
+    ? t(categorySelected.description)
+    : "Interbras"}
+>
+  <section>
+    <div class="text-center space-y-4 mt-28 mx-auto">
+      <h2
+        class="text-sm text-interbrasGreen-500 text-balance font-mono font-semibold tracking-wider uppercase"
+        style="opacity: 1; transform: none;"
+      >
+        {
+          categorySelected?.shortDescription
+            ? t(categorySelected.shortDescription)
+            : "Interbras"
+        }
+      </h2>
+      <h3
+        class="mt-4 max-w-lg text-5xl text-center mx-auto text-balance font-bold sm:max-w-none sm:text-4xl md:text-5xl lg:text-6xl leading-[1.2] tracking-tighter text-foreground"
+      >
+        {
+          categorySelected?.name
+            ? t(categorySelected.name) + " - Interbras"
+            : "Interbras"
+        }
+      </h3>
+    </div>
+
+    <div class="mt-12">
+      <div class="w-full max-w-7xl flex-wrap flex mx-auto justify-center gap-4">
+        {
+          products.map((product) => (
+            <div class=" border rounded-[50px] bg-neutral-100">
+              <div
+                transition:name={`photo-viewer-${t(product.name)}`}
+                class=" flex flex-col bg-white relative justify-center items-center  text-center h-auto w-60 bg-neutral-10 border-b rounded-[50px] p-6"
+              >
+                <img
+                  transition:name={`photo-0-${product.name}`}
+                  src={product.variants[0].photos[0].url}
+                  alt={t(product.name)}
+                  class="w-32 h-32 rounded-lg object-contain"
+                />
+                <h2 class="text-black text-lg line-clamp-1 mt-2">
+                  {t(product.name)}
+                </h2>
+
+                <a
+                  href={getRelativeLocaleUrl(
+                    currentLocale || "",
+                    "/productos/" +
+                      convertToSlug(t(categorySelected?.name || "")) +
+                      "/" +
+                      convertToSlug(t(product.name))
+                  )}
+                  class=" px-5 py-1 w-min bg-interbrasGreen-500 text-white  h-min text-nowrap rounded-xl absolute -bottom-3"
+                >
+                  {t2("primaryButton.text")}
+                </a>
+              </div>
+
+              <div class="  py-3 px-5 h-28 flex items-center flex-col  max-w-60 relative">
+                <ul class=" w-full max-w-60 mt-2">
+                  {t(product.specs)
+                    .split("\n")
+                    .slice(0, 3)
+                    .map((spec: string) => (
+                      <li class="text-black text-sm leading-3 line-clamp-1 mt-2 max-w-60 text-center">
+                        {spec}
+                      </li>
+                    ))}
+                </ul>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</Layout>

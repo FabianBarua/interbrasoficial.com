@@ -1,0 +1,292 @@
+---
+import { getI18NGlobal, getI18NProducts, getValueFromKey } from "@/i18n";
+import { getProducts, getUrls } from "@/shared/newUtils";
+import { getRelativeLocaleUrl } from "astro:i18n";
+const { currentLocale } = Astro;
+
+const i18n = getI18NProducts({ currentLocale });
+const t = (key: string) => {
+  return getValueFromKey(key, i18n);
+};
+
+const i18n_global = getI18NGlobal({ currentLocale });
+const t_global = (key: string) => {
+  return getValueFromKey(key, i18n_global);
+};
+
+const products = await getProducts({
+  category_id: "scooters",
+});
+
+const scooters = products.map((child) => {
+  return {
+    title: t(child.name),
+    description: t(child.review),
+    image: child.variants[0].photos[0].url,
+  };
+});
+
+const scooterUrl = (
+  await getUrls({
+    currentLocale,
+    table: "categories",
+    category_id: "scooters",
+  })
+)[0].url;
+---
+
+<section
+  class="flex mt-12 max-w-[1536px] lg:w-[80%] flex-col-reverse w-full lg:flex-row overflow-hidden justify-center px-5 py-10 lg:py-5 gap-10 items-center lg:items-end lg:justify-between relative bg-interbrasGreen-500 mx-auto lg:rounded-[50px]"
+>
+  <div
+    class="relative z-10 max-w-sm lg:max-w-full mt-auto flex gap-5 flex-col lg:m-5"
+  >
+    <div
+      class="bg-black w-full h-full z-[-1] opacity-20 absolute top-0 left-0 right-0 bottom-0 blur-2xl"
+    >
+    </div>
+    <h2
+      class="text-4xl leading-8 font-bold text-balance text-white text-center lg:text-left"
+    >
+      {t_global("home.scooters.title")}
+    </h2>
+
+    <p
+      class="w-full max-w-lg text-white leading-5 -mt-2 text-center lg:text-left"
+    >
+      {t_global("home.scooters.description")}
+    </p>
+
+    <a
+      href={scooterUrl}
+      class="text-interbrasGreen-500 items-center justify-between bg-white flex p-2 pl-4 font-semibold rounded-xl shadow-xl max-w-sm"
+    >
+      <span>
+        {t_global("primaryButton.text")}
+      </span>
+
+      <div
+        class="size-8 bg-interbrasGreen-500 flex justify-center items-center rounded-xl"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6 text-white"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M9 5l7 7-7 7"></path>
+        </svg>
+      </div>
+    </a>
+
+    <p class="text-white text-center lg:text-left text-balance">
+      {t_global("home.scooters.download.text")}
+      <a
+        href={getRelativeLocaleUrl(
+          currentLocale ? currentLocale : "",
+          "/downloads"
+        )}
+        class="relative font-bold text-interbrasGreen-50"
+      >
+        {t_global("home.scooters.download.callToAction")}
+        <span
+          class="w-full z-[-1] absolute -bottom-[3px] left-0 h-1 bg-interbrasGreen-800 doublemask"
+        ></span></a
+      >
+    </p>
+  </div>
+
+  <img
+    src="/newVersion/scooter.svg"
+    class="absolute opacity-[.08] top-14 left-10 scale-[1.45] pointer-events-none"
+    alt="icons scooter"
+  />
+
+  <div
+    class="bg-interbrasGreen-900 pswp-gallery w-full max-w-sm lg:max-w-full lg:size-96 rounded-[50px] relative flex"
+  >
+    <div id="contain">
+      <a
+        href="/productos/scooters/8.5-v1-1.webp"
+        data-pswp-width="500"
+        data-pswp-height="500"
+        target="_blank"
+      >
+        <img
+          id="photo"
+          src="/productos/scooters/8.5-v1-1.webp"
+          alt="scooter"
+          class="lg:size-96 size-full absolute top-1/2 -translate-y-1/2 object-cover p-10"
+        />
+      </a>
+    </div>
+
+    <div
+      class="flex items-center w-full justify-between mt-[90%] relative z-10 flex-1"
+    >
+      <button
+        class="bg-white p-2 rounded-full cursor-pointer"
+        id="prev"
+        aria-label="Previous scooter"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6 text-interbrasGreen-500"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M15 19l-7-7 7-7"></path>
+        </svg>
+      </button>
+
+      <a
+        href={scooterUrl}
+        class="text-white bg-interbrasGreen-800 px-4 py-1 lg:mt-5 rounded-xl shadow-xl"
+        id="currendIndex"
+      >
+        Scooter 8.5
+      </a>
+
+      <button
+        class="bg-white p-2 rounded-full cursor-pointer"
+        id="next"
+        aria-label="Next scooter"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6 text-interbrasGreen-500 poinno"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M9 5l7 7-7 7"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<style>
+  @import url("https://unpkg.com/photoswipe@5.2.2/dist/photoswipe.css");
+</style>
+
+<script define:vars={{ scooters }} is:inline type="module">
+  import PhotoSwipeLightbox from "https://unpkg.com/photoswipe/dist/photoswipe-lightbox.esm.js";
+
+  const lightbox = new PhotoSwipeLightbox({
+    arrowPrev: false,
+    arrowNext: false,
+    gallery: "#contain",
+    children: "a",
+    pswpModule: () => import("https://unpkg.com/photoswipe"),
+  });
+
+  lightbox.on("beforeOpen", () => {
+    if (scooterChangeInterval) clearInterval(scooterChangeInterval);
+  });
+
+  lightbox.init();
+
+  let currentIndex = 0;
+  let scooterChangeInterval;
+
+  const getNextIndex = (index, scooters) => {
+    return index + 1 === scooters.length ? 0 : index + 1;
+  };
+
+  const getPrevIndex = (index, scooters) => {
+    return index === 0 ? scooters.length - 1 : index - 1;
+  };
+
+  const changePhoto = ({ index, scooters }) => {
+    const currendIndex = document.getElementById("currendIndex");
+    if (currendIndex) currendIndex.innerText = scooters[index].title;
+
+    const photo = document.getElementById("photo");
+    if (!photo) return;
+
+    const photoCopy = photo.cloneNode(true);
+
+    photoCopy.src = scooters[index].image;
+    photoCopy.id = "photo";
+    photoCopy.style.zIndex = "1";
+    photoCopy.classList.add("size-96");
+    photoCopy.classList.add("absolute");
+    photoCopy.classList.add("top-1/2");
+    photoCopy.classList.add("-translate-y-1/2");
+    photoCopy.classList.add("object-cover");
+    photoCopy.classList.add("p-10");
+    photoCopy.style.animation = "inContainer 1s ease forwards";
+    photo.style.zIndex = "0";
+    photo.remove();
+    const contain = document.getElementById("contain");
+    const anchor = contain.querySelector("a");
+    anchor.href = scooters[index].image;
+    anchor.appendChild(photoCopy);
+  };
+
+  const goToNext = ({ index }) => {
+    index = getNextIndex(index, scooters);
+    changePhoto({ index, scooters });
+    return index;
+  };
+
+  const goToPrev = ({ index }) => {
+    index = getPrevIndex(index, scooters);
+    changePhoto({ index, scooters });
+    return index;
+  };
+
+  scooterChangeInterval = setInterval(() => {
+    currentIndex = goToNext({ index: currentIndex });
+  }, 3000);
+
+  const prev = document.getElementById("prev");
+  const next = document.getElementById("next");
+
+  prev?.addEventListener("click", () => {
+    if (scooterChangeInterval) clearInterval(scooterChangeInterval);
+    currentIndex = goToPrev({ index: currentIndex });
+  });
+
+  next?.addEventListener("click", () => {
+    if (scooterChangeInterval) clearInterval(scooterChangeInterval);
+    currentIndex = goToNext({ index: currentIndex });
+  });
+</script>
+
+<style is:global>
+  @keyframes outContainer {
+    from {
+      transform: translateY(-50%);
+    }
+    to {
+      transform: translateY(calc(-50% + 30px));
+      opacity: 0;
+    }
+  }
+
+  @keyframes inContainer {
+    from {
+      transform: translateY(calc(-50% + 30px));
+      opacity: 0;
+    }
+    to {
+      transform: translateY(-50%);
+    }
+  }
+</style>

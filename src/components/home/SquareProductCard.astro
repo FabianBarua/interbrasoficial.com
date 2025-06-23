@@ -1,0 +1,55 @@
+---
+interface Props {
+  href: string;
+  src: string;
+  alt: string;
+  isMagic: boolean;
+  delay: number;
+  bgColor: string;
+}
+
+const {
+  href = "/",
+  src = "/",
+  alt = "image",
+  isMagic = false,
+  delay = 0,
+  bgColor = "bg-interbrasGreen-500",
+} = Astro.props as Props;
+
+
+---
+
+<a
+  id="product-card"
+  hreflang="es"
+  class={`
+    ${isMagic ? "my-2 mx-2" : "mx-auto"}
+
+    size-22 lg:size-28 xl:size-32 
+    md:p-4 p-2 
+    flex justify-center items-center 
+    
+    ${bgColor}
+    hover:bg-interbrasGreen-400 
+
+    border-2 
+    border-transparent 
+    
+    transition-all rounded-3xl  
+    
+    ${isMagic ? "scale-[1.1] hover:scale-[1.102]" : "hover:scale-[1.02]"}
+    `
+    }
+  href={href}
+  style={`animation: fade-in 1s ease ${delay}s forwards ;`}
+>
+  <img
+    class=" h-[99px] w-[99px] object-contain saturate-0 hover:saturate-150 "
+    src={src}
+    alt={alt}
+    width="99.68px"
+    height="99.68px"
+    loading="eager"
+  />
+</a>
