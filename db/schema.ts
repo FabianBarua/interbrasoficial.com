@@ -1,5 +1,5 @@
 import { int, sqliteTable, text, real } from "drizzle-orm/sqlite-core";
-export * from './schemaAuth';
+// export * from './schemaAuth';
 
 export const Category = sqliteTable("category", {
   id: text().primaryKey().notNull(),
@@ -69,3 +69,23 @@ export const Internationalization = sqliteTable("internationalization", {
   lang: text().notNull().references(() => Languages.id, {onDelete: "set null", onUpdate:'cascade'}).notNull(),
 } );
 
+export const PromotionType = sqliteTable("promotion_type", {
+  id: int().primaryKey({ autoIncrement: true }).notNull(),
+  name: text().notNull(), // "percentage", "fixed", "bundle", etc.
+  description: text().notNull()
+});
+
+export const Promotion = sqliteTable("promotion", {
+  id: int().primaryKey({ autoIncrement: true }).notNull(),
+  catalog_id: int().references(() => Catalog.id, {
+    onDelete: "cascade",
+    onUpdate: "cascade"
+  }).notNull(),
+  type_id: int().references(() => PromotionType.id, {
+    onDelete: "restrict",
+    onUpdate: "cascade"
+  }).notNull(),
+  // Información específica según tipo
+  data: text({ mode: 'json' }).notNull(),
+  active: int({ mode: 'boolean' }).default(true).notNull(),
+});
