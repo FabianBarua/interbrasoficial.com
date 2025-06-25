@@ -68,19 +68,19 @@ products
 >
   {product.volt === "110V" ? (
     <img
-      src="https://em-content.zobj.net/source/apple/419/flag-brazil_1f1e7-1f1f7.png"
+      src="/pdf/brasil.png"
       className="inline size-20"
       alt="Brasil"
     />
   ) : product.volt === "220V" ? (
     <img
-      src="https://em-content.zobj.net/source/apple/419/flag-paraguay_1f1f5-1f1fe.png"
+      src="/pdf/paraguay.png"
       className="inline size-20"
       alt="Paraguay"
     />
   ) : product.volt === "Bivolt" ? (
     <img
-      src="https://em-content.zobj.net/source/apple/419/high-voltage_26a1.png"
+      src="/pdf/bivolt.png"
       className="inline size-16"
       alt="Bivolt"
     />
