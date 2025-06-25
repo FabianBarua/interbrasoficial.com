@@ -149,13 +149,6 @@ export const DefaultList = ({
                           })}
                       </ul>
                     </div>
-                    <div className=" scale-125 absolute bottom-7 right-7 ">
-                      {showPrices && !product.promotion.type && NormalPriceViewComponent(Number(product.price))}
-                      {showPrices && product.promotion.type?.id === 2 && FixedPromoPriceViewComponent({
-                        promotion: product.promotion,
-                        price: Number(product.price),
-                      })}
-                    </div>
 
                   </>
                 )}
@@ -164,21 +157,7 @@ export const DefaultList = ({
 
               <div className="flex  mt-4 px-2 gap-3 ">
 
-                {/* 
-                <div className=" justify-center flex flex-col items-center h-min my-auto ">
-                  {showPrices && !product.promotion.type && NormalPriceViewComponent(Number(product.price))}
-                  {showPrices && product.promotion.type?.id === 2 && FixedPromoPriceViewComponent({
-                    promotion: product.promotion,
-                    price: Number(product.price),
-                  })}
-                </div>  
-
-                {(showPrices || product.volt) && (
-                  <div className=" border-l border-2 border-black/5 " />
-                )} 
-                */}
-
-                <div className=" flex flex-col justify-center">
+                <div className=" flex flex-col justify-center  pr-4">
                   <h3 className="text-2xl  max-w-sm font-medium line-clamp-3 leading-6">
                    {product.volt && <span className=" font-bold">{product.volt + " - "}</span>}{product.originalName}
                   </h3>
@@ -199,6 +178,14 @@ export const DefaultList = ({
                     </h4>
                   )}
                 </div>
+
+                  <div className=" scale-125  mt-auto ml-auto ">
+                      {showPrices && !product.promotion.type && NormalPriceViewComponent(Number(product.price))}
+                      {showPrices && product.promotion.type?.id === 2 && FixedPromoPriceViewComponent({
+                        promotion: product.promotion,
+                        price: Number(product.price),
+                      })}
+                    </div>
               </div>
             </li>
           );

@@ -18,6 +18,11 @@ export const ALL_VERSIONS = {
     name: "Promocion Aniversario 2",
     description: "Versión 2.2 del catálogo"
   },
+  V3: {
+    id: "V3",
+    name: "V3",
+    description: "CREADOR DE SOCIAL MEDIA"
+  }
  }
 
  interface Version {

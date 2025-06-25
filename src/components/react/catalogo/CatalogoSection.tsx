@@ -3,6 +3,7 @@ import { CoverSelector } from "./CoverSelector";
 import { CategorySection as CategorySectionV1 } from "./V1/CategorySection";
 import { CategorySection as CategorySectionV2 } from "./V2/CategorySection";
 import { CategorySection as CategorySectionV2_2 } from "./V2_2/CategorySection";
+import { CategorySection as CategorySectionV3 } from "./V3/CategorySection";
 
 import { CoverImage } from "./CoverImage";
 import { LoadingScreen } from "./LoadingScreen";
@@ -118,6 +119,18 @@ export const CatalogoSection = ({ currentLocale }: { currentLocale: string }) =>
                   t_catalog={tCat}
                   showPrices={showPrices}
                   onToggle={(code) => toggleProduct(key, code)}
+                />
+              ))}
+            </>
+          }
+
+                    {
+            currentVersion.id === ALL_VERSIONS.V3.id && <>
+              {Object.entries(selectedProducts).map(([key, cat]) => (
+                <CategorySectionV3
+                  key={key}
+                  categoryKey={key}
+                  products={cat.products}
                 />
               ))}
             </>

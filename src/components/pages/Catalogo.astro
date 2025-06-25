@@ -1,5 +1,5 @@
 ---
-import { getI18NProducts, getValueFromKey, getI18NCatalog } from "@/i18n";
+import { getValueFromKey, getI18NCatalog } from "@/i18n";
 import { cn } from "@/shared/tailwind";
 import { InteractiveGridPattern } from "../react/catalogo/InteractiveGridPattern";
 
@@ -7,10 +7,8 @@ import { CatalogoSection } from "../react/catalogo/CatalogoSection";
 import { HeroProvider } from "../react/catalogo/Provider";
 
 const { currentLocale } = Astro;
-const i18n = getI18NProducts({ currentLocale });
 const i18n_catalog = getI18NCatalog({ currentLocale });
 
-const t = (key: string) => getValueFromKey(key, i18n);
 const t_catalog = (key: string) => getValueFromKey(key, i18n_catalog);
 ---
 
@@ -51,7 +49,6 @@ const t_catalog = (key: string) => getValueFromKey(key, i18n_catalog);
       id="downloadCatalog"
     >
       {t_catalog("download")}
-
       <svg
         class="w-auto h-6 my-auto fill-white"
         clip-rule="evenodd"
@@ -68,6 +65,16 @@ const t_catalog = (key: string) => getValueFromKey(key, i18n_catalog);
         ></svg
       >
     </button>
+    <button
+      class="bg-interbrasGreen-500 hover:bg-interbrasGreen-600 text-white px-5 py-2 rounded-xl text-xl flex gap-3 pointer-events-auto"
+      id="downloadImages"
+    >
+      Descargar como fotos
+      <svg class="w-auto h-6 my-auto fill-white" viewBox="0 0 24 24">
+        <path d="M12 16l4-5h-3V4h-2v7H8z"/><path d="M20 18H4v-2H2v4h20v-4h-2z"/>
+      </svg>
+    </button>
+
   </div>
 
   <div class="flex-1 justify-center items-start pr-20 flex-col hidden lg:flex">
@@ -107,6 +114,9 @@ const t_catalog = (key: string) => getValueFromKey(key, i18n_catalog);
 <script
   src="https://cdnjs.cloudflare.com/ajax/libs/html-to-image/1.11.11/html-to-image.js"
 ></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
 
 <script
   is:inline
@@ -194,6 +204,62 @@ const t_catalog = (key: string) => getValueFromKey(key, i18n_catalog);
     loader.classList.add("hidden");
   }
 </script>
+
+<script is:inline>
+  document
+    .getElementById("downloadImages")
+    .addEventListener("click", exportarComoFotos);
+
+  async function exportarComoFotos() {
+    const catalogSections = document.querySelectorAll("#catalogSection");
+    const loader = document.getElementById("loader");
+    const currentPage = document.getElementById("currentPage");
+    const totalPages = document.getElementById("totalPages");
+
+    if (!catalogSections.length) {
+      alert("No se ha encontrado el catálogo.");
+      return;
+    }
+
+    loader.classList.remove("hidden");
+    totalPages.textContent = catalogSections.length;
+
+    const hiddenItems = document.querySelectorAll('[data-hide="true"]');
+    const eyeIcons = document.querySelectorAll('[data-eye]');
+    hiddenItems.forEach((el) => (el.style.display = 'none'));
+    eyeIcons.forEach((el) => (el.style.display = 'none'));
+
+    const zip = new JSZip();
+
+    let index = 1;
+    for (const section of catalogSections) {
+      const node = section;
+      node.classList.remove("rounded-[50px]");
+
+      const dataUrl = await htmlToImage.toPng(node, { pixelRatio: 2 });
+      const imgBlob = await (await fetch(dataUrl)).blob();
+
+      zip.file(`catalogo-foto-${index.toString().padStart(2, "0")}.png`, imgBlob);
+      currentPage.textContent = index;
+      node.classList.add("rounded-[50px]");
+      index++;
+    }
+
+    hiddenItems.forEach((el) => (el.style.display = ''));
+    eyeIcons.forEach((el) => (el.style.display = ''));
+
+    const zipBlob = await zip.generateAsync({ type: "blob" });
+    const url = URL.createObjectURL(zipBlob);
+    const a = document.createElement("a");
+    const date = new Date();
+    a.href = url;
+    a.download = `Catalogo_Interbras_Imagenes_${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}.zip`;
+    a.click();
+
+    loader.classList.add("hidden");
+  }
+</script>
+
 
 <style is:global>
   .fade {
