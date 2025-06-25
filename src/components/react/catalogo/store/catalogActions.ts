@@ -7,8 +7,8 @@ export interface CatalogActions {
   setCoverUrl: (url: string | null) => void;
   setLoading: (b: boolean) => void;
   setShowPrices: (v: boolean) => void;
+  setShowOnlyPromotion: (v: boolean) => void;
   reorderCategories: (newOrder: string[]) => void;
-
 }
 
 export const createCatalogActions = (set: any, get: any): CatalogActions => ({
@@ -17,6 +17,7 @@ export const createCatalogActions = (set: any, get: any): CatalogActions => ({
   setCoverUrl: (url) => set({ coverUrl: url }),
   setLoading: (b) => set({ loading: b }),
   setShowPrices: (v) => set({ showPrices: v }),
+  setShowOnlyPromotion: (v) => set({ showOnlyPromotion: v }),
   toggleProduct: (category, code) => {
     const { groupedData, selectedProducts } = get();
 
@@ -36,7 +37,6 @@ export const createCatalogActions = (set: any, get: any): CatalogActions => ({
       selectedProducts: newSelected,
     });
   },
-
   reorderCategories: (newOrder) => {
     const { selectedProducts } = get();
     const reordered: GroupedByCategory = {};

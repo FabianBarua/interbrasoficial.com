@@ -29,7 +29,7 @@ const all_voltages = (grouped: GroupedByCategory) => {
 
 export const Filters = () => {
 
-    const { groupedData, setSelectedProducts, setShowPrices } = useCatalogStore();
+    const { groupedData, setSelectedProducts, setShowPrices, setShowOnlyPromotion, showOnlyPromotion } = useCatalogStore();
 
     const [selectedKeys, setSelectedKeys] = React.useState(new Set(
         Object.keys(groupedData)
@@ -50,7 +50,8 @@ export const Filters = () => {
 
     useEffect(() => {
         filter();
-    }, [selectedKeys, voltagesSelected, search]);
+        console.log('effect');
+    }, [selectedKeys, voltagesSelected, search, showOnlyPromotion]);
 
 
     if (!groupedData) {
@@ -72,14 +73,32 @@ export const Filters = () => {
             return acc;
         }, {});
 
-        // by category
-        const selectedByCategory = Object.keys(selectedByVoltage).reduce((acc: GroupedByCategory, category) => {
-            if (selectedKeys.has(category)) {
-                acc[category] = selectedByVoltage[category];
+        // by promotion
+        const selectedByPromotion = Object.keys(selectedByVoltage).reduce((acc: GroupedByCategory, category) => {
+            const products = selectedByVoltage[category].products.filter((product) => {
+                if (showOnlyPromotion) {
+                    return product.promotion.type !== null
+                }
+                return true; // If not filtering by promo, include all products
+            });
+            if (products.length > 0) {
+                acc[category] = {
+                    ...selectedByVoltage[category],
+                    products,
+                };
             }
             return acc;
         }, {});
 
+        console.log('selectedByPromotion', selectedByPromotion);
+
+        // by category
+        const selectedByCategory = Object.keys(selectedByPromotion).reduce((acc: GroupedByCategory, category) => {
+            if (selectedKeys.has(category)) {
+                acc[category] = selectedByPromotion[category];
+            }
+            return acc;
+        }, {});
 
         if (!search) {
             setSelectedProducts(selectedByCategory);
@@ -99,6 +118,7 @@ export const Filters = () => {
             return acc;
         }, {});
 
+        console.log('searchFiltered', searchFiltered);
         setSelectedProducts(searchFiltered);
     }
 
@@ -106,6 +126,11 @@ export const Filters = () => {
 
         const checked = e.target.checked;
         setShowPrices(checked);
+    }
+
+    const changeOnlyPromo = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const checked = e.target.checked;
+        setShowOnlyPromotion(checked);
     }
 
 
@@ -133,16 +158,9 @@ export const Filters = () => {
                             }
                         }
                     />
-                <Checkbox 
-                defaultSelected
-                onChange={
-                    changeViewPrice
-                }>
-                    Precio
-                </Checkbox>
+                <Checkbox defaultSelected onChange={ changeViewPrice }> Precio </Checkbox>
+                <Checkbox className=" text-nowrap" onChange={ changeOnlyPromo }> Solo promo </Checkbox>
                 </div>
-   
-
 
                 <div className=" flex gap-2 w-full items-center justify-center lg:justify-end">
                     <OpenSelect

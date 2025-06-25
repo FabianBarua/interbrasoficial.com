@@ -1,4 +1,3 @@
-import { getI18NCatalog, getValueFromKey } from "@/i18n";
 import React, { useRef, useState, useEffect } from "react";
 
 export const CoverSelector = ({tCat} : {tCat:(k: string) => string}) => {
@@ -53,10 +52,10 @@ export const CoverSelector = ({tCat} : {tCat:(k: string) => string}) => {
   }, [coverDataUrl, coverMime]);
 
   return (
-    <div className="flex items-center gap-2 flex-wrap pointer-events-auto">
+    <div className="flex items-center gap-2 flex-wrap pointer-events-auto flex-1">
       <button
         onClick={selectFile}
-        className="bg-interbrasGreen-100 text-interbrasGreen-600 flex-1 px-4 text-nowrap py-1 rounded-md text-sm hover:bg-interbrasGreen-200"
+        className="bg-interbrasGreen-100 text-interbrasGreen-600 flex-1 px-4 w-full text-nowrap py-1 rounded-md text-sm hover:bg-interbrasGreen-200"
       >
         {coverDataUrl ? updateLabel : setLabel}
       </button>

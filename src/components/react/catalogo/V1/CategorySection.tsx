@@ -1,5 +1,5 @@
 import { DefaultList, TriciclosList } from "./list";
-import type { ProductData } from "./types";
+import type { ProductData } from "../types";
 
 interface Props {
   categoryKey: string;
