@@ -1,7 +1,7 @@
 import { getI18NGlobal, getValueFromKey } from '@/i18n'
 import { ScooterAndroidUrl, ScooterIosUrl, scooterTitanAndXtremeUrls, scooterLenzod } from '@/shared/constants'
 import React, { useState, useEffect } from 'react'
-import { Modal, ModalBody, ModalContent, ModalFooter, ModalTrigger, useModal } from '@/components/react/download/AnimatedModal'
+import { Modal, ModalBody, ModalContent, ModalFooter, ModalTrigger } from '@/components/react/download/AnimatedModal'
 import { AvatarCircles } from '@/components/react/download/AvatarCircles'
 import { MagicCard } from '@/components/react/download/MagicCard'
 

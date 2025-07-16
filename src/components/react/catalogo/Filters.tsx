@@ -1,5 +1,5 @@
 import type { GroupedByCategory } from "./types";
-import { Card, Input } from "@heroui/react";
+import { Input } from "@heroui/react";
 import React, { useEffect } from "react";
 import { OpenSelect } from "./OpenSelect";
 import { useDebouncedCallback } from 'use-debounce';

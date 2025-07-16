@@ -1,4 +1,4 @@
-import type { ProductData, promotion } from "../types";
+import type { ProductData } from "../types";
 
 const formatPriceUSD = (price: Number) => {
   return price.toFixed(2).toString().replace(".", ",");
@@ -12,37 +12,6 @@ const NormalPriceViewComponent = (price: number) => {
         </h3>
     );
 }
-
-const FixedPromoPriceViewComponent = ({
-  promotion,
-  price
-}: {
-  promotion: promotion;
-  price: number;
-}) => {
-  if (!promotion?.data?.active || !promotion.data.data.fixedPrice) return null;
-
-  const fixedPrice = promotion.data.data.fixedPrice;
-
-  return (
-    <div className="flex flex-col items-start">
-      <span className="text-base text-gray-500  text-center mx-auto line-through">
-        De: {formatPriceUSD(price)}
-      </span>
-      <h3 className="text-sm  text-orange-500 bg-orange-100 border border-orange-700 px-4 py-0 rounded-bl-2xl rounded-tr-2xl shadow-md">
-        <span className=" ">
-            USD
-        </span> 
-        <span className=" text-2xl mx-[2px] font-bold">
-            {formatPriceUSD(fixedPrice).split(",")[0]}
-        </span>
-        <span className="">
-            ,{formatPriceUSD(fixedPrice).split(",")[1]}
-        </span>
-      </h3>
-    </div>
-  );
-};
 
 
 interface IDefaultList {

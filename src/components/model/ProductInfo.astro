@@ -1,9 +1,7 @@
 ---
-import { getI18NGlobal, getI18NProducts, getValueFromKey } from "@/i18n";
+import { getI18NGlobal, getValueFromKey } from "@/i18n";
 
 const { currentLocale } = Astro;
-const i18n = getI18NProducts({ currentLocale });
-const t = (key:string) => getValueFromKey(key, i18n );
 
 const i18n2 = getI18NGlobal({ currentLocale });
 const t2 = (key:string) => getValueFromKey(key, i18n2 );

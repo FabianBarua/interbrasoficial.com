@@ -12,5 +12,9 @@
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react"
-  }
+  },
+  "include": [
+    "src/**/*",
+    "src/types/global.d.ts"
+  ]
 }

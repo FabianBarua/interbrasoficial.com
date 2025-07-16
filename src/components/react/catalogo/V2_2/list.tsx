@@ -1,4 +1,3 @@
-import { useV2Store } from "../store/v2.store";
 import type { ProductData, promotion } from "../types";
 
 const formatPriceUSD = (price: Number) => {

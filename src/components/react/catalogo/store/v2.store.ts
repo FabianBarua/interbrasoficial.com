@@ -12,11 +12,11 @@ export interface v2Actions {
   setIconUrl: (url: string | null) => void;
 }
 
-export const v2Actions = (set: any, get: any): v2Actions => ({
+export const v2Actions = (set: any): v2Actions => ({
     setIconUrl: (url) => set({ iconUrl: url })
 });
 
-export const useV2Store = create<v2State & v2Actions>((set, get) => ({
+export const useV2Store = create<v2State & v2Actions>((set) => ({
   ...v2State,
-  ...v2Actions(set, get),
+  ...v2Actions(set),
 }));
