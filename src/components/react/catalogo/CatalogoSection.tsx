@@ -11,6 +11,7 @@ import { Card } from "@heroui/react";
 import { ReorderModal } from "./ReorderModal";
 
 import { useCatalogStore } from "./store/useCatalogStore";
+import { useCustomCatalogStore } from "./store/customCatalogStore";
 import { useLoadCatalog } from "./hooks/useLoadCatalog";
 import { useState } from "react";
 import { ALL_VERSIONS, useVersionStore } from "./store/useVersionStore";
@@ -18,6 +19,7 @@ import { PikIcon } from "./V2/PickIcon";
 
 export const CatalogoSection = ({ currentLocale }: { currentLocale: string }) => {
   const { selectedProducts, showPrices, coverUrl, loading, toggleProduct } = useCatalogStore();
+  const { customSections, toggleProduct: toggleCustomProduct } = useCustomCatalogStore();
   const { currentVersion, updateVersion } = useVersionStore();
   const { tCat } = useLoadCatalog(currentLocale);
   const [showModal, setShowModal] = useState(false);
@@ -75,63 +77,83 @@ export const CatalogoSection = ({ currentLocale }: { currentLocale: string }) =>
 
           {
             currentVersion.id === ALL_VERSIONS.V1.id && <>
-              {Object.entries(selectedProducts).map(([key, cat]) => (
-                <CategorySectionV1
-                  key={key}
-                  categoryKey={key}
-                  categoryName={cat.categoryName}
-                  categoryDescription={cat.categoryDescription}
-                  products={cat.products}
-                  t_catalog={tCat}
-                  showPrices={showPrices}
-                  onToggle={(code) => toggleProduct(key, code)}
-                />
+              {Object.entries({ ...selectedProducts, ...customSections })
+                .filter(([, cat]) => !cat.hidden)
+                .map(([key, cat]) => (
+                  <CategorySectionV1
+                    key={key}
+                    categoryKey={key}
+                    categoryName={cat.categoryName}
+                    categoryDescription={cat.categoryDescription}
+                    products={cat.products}
+                    t_catalog={tCat}
+                    showPrices={showPrices}
+                    onToggle={(code) =>
+                      selectedProducts[key]
+                        ? toggleProduct(key, code)
+                        : toggleCustomProduct(key, code)
+                    }
+                  />
               ))}
             </>
           }
 
           {
             currentVersion.id === ALL_VERSIONS.V2.id && <>
-              {Object.entries(selectedProducts).map(([key, cat]) => (
-                <CategorySectionV2
-                  key={key}
-                  categoryKey={key}
-                  categoryName={cat.categoryName}
-                  categoryDescription={cat.categoryDescription}
-                  products={cat.products}
-                  t_catalog={tCat}
-                  showPrices={showPrices}
-                  onToggle={(code) => toggleProduct(key, code)}
-                />
+              {Object.entries({ ...selectedProducts, ...customSections })
+                .filter(([, cat]) => !cat.hidden)
+                .map(([key, cat]) => (
+                  <CategorySectionV2
+                    key={key}
+                    categoryKey={key}
+                    categoryName={cat.categoryName}
+                    categoryDescription={cat.categoryDescription}
+                    products={cat.products}
+                    t_catalog={tCat}
+                    showPrices={showPrices}
+                    onToggle={(code) =>
+                      selectedProducts[key]
+                        ? toggleProduct(key, code)
+                        : toggleCustomProduct(key, code)
+                    }
+                  />
               ))}
             </>
           }
 
           {
             currentVersion.id === ALL_VERSIONS.V2_2.id && <>
-              {Object.entries(selectedProducts).map(([key, cat]) => (
-                <CategorySectionV2_2
-                  key={key}
-                  categoryKey={key}
-                  categoryName={cat.categoryName}
-                  categoryDescription={cat.categoryDescription}
-                  products={cat.products}
-                  t_catalog={tCat}
-                  showPrices={showPrices}
-                  onToggle={(code) => toggleProduct(key, code)}
-                />
+              {Object.entries({ ...selectedProducts, ...customSections })
+                .filter(([, cat]) => !cat.hidden)
+                .map(([key, cat]) => (
+                  <CategorySectionV2_2
+                    key={key}
+                    categoryKey={key}
+                    categoryName={cat.categoryName}
+                    categoryDescription={cat.categoryDescription}
+                    products={cat.products}
+                    t_catalog={tCat}
+                    showPrices={showPrices}
+                    onToggle={(code) =>
+                      selectedProducts[key]
+                        ? toggleProduct(key, code)
+                        : toggleCustomProduct(key, code)
+                    }
+                  />
               ))}
             </>
           }
 
                     {
             currentVersion.id === ALL_VERSIONS.V3.id && <>
-              {Object.entries(selectedProducts).map(([key, cat]) => (
-                <CategorySectionV3
-                  key={key}
-                  categoryKey={key}
-                  products={cat.products}
-                />
+              {Object.entries({ ...selectedProducts, ...customSections })
+                .filter(([, cat]) => !cat.hidden)
+                .map(([key, cat]) => (
+                  <CategorySectionV3
+                    key={key}
+                    categoryKey={key}
+                    products={cat.products}
+                  />
               ))}
             </>
           }
