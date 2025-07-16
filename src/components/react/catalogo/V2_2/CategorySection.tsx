@@ -34,7 +34,6 @@ export const CategorySection = ({
       className="flex flex-col gap-10 bg-interbrasGreen-500 p-5  text-white relative overflow-hidden"
     >
 
-      <img src="/pattern.png" alt="patron" className=" pointer-events-none w-auto h-full absolute top-0 right-0 z-0 opacity-30 max-h-[600px]" />
       
       <div className="text-left flex relative">
         <div className="size-24 bg-interbrasGreen-200 rounded-3xl flex justify-center items-center mr-5 fill-interbrasGreen-500 border border-white">
