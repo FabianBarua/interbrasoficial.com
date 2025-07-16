@@ -8,20 +8,10 @@ export const ALL_VERSIONS = {
     name: "V1",
     description: "Versión 1 del catálogo"
   },
-  V2: {
-    id: "V2",
-    name: "Promocion Aniversario",
-    description: "Versión 2 del catálogo"
-  },
   V2_2: {
     id: "V2_2",
     name: "Promocion Aniversario 2",
     description: "Versión 2.2 del catálogo"
-  },
-  V3: {
-    id: "V3",
-    name: "V3",
-    description: "CREADOR DE SOCIAL MEDIA"
   }
  }
 

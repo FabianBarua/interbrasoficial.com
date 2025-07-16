@@ -1,9 +1,7 @@
 import { Filters } from "./Filters";
 import { CoverSelector } from "./CoverSelector";
 import { CategorySection as CategorySectionV1 } from "./V1/CategorySection";
-import { CategorySection as CategorySectionV2 } from "./V2/CategorySection";
 import { CategorySection as CategorySectionV2_2 } from "./V2_2/CategorySection";
-import { CategorySection as CategorySectionV3 } from "./V3/CategorySection";
 
 import { CoverImage } from "./CoverImage";
 import { LoadingScreen } from "./LoadingScreen";
@@ -14,7 +12,7 @@ import { useCatalogStore } from "./store/useCatalogStore";
 import { useLoadCatalog } from "./hooks/useLoadCatalog";
 import { useState } from "react";
 import { ALL_VERSIONS, useVersionStore } from "./store/useVersionStore";
-import { PikIcon } from "./V2/PickIcon";
+import { PikIcon } from "./V2_2/PickIcon";
 
 export const CatalogoSection = ({ currentLocale }: { currentLocale: string }) => {
   const { selectedProducts, showPrices, coverUrl, loading, toggleProduct } = useCatalogStore();
@@ -60,7 +58,7 @@ export const CatalogoSection = ({ currentLocale }: { currentLocale: string }) =>
         </select>
 
         {
-          (currentVersion.id === ALL_VERSIONS.V2.id || currentVersion.id === ALL_VERSIONS.V2_2.id)   && <PikIcon />
+          currentVersion.id === ALL_VERSIONS.V2_2.id && <PikIcon />
         }
 
         </div>
@@ -91,23 +89,6 @@ export const CatalogoSection = ({ currentLocale }: { currentLocale: string }) =>
           }
 
           {
-            currentVersion.id === ALL_VERSIONS.V2.id && <>
-              {Object.entries(selectedProducts).map(([key, cat]) => (
-                <CategorySectionV2
-                  key={key}
-                  categoryKey={key}
-                  categoryName={cat.categoryName}
-                  categoryDescription={cat.categoryDescription}
-                  products={cat.products}
-                  t_catalog={tCat}
-                  showPrices={showPrices}
-                  onToggle={(code) => toggleProduct(key, code)}
-                />
-              ))}
-            </>
-          }
-
-          {
             currentVersion.id === ALL_VERSIONS.V2_2.id && <>
               {Object.entries(selectedProducts).map(([key, cat]) => (
                 <CategorySectionV2_2
@@ -119,18 +100,6 @@ export const CatalogoSection = ({ currentLocale }: { currentLocale: string }) =>
                   t_catalog={tCat}
                   showPrices={showPrices}
                   onToggle={(code) => toggleProduct(key, code)}
-                />
-              ))}
-            </>
-          }
-
-                    {
-            currentVersion.id === ALL_VERSIONS.V3.id && <>
-              {Object.entries(selectedProducts).map(([key, cat]) => (
-                <CategorySectionV3
-                  key={key}
-                  categoryKey={key}
-                  products={cat.products}
                 />
               ))}
             </>
