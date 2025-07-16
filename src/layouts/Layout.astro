@@ -1,6 +1,10 @@
 ---
 import Header from "@/components/Header.astro";
 import Logo from "@/components/Logo.astro";
+import YoutubeIcon from "@/components/icons/Youtube.astro";
+import InstagramIcon from "@/components/icons/Instagram.astro";
+import TikTokIcon from "@/components/icons/TikTok.astro";
+import FacebookIcon from "@/components/icons/Facebook.astro";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import { ViewTransitions } from "astro:transitions";
 import SEO from "@/components/SEO.astro";
@@ -141,6 +145,46 @@ const isPageWithoutCache = pagesWithoutCache.includes(pathname);
       <p class="text-center text-balance sm:text-left">
         {t_global("footer.copy")}
       </p>
+
+      <div class="flex gap-4">
+        <a
+          href="https://www.youtube.com/@Interbras.oficial"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="YouTube"
+          class="text-current hover:text-interbrasGreen-500"
+        >
+          <YoutubeIcon />
+        </a>
+        <a
+          href="https://www.instagram.com/interbrasofc/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+          class="text-current hover:text-interbrasGreen-500"
+        >
+          <InstagramIcon />
+        </a>
+        <a
+          href="https://www.tiktok.com/@interbrasoficial"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="TikTok"
+          class="text-current hover:text-interbrasGreen-500"
+        >
+          <TikTokIcon />
+        </a>
+        <a
+          href="https://www.facebook.com/interbrasofc"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Facebook"
+          class="text-current hover:text-interbrasGreen-500"
+        >
+          <FacebookIcon />
+        </a>
+      </div>
+
       <a
         hreflang={currentLocale === "pt" ? "pt-BR" : currentLocale || "es"}
         aria-label="interbras"
