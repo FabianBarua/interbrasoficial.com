@@ -4,7 +4,7 @@ import { useImageUpload } from "../hooks/useImageUpload";
 interface ImageUploaderProps {
   className?: string;
   categoryKey: string;
-  currentLocale?: string; // Agregado para compatibilidad con CategorySection
+  currentLocale: string; // Agregado para compatibilidad con CategorySection
 }
 
 export const ImageUploader = ({ className = "", categoryKey, currentLocale }: ImageUploaderProps) => {

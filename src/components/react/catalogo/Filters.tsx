@@ -77,7 +77,7 @@ export const Filters = () => {
         const selectedByPromotion = Object.keys(selectedByVoltage).reduce((acc: GroupedByCategory, category) => {
             const products = selectedByVoltage[category].products.filter((product) => {
                 if (showOnlyPromotion) {
-                    return product.promotion.type !== null
+                    return product?.promotion?.type !== null
                 }
                 return true; // If not filtering by promo, include all products
             });
