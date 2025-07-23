@@ -29,7 +29,7 @@ export interface ProductData {
   name: string;
   productCode: string | null;
   price: string;
-  promotion: promotion;
+  promotion: promotion | null;
   color: string;
   show: boolean;
   productPerBox: number;

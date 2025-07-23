@@ -179,8 +179,8 @@ export const DefaultList = ({
                 </div>
 
                   <div className=" scale-125  mt-auto ml-auto ">
-                      {showPrices && !product.promotion.type && NormalPriceViewComponent(Number(product.price))}
-                      {showPrices && product.promotion.type?.id === 2 && FixedPromoPriceViewComponent({
+                      {showPrices && !product?.promotion?.type && NormalPriceViewComponent(Number(product.price))}
+                      {showPrices && product?.promotion?.type?.id === 2 && FixedPromoPriceViewComponent({
                         promotion: product.promotion,
                         price: Number(product.price),
                       })}
