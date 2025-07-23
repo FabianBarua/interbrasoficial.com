@@ -2,6 +2,7 @@ import { DefaultList, TriciclosList } from "./list";
 import type { ProductData } from "../types";
 import { ComponentsIcons } from "./icons";
 import { useV2Store } from "../store/v2.store";
+import { ImageUploader } from "../components/ImageUploader";
 
 type ComponentsIconsKey = keyof typeof ComponentsIcons;
 
@@ -29,6 +30,7 @@ export const CategorySection = ({
   
 
   return (
+    <>
     <section
       id="catalogSection"
       className="flex flex-col gap-10 bg-interbrasGreen-500 p-5  text-white relative overflow-hidden"
@@ -74,5 +76,7 @@ export const CategorySection = ({
       )}
 
     </section>
+    <ImageUploader />
+    </>
   );
 };
