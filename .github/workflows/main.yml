@@ -16,8 +16,8 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v3
         with:
-            version: 9
-            
+          version: 9
+
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
@@ -30,13 +30,22 @@ jobs:
         run: pnpm run build
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
-          DATABASE_AUTH_TOKEN : ${{ secrets.DATABASE_AUTH_TOKEN }}
+          DATABASE_AUTH_TOKEN: ${{ secrets.DATABASE_AUTH_TOKEN }}
 
-      - name: 📂 Upload dist folder
+      - name: 📂 Upload dist folder via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftp
           local-dir: ./dist/
           server-dir: ./public_html/
+          timeout: 60000              # Tiempo de espera aumentado (60 segundos)
+          passive: true               # ⚠️ Forzar modo PASV
+          retries: 2                  # Intenta 2 veces si falla
+          exclude: |
+            **/.git*
+            **/.DS_Store
+            **/node_modules
+            **/README.md
