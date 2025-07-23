@@ -35,7 +35,7 @@ const t_catalog = (key: string) => getValueFromKey(key, i18n_catalog);
     class="flex justify-center items-center flex-col h-[500px] my-9 gap-5 pointer-events-none relative z-20 mx-auto"
   >
     <div class="flex flex-col items-center gap-4 mx-auto">
-      <h1 class="text-5xl font-bold text-center">
+      <h1 class="text-5xl font-bold text-center" id="catalogTitle" data-lang={currentLocale}>
         {t_catalog("title")}
       </h1>
 
@@ -126,6 +126,9 @@ const t_catalog = (key: string) => getValueFromKey(key, i18n_catalog);
   referrerpolicy="no-referrer"></script>
 
 <script is:inline>
+  const catalogTitle = document.getElementById("catalogTitle");
+  const currentLocale = (catalogTitle.getAttribute("data-lang") || "es") === "es" ? "ESPAÑOL" : "PORTUGUES";
+
   document
     .getElementById("downloadCatalog")
     .addEventListener("click", convertir);
@@ -195,7 +198,7 @@ const t_catalog = (key: string) => getValueFromKey(key, i18n_catalog);
     const month = date.getMonth() + 1;
     const year = date.getFullYear();
 
-    link.download = `Catalogo Interbras ${day}-${month}-${year}.pdf`;
+    link.download = `Catalogo Interbras - ${currentLocale} - ${day}-${month}-${year}.pdf`;
 
     link.click();
 
