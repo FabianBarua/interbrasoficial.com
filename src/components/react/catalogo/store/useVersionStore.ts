@@ -31,9 +31,9 @@ interface VersionActions {
 }
 
 export const useVersionStore = create<VersionState & VersionActions>((set) => ({
-  currentVersion: ALL_VERSIONS.V1,
+  currentVersion: ALL_VERSIONS.V2_2,
   updateVersion: (version: Version) => set({ currentVersion: version }),
-  resetVersion: () => set({ currentVersion: ALL_VERSIONS.V1 })
+  resetVersion: () => set({ currentVersion: ALL_VERSIONS.V2_2 })
 }));
 
 
