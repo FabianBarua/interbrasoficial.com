@@ -83,6 +83,7 @@ export const CatalogoSection = ({ currentLocale }: { currentLocale: string }) =>
                   t_catalog={tCat}
                   showPrices={showPrices}
                   onToggle={(code) => toggleProduct(key, code)}
+                  currentLocale={currentLocale}
                 />
               ))}
             </>
@@ -100,6 +101,7 @@ export const CatalogoSection = ({ currentLocale }: { currentLocale: string }) =>
                   t_catalog={tCat}
                   showPrices={showPrices}
                   onToggle={(code) => toggleProduct(key, code)}
+                  currentLocale={currentLocale}
                 />
               ))}
             </>

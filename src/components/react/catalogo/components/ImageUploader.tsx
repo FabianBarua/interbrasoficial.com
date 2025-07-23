@@ -1,11 +1,29 @@
+import { useEffect } from "react";
 import { useImageUpload } from "../hooks/useImageUpload";
 
 interface ImageUploaderProps {
   className?: string;
+  categoryKey: string;
+  currentLocale?: string; // Agregado para compatibilidad con CategorySection
 }
 
-export const ImageUploader = ({ className = "" }: ImageUploaderProps) => {
-  const { customImage, inputRef, handleImageAction, handleChange } = useImageUpload();
+export const ImageUploader = ({ className = "", categoryKey, currentLocale }: ImageUploaderProps) => {
+  const { customImage, inputRef, handleImageAction, handleChange, setCustomImage } = useImageUpload({
+    categoryKey,
+    currentLocale
+  });
+  const key = `${categoryKey}_${currentLocale}`;
+  
+  useEffect(()=>{
+    
+    const storedImage = localStorage.getItem(key);
+    if (storedImage) {
+      setCustomImage(storedImage);
+    }
+
+  }, [])
+
+
 
   return (
     <div className={`w-full flex flex-col items-center justify-center ${className}`}>

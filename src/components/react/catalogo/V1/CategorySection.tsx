@@ -10,6 +10,7 @@ interface Props {
   t_catalog: (key: string) => string;
   showPrices: boolean;
   onToggle: (code: string) => void;
+  currentLocale: string; // Agregado para compatibilidad con ImageUploader
 }
 
 export const CategorySection = ({
@@ -20,6 +21,7 @@ export const CategorySection = ({
   t_catalog,
   showPrices,
   onToggle,
+  currentLocale
 }: Props) => {
 
   return (
@@ -65,7 +67,10 @@ export const CategorySection = ({
           />
         )}
       </section>
-      <ImageUploader/>
+      <ImageUploader
+        categoryKey={categoryKey}
+        currentLocale={currentLocale}
+      />
     </>
   );
 };

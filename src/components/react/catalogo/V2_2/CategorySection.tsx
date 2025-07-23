@@ -14,6 +14,7 @@ interface Props {
   t_catalog: (key: string) => string;
   showPrices: boolean;
   onToggle: (code: string) => void;
+  currentLocale: string;
 }
 
 export const CategorySection = ({
@@ -24,6 +25,7 @@ export const CategorySection = ({
   t_catalog,
   showPrices,
   onToggle,
+  currentLocale
 }: Props) => {
   const IconComponent = ComponentsIcons[categoryKey as ComponentsIconsKey];
   const iconUrl = useV2Store((state) => state.iconUrl);
@@ -76,7 +78,10 @@ export const CategorySection = ({
       )}
 
     </section>
-    <ImageUploader />
+    <ImageUploader
+      categoryKey={categoryKey}
+      currentLocale={currentLocale}
+    />
     </>
   );
 };

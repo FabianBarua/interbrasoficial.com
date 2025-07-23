@@ -6,9 +6,13 @@ interface UseImageUploadReturn {
   handleImageAction: () => void;
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   clearImage: () => void;
+  setCustomImage: React.Dispatch<React.SetStateAction<string | null>>;
 }
 
-export const useImageUpload = (): UseImageUploadReturn => {
+export const useImageUpload = ({
+  categoryKey,
+  currentLocale
+}: { categoryKey: string; currentLocale: string }): UseImageUploadReturn => {
   const [customImage, setCustomImage] = useState<string | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -16,6 +20,7 @@ export const useImageUpload = (): UseImageUploadReturn => {
     if (customImage) {
       // Si ya hay una imagen, la borramos
       setCustomImage(null);
+      localStorage.removeItem(`${categoryKey}_${currentLocale}`);
     } else {
       // Si no hay imagen, abrimos el selector de archivos
       if (inputRef.current) {
@@ -42,6 +47,7 @@ export const useImageUpload = (): UseImageUploadReturn => {
       const reader = new FileReader();
       reader.onloadend = () => {
         setCustomImage(reader.result as string);
+        localStorage.setItem(`${categoryKey}_${currentLocale}`, reader.result as string);
       };
       reader.readAsDataURL(file);
     }
@@ -51,6 +57,7 @@ export const useImageUpload = (): UseImageUploadReturn => {
 
   const clearImage = useCallback(() => {
     setCustomImage(null);
+    localStorage.removeItem(`${categoryKey}_${currentLocale}`);
   }, []);
 
   return {
@@ -58,6 +65,7 @@ export const useImageUpload = (): UseImageUploadReturn => {
     inputRef,
     handleImageAction,
     handleChange,
-    clearImage
+    clearImage,
+    setCustomImage
   };
 };
