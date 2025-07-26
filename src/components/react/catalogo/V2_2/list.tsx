@@ -7,7 +7,7 @@ const formatPriceUSD = (price: Number) => {
 
 const NormalPriceViewComponent = (price: number) => {
     return (
-        <h3 className="text-xl bg-interbrasGreen-500 text-white px-3 py-1 rounded-tr-xl rounded-bl-xl h-min text-nowrap">
+        <h3 className="text-xl bg-interbrasGreen-500 text-white px-3 py-1 rounded-tr-xl rounded-bl-xl h-min text-nowrap" contentEditable>
             USD {formatPriceUSD(price)}
         </h3>
     );
@@ -26,17 +26,17 @@ const FixedPromoPriceViewComponent = ({
 
   return (
     <div className="flex flex-col items-start">
-      <h3 className="text-base text-gray-500  text-center mx-auto ">
-        de: <span className=" line-through">{formatPriceUSD(price)}</span> a:
+      <h3 className="text-base text-gray-500  text-center mx-auto " contentEditable>
+        de: <span className=" line-through" contentEditable>{formatPriceUSD(price)}</span> a:
       </h3>
-      <h3 className="text-sm  text-red-500 bg-red-100 border border-red-700 px-4 py-0 rounded-lg shadow-md">
-        <span className=" ">
+      <h3 className="text-sm  text-red-500 bg-red-100 border border-red-700 px-4 py-0 rounded-lg shadow-md" contentEditable>
+        <span className=" " contentEditable>
             USD
         </span> 
-        <span className=" text-3xl mx-[2px] font-bold">
+        <span className=" text-3xl mx-[2px] font-bold" contentEditable>
             {formatPriceUSD(fixedPrice).split(",")[0]}
         </span>
-        <span className="">
+        <span className="" contentEditable>
             ,{formatPriceUSD(fixedPrice).split(",")[1]}
         </span>
       </h3>
@@ -132,7 +132,7 @@ export const DefaultList = ({
                       alt=""
                     />
                     <div className="flex-1">
-                      <h3 className="text-xl font-medium">
+                      <h3 className="text-xl font-medium" contentEditable>
                         {t_catalog("specs")}
                       </h3>
                       <ul className="">
@@ -141,7 +141,7 @@ export const DefaultList = ({
                           .slice(0, 7)
                           .map((spec: string, i: number) => {
                             return (
-                              <li className="text-sm" key={i}>
+                              <li className="text-sm" key={i} contentEditable>
                                 {spec}
                               </li>
                             );
@@ -157,22 +157,22 @@ export const DefaultList = ({
               <div className="flex  mt-4 px-2 gap-3 ">
 
                 <div className=" flex flex-col justify-center  pr-4">
-                  <h3 className="text-2xl  max-w-sm font-medium line-clamp-3 leading-6">
-                   {product.volt && <span className=" font-bold">{product.volt + " - "}</span>}{product.originalName}
+                  <h3 className="text-2xl  max-w-sm font-medium line-clamp-3 leading-6" contentEditable>
+                   {product.volt && <span className=" font-bold" contentEditable>{product.volt + " - "}</span>}{product.originalName}
                   </h3>
                   <div className=" flex mt-2 gap-1 font-light text-nowrap flex-wrap">
-                    <span className=" px-2 bg-interbrasGreen-100 rounded-lg text-interbrasGreen-600 line-clamp">
+                    <span className=" px-2 bg-interbrasGreen-100 rounded-lg text-interbrasGreen-600 line-clamp" contentEditable>
                       Ref: {product.code}
                     </span>
 
-                    <span className=" px-2 bg-interbrasGreen-100 rounded-lg text-interbrasGreen-600 line-clamp-1">
+                    <span className=" px-2 bg-interbrasGreen-100 rounded-lg text-interbrasGreen-600 line-clamp-1" contentEditable>
                       {product.productPerBox} {t_catalog("perBox")}
                     </span>
                   </div>
 
                   {product.info.included && (
-                    <h4 className=" leading-5">
-                      <strong>{t_catalog("included")}:</strong>
+                    <h4 className=" leading-5" contentEditable>
+                      <strong contentEditable>{t_catalog("included")}:</strong>
                       {product.info.included}
                     </h4>
                   )}
@@ -261,10 +261,10 @@ const TricicloCard = ({
         alt=""
         className=" h-32 object-contain relative z-10"
       />
-      <p className=" text-center leading-5 text-nowrap bg-interbrasGreen-100 text-interbrasGreen-600 rounded-xl px-2 py-1">
+      <p className=" text-center leading-5 text-nowrap bg-interbrasGreen-100 text-interbrasGreen-600 rounded-xl px-2 py-1" contentEditable>
         {product.originalName}
       </p>
-      <span className=" absolute px-2  top-2 right-2 bg-gray-100 text-gray-400 rounded-md z-0">
+      <span className=" absolute px-2  top-2 right-2 bg-gray-100 text-gray-400 rounded-md z-0" contentEditable>
         {product.sizes.join(" / ")}
       </span>
     </li>
@@ -300,56 +300,12 @@ export const TriciclosList = ({
   });
 
   return (
-    <>
-      <div className="flex-1 bg-white text-black m-4 rounded-[40px] p-3 gap-2">
-        <ul className="flex flex-wrap justify-center gap-2">
-          {Joined.map((product) => (
-            <TricicloCard
-              key={product.code}
-              product={product}
-              onToggle={onToggle}
-            />
-          ))}
-          <li className="w-full p-2 flex justify-center  gap-5 bgr">
-            <div className=" flex items-end flex-col w-fit  ">
-              <h3 className="text-xl font-medium">Triciclos</h3>
-              <p className="w-72 my-2 text-gray-500 leading-5 text-right">
-                Los enumerados con 6.5 y 8 corresponden a los precios de abajo
-              </p>
-              <div className="flex flex-col gap-1 justify-end items-end">
-                {showPrices &&
-                  Prices.map((p) => (
-                    <div
-                      className="flex gap-2 bg-interbrasGreen-200 pl-2 rounded-lg"
-                      key={p.size}
-                    >
-                      <h4 className="text-lg">
-                        USD {formatPriceUSD(Number(p.price))}
-                      </h4>
-                      <h4 className="text-lg bg-interbrasGreen-500 text-white rounded-lg w-12 flex justify-center items-center">
-                        {p.size}''
-                      </h4>
-                    </div>
-                  ))}
-              </div>
-            </div>
-            <div className="h-full border"></div>
-            <div className="w-fit">
-              <h3 className="text-xl font-medium">{t_catalog("specs")}</h3>
-              <ul className="max-w-md">
-                {products[0].info.specs
-                  ?.split("\n")
-                  .slice(0, 7)
-                  .map((spec: string, i: number) => (
-                    <li className="text-sm text-wrap" key={i}>
-                      {spec}
-                    </li>
-                  ))}
-              </ul>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </>
+    <ul className="grid grid-cols-2 gap-4">
+      {Joined.map((product) => {
+        return (
+          <TricicloCard key={product.code} product={product} onToggle={onToggle} />
+        );
+      })}
+    </ul>
   );
 };
