@@ -75,6 +75,16 @@ const t_catalog = (key: string) => getValueFromKey(key, i18n_catalog);
       </svg>
     </button>
 
+    <button
+      class="bg-blue-500 hover:bg-blue-600 text-white px-5 py-2 rounded-xl text-xl flex gap-3 pointer-events-auto"
+      id="downloadA4"
+    >
+      Exportar como A4
+      <svg class="w-auto h-6 my-auto fill-white" viewBox="0 0 24 24">
+        <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+      </svg>
+    </button>
+
   </div>
 
   <div class="flex-1 justify-center items-start pr-20 flex-col hidden lg:flex">
@@ -99,7 +109,7 @@ const t_catalog = (key: string) => getValueFromKey(key, i18n_catalog);
   >
   </div>
   <div class="">
-    <p class="text-3xl font-bold text-white">Generando PDF...</p>
+    <p class="text-3xl font-bold text-white">Procesando...</p>
     <div
       class="flex text-2xl text-white font-bold bg-interbrasGreen-500 w-min px-3 py-1 rounded-xl mt-2"
     >
@@ -253,6 +263,129 @@ const t_catalog = (key: string) => getValueFromKey(key, i18n_catalog);
     a.href = url;
     a.download = `Catalogo_Interbras_Imagenes_${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}.zip`;
     a.click();
+
+    loader.classList.add("hidden");
+  }
+</script>
+
+<script is:inline>
+  document
+    .getElementById("downloadA4")
+    .addEventListener("click", exportarComoA4);
+
+  async function exportarComoA4() {
+    const catalogSections = document.querySelectorAll("#catalogSection");
+    const loader = document.getElementById("loader");
+    const currentPage = document.getElementById("currentPage");
+    const totalPages = document.getElementById("totalPages");
+
+    if (!catalogSections.length) {
+      alert("No se ha encontrado el catálogo.");
+      return;
+    }
+
+    loader.classList.remove("hidden");
+    const hiddenItems = document.querySelectorAll('[data-hide="true"]');
+    const eyeIcons = document.querySelectorAll('[data-eye]');
+    hiddenItems.forEach((el) => (el.style.display = 'none'));
+    eyeIcons.forEach((el) => (el.style.display = 'none'));
+
+    // Configuraciones A4 en píxeles (300 DPI)
+    const A4_WIDTH = 2480;
+    const A4_HEIGHT = 3508;
+    const MARGIN = 80;
+    const AVAILABLE_WIDTH = A4_WIDTH - (MARGIN * 2);
+    const AVAILABLE_HEIGHT = A4_HEIGHT - (MARGIN * 2);
+    
+    // Ancho fijo para todas las imágenes (90% del ancho disponible)
+    const FIXED_WIDTH = AVAILABLE_WIDTH * 0.9;
+
+    const { PDFDocument } = PDFLib;
+    const pdfDoc = await PDFDocument.create();
+
+    // Preparar todas las imágenes primero para calcular alturas
+    const imageData = [];
+    let processedImages = 0;
+
+    for (const section of catalogSections) {
+      const dataUrl = await htmlToImage.toPng(section, { pixelRatio: 2 });
+      const img = new Image();
+      img.src = dataUrl;
+
+      await new Promise((resolve) => {
+        img.onload = function () {
+          processedImages++;
+          currentPage.textContent = processedImages;
+          
+          const aspectRatio = img.width / img.height;
+          // Calcular altura basada en el ancho fijo
+          const calculatedHeight = FIXED_WIDTH / aspectRatio;
+          
+          imageData.push({
+            dataUrl,
+            originalWidth: img.width,
+            originalHeight: img.height,
+            aspectRatio,
+            scaledWidth: FIXED_WIDTH,
+            scaledHeight: calculatedHeight
+          });
+          
+          resolve();
+        };
+      });
+    }
+
+    // Organizar imágenes en páginas A4
+    let currentA4Page = null;
+    let currentY = MARGIN;
+
+    for (let i = 0; i < imageData.length; i++) {
+      const image = imageData[i];
+      const imageHeight = image.scaledHeight;
+      const spacing = 40; // Espacio entre imágenes
+
+      // Verificar si la imagen cabe en la página actual
+      if (!currentA4Page || currentY + imageHeight + spacing > A4_HEIGHT - MARGIN) {
+        // Crear nueva página
+        currentA4Page = pdfDoc.addPage([A4_WIDTH, A4_HEIGHT]);
+        currentY = MARGIN;
+      }
+
+      // Agregar imagen centrada horizontalmente
+      const pngImageBytes = await fetch(image.dataUrl).then(res => res.arrayBuffer());
+      const pngImage = await pdfDoc.embedPng(pngImageBytes);
+      
+      const x = (A4_WIDTH - FIXED_WIDTH) / 2; // Centrar horizontalmente
+      
+      currentA4Page.drawImage(pngImage, {
+        x: x,
+        y: A4_HEIGHT - currentY - imageHeight, // PDF coordenadas desde abajo
+        width: FIXED_WIDTH,
+        height: imageHeight,
+      });
+
+      currentY += imageHeight + spacing;
+    }
+
+    totalPages.textContent = pdfDoc.getPageCount();
+
+    hiddenItems.forEach((el) => (el.style.display = ''));
+    eyeIcons.forEach((el) => (el.style.display = ''));
+
+    const pdfBytes = await pdfDoc.save();
+    const blob = new Blob([pdfBytes], { type: "application/pdf" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+
+    const date = new Date();
+    const day = date.getDate();
+    const month = date.getMonth() + 1;
+    const year = date.getFullYear();
+    const catalogTitle = document.getElementById("catalogTitle");
+    const currentLocale = (catalogTitle.getAttribute("data-lang") || "es") === "es" ? "ESPAÑOL" : "PORTUGUES";
+
+    link.download = `Catalogo_Interbras_A4_${currentLocale}_${day}-${month}-${year}.pdf`;
+    link.click();
 
     loader.classList.add("hidden");
   }
