@@ -2,6 +2,7 @@ import { Filters } from "./Filters";
 import { CoverSelector } from "./CoverSelector";
 import { CategorySection as CategorySectionV1 } from "./V1/CategorySection";
 import { CategorySection as CategorySectionV2_2 } from "./V2_2/CategorySection";
+import { CategorySection as CategorySectionSaltoHack } from "./SaltoHack/CategorySection";
 
 import { CoverImage } from "./CoverImage";
 import { LoadingScreen } from "./LoadingScreen";
@@ -93,6 +94,24 @@ export const CatalogoSection = ({ currentLocale }: { currentLocale: string }) =>
             currentVersion.id === ALL_VERSIONS.V2_2.id && <>
               {Object.entries(selectedProducts).map(([key, cat]) => (
                 <CategorySectionV2_2
+                  key={key}
+                  categoryKey={key}
+                  categoryName={cat.categoryName}
+                  categoryDescription={cat.categoryDescription}
+                  products={cat.products}
+                  t_catalog={tCat}
+                  showPrices={showPrices}
+                  onToggle={(code) => toggleProduct(key, code)}
+                  currentLocale={currentLocale}
+                />
+              ))}
+            </>
+          }
+
+          {
+            currentVersion.id === ALL_VERSIONS.SaltoHack.id && <>
+              {Object.entries(selectedProducts).map(([key, cat]) => (
+                <CategorySectionSaltoHack
                   key={key}
                   categoryKey={key}
                   categoryName={cat.categoryName}
