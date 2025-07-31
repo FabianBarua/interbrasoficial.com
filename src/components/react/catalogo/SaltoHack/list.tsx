@@ -6,8 +6,8 @@ const formatPriceUSD = (price: Number) => {
 
 const NormalPriceViewComponent = (price: number) => {
     return (
-        <h3 className="text-lg bg-purple-700 text-white px-3 py-1 rounded-lg h-min text-nowrap border border-purple-600 font-mono" contentEditable>
-            <span className="text-cyan-300">$</span> {formatPriceUSD(price)}
+        <h3 className="text-lg bg-[#01ad00] text-white px-3 py-1 rounded-sm h-min text-nowrap border border-purple-400/30 font-mono" contentEditable>
+          <span className="text-white">$</span> {formatPriceUSD(price)}
         </h3>
     );
 }
@@ -22,21 +22,38 @@ const FixedPromoPriceViewComponent = ({
   if (!promotion?.data?.active || !promotion.data.data.fixedPrice) return null;
 
   const fixedPrice = promotion.data.data.fixedPrice;
+  const percentageOff = Math.round(
+    ((price - fixedPrice) / price) * 100
+  )
 
   return (
     <div className="flex flex-col items-start">
-      <h3 className="text-sm text-purple-300 text-center mx-auto font-mono" contentEditable>
-        <span className="line-through text-gray-400" contentEditable>{formatPriceUSD(price)}</span>
+      <h3 className="text- text-purple-300 text-center mx-auto font-mono" contentEditable>
+        <span className="line-through text-gray-400" style={{
+          textDecorationThickness: "0.5px",
+        }} contentEditable>{formatPriceUSD(price)}</span>
       </h3>
-      <h3 className="text-sm text-white bg-gradient-to-r from-purple-700 to-violet-800 border border-purple-400/30 px-3 py-1 rounded-lg font-mono" contentEditable>
-        <span className="text-cyan-300">$</span> 
-        <span className="text-2xl mx-1 font-medium text-white" contentEditable>
+      
+      <div> 
+
+        <h3 className="text-sm  tracking-[-1px] text-white text-nowrap bg-gradient-to-r from-purple-700 to-violet-800 border border-purple-400/30 px-3 py-1 rounded-sm font-mono" contentEditable>
+        <span className="text-[#01ad00]">$</span>
+        <span className="text-3xl mx-1 font-medium text-white" contentEditable>
             {formatPriceUSD(fixedPrice).split(",")[0]}
         </span>
         <span className="text-white" contentEditable>
             ,{formatPriceUSD(fixedPrice).split(",")[1]}
         </span>
       </h3>
+      <div className=" w-full  px-2 flex justify-center items-center py-1 bg-purple-950 rounded-b-2xl border border-t-2 border-purple-900">
+        <h4 className=" text-nowrap">
+            {
+              percentageOff
+            } % OFF
+        </h4>
+        </div>
+
+      </div>
     </div>
   );
 };
@@ -60,8 +77,8 @@ export const DefaultList = ({
   return (
     <ul
       className={`
-            flex-1 bg-gradient-to-br from-gray-900 to-purple-900 text-white rounded-3xl grid grid-cols-2 p-3 gap-3 relative border border-purple-500/20
-            [&>*:nth-child(1)]:rounded-tl-3xl [&>*:nth-child(2)]:rounded-tr-3xl
+            flex-1  text-white rounded-sm grid grid-cols-2 gap-3 relative 
+            [&>*:nth-child(1)]:rounded-sm-tl-3xl [&>*:nth-child(2)]:rounded-sm
             `}
     >
       {products
@@ -81,15 +98,25 @@ export const DefaultList = ({
             <li
               key={product.productCode + "-" + product.code}
               data-hide={!product.show}
-              className={`bg-gray-800/60 p-4 relative justify-between flex flex-1 flex-col rounded-2xl border border-purple-500/20 backdrop-blur-sm ${
+              className={`bg-gray-800/60 p-5 relative justify-between flex flex-1 flex-col rounded-sm border border-purple-500/20 backdrop-blur-sm ${
                 !product.show ? "opacity-50" : ""
               }`}
             >
+
+              {
+                product.volt === "110V"  && <>
+                  <img 
+                  className=" size-8 object-contain mx-auto absolute top-5 right-5 z-10"
+                  src={'/brazilFLAG.png'}
+                  alt={'brazil flag'}
+                />
+                </>
+              }
               
               <button
                 data-eye
                 type="button"
-                className="absolute top-3 right-3 z-10 bg-purple-700 hover:bg-purple-600 p-1 size-6 rounded-md text-white transition-colors duration-200 border border-purple-500/30"
+                className="absolute top-3 right-3 z-10 bg-purple-700 hover:bg-purple-600 p-1 size-6 rounded-sm text-white transition-colors duration-200 border border-purple-500/30"
                 onClick={() => onToggle(product.code)}
               >
                 {product.show ? (
@@ -128,22 +155,24 @@ export const DefaultList = ({
               <div className="flex gap-4">
                 {product.registered && (
                   <>
+                  
                     <img
-                      className="w-48 h-40 rounded-2xl p-2 object-contain mx-auto border border-purple-400/20 bg-gray-800/30"
+                      className="w-40 h-40 bg-white rounded-2xl p-4 object-contain mx-auto "
                       src={product.photo || ""}
                       alt=""
                     />
+
                     <div className="flex-1">
-                      <h3 className="text-lg font-medium text-cyan-300 font-mono" contentEditable>
-                        specs
+                      <h3 className="text-lg font-medium text-[#01ad00] font-mono" contentEditable>
+                        Specs
                       </h3>
-                      <ul className="font-mono text-sm space-y-1">
+                      <ul className="font-mono text-xs">
                         {product.info.specs
                           ?.split("\n")
                           .slice(0, 6)
                           .map((spec: string, i: number) => {
                             return (
-                              <li className="text-purple-200" key={i} contentEditable>
+                              <li className="text-white leading-5 " key={i} contentEditable>
                                 <span className="text-green-400 mr-1">•</span>{spec}
                               </li>
                             );
@@ -154,27 +183,29 @@ export const DefaultList = ({
                 )}
               </div>
 
-              <div className="flex mt-3 px-2 gap-3">
+              <div className="flex gap-3">
                 <div className="flex flex-col justify-center pr-4">
                   <h3 className="text-xl max-w-sm font-medium line-clamp-3 leading-6 text-white font-mono" contentEditable>
-                   {product.volt && <span className="font-medium text-cyan-400" contentEditable>
+                   {product.volt && <span className="font-medium text-[#01ad00]" contentEditable>
                      [{(product.volt === "110V" && category === "aires" ? "220V" : product.volt)}]{" "}
                    </span>}
                    {product.originalName}
                   </h3>
                   <div className="flex mt-2 gap-2 font-light text-nowrap flex-wrap font-mono text-sm">
-                    <span className="px-2 py-1 bg-purple-700/50 rounded-md text-white border border-purple-500/30" contentEditable>
-                      {product.code}
+                    <span className="px-2 py-1 bg-purple-700/50 rounded-sm text-white border border-purple-500/30" contentEditable>
+                      REF:{product.code}
                     </span>
 
-                    <span className="px-2 py-1 bg-purple-700/50 rounded-md text-white border border-purple-500/30 line-clamp-1" contentEditable>
-                      {product.productPerBox} {t_catalog("perBox")}
+                    <span className="px-2 py-1 bg-purple-700/50 rounded-sm text-white border border-purple-500/30 line-clamp-1" contentEditable>
+                      {product.productPerBox} {
+                        product.productPerBox === 1 ? t_catalog("product") : t_catalog("products")
+                      } {t_catalog("perBox")}
                     </span>
                   </div>
 
                   {product.info.included && (
                     <h4 className="leading-5 text-purple-200 font-mono text-sm mt-1" contentEditable>
-                      <strong className="text-cyan-300" contentEditable>
+                      <strong className="text-[#01ad00]" contentEditable>
                         incl:
                       </strong>
                       <span className="text-white"> {product.info.included}</span>
@@ -210,7 +241,7 @@ const TricicloCard = ({
 }) => {
   return (
     <li
-      className={`h-44 w-[165px] p-3 flex justify-between relative flex-col bg-gray-800/70 rounded-xl border border-purple-500/20 ${
+      className={`h-44 w-[165px] p-3 flex justify-between relative flex-col bg-gray-800/70 rounded-sm border border-purple-500/20 ${
         !product.show ? "opacity-50" : ""
       }`}
       data-hide={!product.show}
@@ -218,7 +249,7 @@ const TricicloCard = ({
       <button
         data-eye
         type="button"
-        className="absolute top-2 right-2 z-10 bg-purple-700 hover:bg-purple-600 p-1 rounded-md text-white transition-colors duration-200 border border-purple-500/30"
+        className="absolute top-2 right-2 z-10 bg-purple-700 hover:bg-purple-600 p-1 rounded-sm text-white transition-colors duration-200 border border-purple-500/30"
         onClick={() => onToggle(product.code)}
       >
         {product.show ? (
@@ -263,10 +294,10 @@ const TricicloCard = ({
         alt=""
         className="h-32 object-contain relative z-10"
       />
-      <p className="text-center leading-5 text-nowrap bg-purple-700/50 text-white rounded-lg px-2 py-1 border border-purple-500/30 font-mono text-sm" contentEditable>
+      <p className="text-center leading-5 text-nowrap bg-purple-700/50 text-white rounded-sm px-2 py-1 border border-purple-500/30 font-mono text-sm" contentEditable>
         {product.originalName}
       </p>
-      <span className="absolute px-2 top-2 right-2 bg-gray-800/80 text-purple-200 rounded-md z-0 border border-purple-500/20 font-mono text-xs" contentEditable>
+      <span className="absolute px-2 top-2 right-2 bg-gray-800/80 text-purple-200 rounded-sm z-0 border border-purple-500/20 font-mono text-xs" contentEditable>
         {product.sizes.join(" / ")}
       </span>
     </li>

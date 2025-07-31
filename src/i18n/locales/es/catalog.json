@@ -12,7 +12,9 @@
     "subtitle" : "Encuentra los mejores productos para tu hogar",
     "download": "Descargar catalogo",
     "included": "Incluye",
-    "perBox": "Productos por caja",
+    "products": "productos",
+    "product": "producto",
+    "perBox": "por caja",
     "setCover": "Agregar portada",
     "updateCover": "Actualizar portada",
     "removeCover": "Quitar portada"

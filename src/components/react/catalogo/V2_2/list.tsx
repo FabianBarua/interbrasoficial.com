@@ -23,13 +23,15 @@ const FixedPromoPriceViewComponent = ({
   if (!promotion?.data?.active || !promotion.data.data.fixedPrice) return null;
 
   const fixedPrice = promotion.data.data.fixedPrice;
-
+  const percentageOff = Math.round(
+    ((price - fixedPrice) / price) * 100
+  );
   return (
-    <div className="flex flex-col items-start">
+    <div className="flex flex-col items-start text-nowrap">
       <h3 className="text-base text-gray-500  text-center mx-auto " contentEditable>
         de: <span className=" line-through" contentEditable>{formatPriceUSD(price)}</span> a:
       </h3>
-      <h3 className="text-sm  text-red-500 bg-red-100 border border-red-700 px-4 py-0 rounded-lg shadow-md" contentEditable>
+      <h3 className="text-sm  text-red-500 bg-red-100 border-t border-x border-red-700 px-4 py-0 rounded-t-lg shadow-md" contentEditable>
         <span className=" " contentEditable>
             USD
         </span> 
@@ -40,6 +42,13 @@ const FixedPromoPriceViewComponent = ({
             ,{formatPriceUSD(fixedPrice).split(",")[1]}
         </span>
       </h3>
+      <div className=" w-full  px-2 flex justify-center items-center py-1 text-white bg-red-500 rounded-b-2xl border-t border-t-white border-b border-x border-red-900">
+        <h4 className=" text-nowrap">
+            {
+              percentageOff
+            } % OFF
+        </h4>
+        </div>
     </div>
   );
 };
@@ -86,6 +95,26 @@ export const DefaultList = ({
                 !product.show ? "opacity-50" : ""
               }`}
             >
+
+              {
+                product.volt === "110V"  && <>
+                  <img 
+                  className=" size-8 object-contain mx-auto absolute top-5 right-5 z-10"
+                  src={'/brazilFLAG.png'}
+                  alt={'brazil flag'}
+                />
+                </>
+              }
+
+              {
+                product.volt === "220V"  && <>
+                  <img 
+                  className=" size-8 object-contain mx-auto absolute top-5 right-5 z-10"
+                  src={'/paraguayFLAG.png'}
+                  alt={'paraguay flag'}
+                />
+                </>
+              }
               
               <button
                 data-eye
@@ -177,6 +206,23 @@ export const DefaultList = ({
                     </h4>
                   )}
                 </div>
+
+                {/* "promotion": {
+                    "type": {
+                        "id": 2,
+                        "name": "fijo",
+                        "description": "coloca el precio al nuevo precio"
+                    },
+                    "data": {
+                        "id": 134,
+                        "catalog_id": 76,
+                        "type_id": 2,
+                        "data": {
+                            "fixedPrice": 28.3
+                        },
+                        "active": true
+                    }
+                }, */}
 
                   <div className=" scale-125  mt-auto ml-auto ">
                       {showPrices && !product?.promotion?.type && NormalPriceViewComponent(Number(product.price))}

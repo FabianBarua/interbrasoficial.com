@@ -414,6 +414,16 @@ const isPageWithoutCache = pagesWithoutCache.includes(pathname);
       transparent 100%
     );
   }
+  
+  .mask-bottom {
+    mask-image: linear-gradient(
+      transparent 0%,
+      black 20%,
+      transparent 100%
+    );
+    mask-position: bottom;
+    mask-size: cover;
+  }
 
   .shadow-custom {
     box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.415);

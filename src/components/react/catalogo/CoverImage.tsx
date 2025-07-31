@@ -4,7 +4,7 @@ interface Props {
 
 export const CoverImage = ({ coverDataUrl }: Props) => (
   <img
-    className="max-w-[1360px] w-full mx-auto rounded-[50px] object-cover"
+    className="max-w-[1360px] w-full mx-auto object-cover"
     src={coverDataUrl}
     alt="Catalog Cover"
     id="catalogSection"

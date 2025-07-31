@@ -2,7 +2,7 @@ import { DefaultList, TriciclosList } from "./list";
 import type { ProductData } from "../types";
 import { ComponentsIcons } from "./icons";
 import { useV2Store } from "../store/v2.store";
-import { ImageUploader } from "../components/ImageUploader";
+import { LetterGlitch } from "./LetterGlitch";
 
 type ComponentsIconsKey = keyof typeof ComponentsIcons;
 
@@ -35,36 +35,49 @@ export const CategorySection = ({
     <>
     <section
       id="catalogSection"
-      className="flex flex-col gap-8 bg-gray-900 p-5 text-white relative overflow-hidden"
+      className="flex flex-col gap-4 bg-gradient-to-br  bg-[#350060] p-5 text-white relative overflow-hidden"
     >
+
+      <LetterGlitch
+        glitchSpeed={50}
+        centerVignette={true}
+        outerVignette={true}
+        smooth={true}
+        glitchColors={["#3b006a", "#44007b", "#00ad004d"]}
+      />
+
       {/* Minimal code background */}
-      <div className="absolute inset-0 opacity-5 font-mono text-xs leading-4 select-none pointer-events-none">
-        <div className="absolute top-10 right-16 text-green-400">
+      <div className="absolute inset-0 opacity-3 font-mono text-xs leading-4 select-none pointer-events-none">
+        <div className="absolute top-[24px] right-16 text-[#01ad00] ">
           {`$ init --catalog`}<br/>
           {`> loading products...`}<br/>
           {`> success`}
         </div>
-        <div className="absolute top-24 right-10 text-purple-400">
+        <div className="absolute top-[80px] right-10  text-purple-400">
           {`// catalog.render()`}<br/>
           {`// version: ${Date.now()}`}
         </div>
       </div>
 
-      <div className="text-left flex relative z-10">
-        <div className="size-16 bg-purple-700 rounded-xl flex justify-center items-center mr-4 fill-white border border-purple-600">
-          {IconComponent && <IconComponent className="size-8 relative z-10" />}
-        </div>
+      <div className="text-left flex relative z-1 justify-between mr-52 border border-purple-900 bg-[#00ad003f] p-2 pl-5 backdrop-blur-sm">
+
         <div className="my-auto">
-          <h2 className="text-xl font-medium font-mono text-white">
-            <span className="text-green-400">{'>'}</span> {categoryName}
+          <h2 className="text-2xl font-medium font-mono text-white">
+            <span className="text-[#01ad00]">{'>'}</span> {categoryName}
           </h2>
-          <p className="max-w-screen-sm leading-5 mt-1 line-clamp-2 text-purple-300 font-mono text-sm">
-            <span className="text-cyan-400">//</span> {categoryDescription}
+          <p className="max-w-screen-sm leading-5 mt-1 line-clamp-2 text-purple-200/55 font-mono font-light text-sm">
+            <span className="">//</span> {categoryDescription}
           </p>
         </div>
+
+        <div className="size-20  bg-gradient-to-br bg-[#44007b]  flex justify-center items-center fill-white border border-purple-500/30 shadow-md relative overflow-hidden">
+          <div className="absolute inset-0 "></div>
+          {IconComponent && <IconComponent className="size-10 relative z-10" />}
+        </div>
+
       </div>
 
-      <div className="flex gap-4 relative z-10">
+      <div className="flex gap-5 relative z-10">
         {categoryKey === "triciclos" ? (
           <TriciclosList
             products={products}
@@ -83,6 +96,11 @@ export const CategorySection = ({
           />
         )}
       </div>
+      <img
+        className="max-w-[1360px] opacity-90 w-full mx-auto object-cover doublemask"
+        src={'/pdf/saltohack.png'}
+        alt="Catalog Icon"
+      />
     </section>
     </>
   );
