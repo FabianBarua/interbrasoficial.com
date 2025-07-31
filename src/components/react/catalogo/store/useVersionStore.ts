@@ -12,6 +12,11 @@ export const ALL_VERSIONS = {
     id: "V2_2",
     name: "V2",
     description: "Versión 2 del catálogo"
+  },
+  SaltoHack: {
+    id: "SaltoHack",
+    name: "SaltoHack",
+    description: "Versión especial para Saltos Liquida Tudo - Temática Hacker"
   }
  }
 
