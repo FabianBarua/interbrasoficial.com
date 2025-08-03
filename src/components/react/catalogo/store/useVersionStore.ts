@@ -17,6 +17,11 @@ export const ALL_VERSIONS = {
     id: "SaltoHack",
     name: "SaltoHack",
     description: "Versión especial para Saltos Liquida Tudo - Temática Hacker"
+  },
+  artes:{
+    id: "artes",
+    name: "Artes",
+    description: "Versión especial para Artes"
   }
  }
 

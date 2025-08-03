@@ -3,6 +3,7 @@ import { CoverSelector } from "./CoverSelector";
 import { CategorySection as CategorySectionV1 } from "./V1/CategorySection";
 import { CategorySection as CategorySectionV2_2 } from "./V2_2/CategorySection";
 import { CategorySection as CategorySectionSaltoHack } from "./SaltoHack/CategorySection";
+import { CategorySection as CategorySectionArtes } from "./artes/CategorySection";
 
 import { CoverImage } from "./CoverImage";
 import { LoadingScreen } from "./LoadingScreen";
@@ -120,6 +121,24 @@ export const CatalogoSection = ({ currentLocale }: { currentLocale: string }) =>
                   t_catalog={tCat}
                   showPrices={showPrices}
                   onToggle={(code) => toggleProduct(key, code)}
+                  currentLocale={currentLocale}
+                />
+              ))}
+            </>
+          }
+
+          {
+            currentVersion.id === ALL_VERSIONS.artes.id && <>
+              {Object.entries(selectedProducts).map(([key, cat]) => (
+                <CategorySectionArtes
+                  key={key}
+                  categoryKey={key}
+                  categoryName={cat.categoryName}
+                  categoryDescription={cat.categoryDescription}
+                  products={cat.products}
+                  t_catalog={tCat}
+                  showPrices={showPrices}
+                  onToggle={(code: string) => toggleProduct(key, code)}
                   currentLocale={currentLocale}
                 />
               ))}
