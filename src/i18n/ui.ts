@@ -7,10 +7,7 @@ export const LANGUAGES: Record<string, { code: string; name: string }> = {
     code: "es",
     name: "Español",
   },
-  en: {
-    code: "en",
-    name: "English",
-  },
+
 };
 
 export const defaultLang = "es";
@@ -29,12 +26,6 @@ export const ui = {
     downloads: "Downloads",
     whoWeAre: "Quem somos",
   },
-  en: {
-    "nav.whereWeAre": "Where we are",
-    "nav.products": "Products",
-    downloads: "Downloads",
-    whoWeAre: "Who we are",
-  },
 } as const;
 
 export const routes = {
@@ -45,9 +36,5 @@ export const routes = {
   pt: {
     downloads: "/downloads",
     products: "/produtos",
-  },
-  en: {
-    downloads: "/downloads",
-    products: "/products",
   },
 };
