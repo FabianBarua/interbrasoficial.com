@@ -98,6 +98,28 @@
           "specs": "Motor: 350W\nBatería: 36V/10.4Ah, \nVelocidad: Estable y eficiente\nRecuperación de energía: Sistema cinético\nFrenos: E-ABS, sistema de frenos electrónicos\nConectividad: Control mediante aplicación móvil\nDiseño plegable: Almacenamiento rápido y sencillo\nSuspensión avanzada: Mayor confort y seguridad\nIluminación LED: Seguridad nocturna mejorada"
         }
       },
+      "10promax": {
+        "id": "10.5promax",
+        "name": "Scooter 10.5 PRO MAX",
+        "popular": true,
+        "info": {
+          "review": "El X-Scooter 10.5 Pro Max es un scooter eléctrico de alto rendimiento diseñado para la movilidad urbana. Equipado con un motor de 350W y una batería de 36V / 10.4Ah, ofrece una conducción potente y estable. Cuenta con sistema de recuperación de energía, frenado electrónico E-ABS y protección avanzada de celdas para mayor seguridad. Su conectividad con app móvil permite un control total del scooter, mientras que su diseño plegable y llantas de 10.5 pulgadas brindan comodidad y portabilidad. Ideal para quienes buscan tecnología, eficiencia y estilo en sus trayectos diarios.",
+          "specs": "Motor: 350W\nBatería: 36V / 10.4Ah\nVelocidad Estable: Sistema optimizado para mantener velocidad constante\nSistema de Frenado: E-ABS (freno electrónico antibloqueo)\nRecuperación de Energía: Sistema de regeneración al frenar\nSeguridad de Celdas: Batería con protección avanzada de celdas\nConectividad: Compatible con App móvil para control y monitoreo\nFunciones Adicionales:\n- Activación de intermitentes desde el puño derecho\n- Diseño plegable\n- Ruedas de 10.5 pulgadas"
+        },
+        "variants": [
+          {
+            "id": "10.5promax",
+            "name": "10.5 PRO MAX",
+            "color": "colors.black",
+            "photos": [
+              "/productos/scooters/10.5pro-max-v1-1.webp",
+              "/productos/scooters/10.5pro-max-v1-2.webp",
+              "/productos/scooters/10.5pro-max-v1-3.webp",
+              "/productos/scooters/10.5pro-max-v1-4.webp"
+            ]
+          }
+        ]
+      },
       "cross": {
         "id": "cross",
         "name": "Scooter Cross",

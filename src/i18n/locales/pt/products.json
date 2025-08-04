@@ -98,6 +98,28 @@
           "specs": "Motor: 350W\nBateria: 36V/10.4Ah, \nVelocidade: Estável e eficiente\nRecuperação de energia: Sistema cinético\nFreios: E-ABS, sistema de freios eletrônicos\nConectividade: Controle por aplicativo móvel\nDesign dobrável: Armazenamento rápido e fácil\nSuspensão avançada: Maior conforto e segurança\nIluminação LED: Segurança noturna melhorada"
         }
       },
+      "10promax": {
+        "id": "10.5promax",
+        "name": "Patinete Eletrico 10.5 PRO MAX",
+        "popular": true,
+        "info": {
+          "review": "O X-Patinete Eletrico 10.5 Pro Max é um patinete elétrico de alto desempenho projetado para a mobilidade urbana. Equipado com um motor de 350W e uma bateria de 36V / 10.4Ah, oferece uma condução potente e estável. Conta com sistema de recuperação de energia, frenagem eletrônica E-ABS e proteção avançada de células para maior segurança. Sua conectividade com app móvel permite um controle total do patinete, enquanto seu design dobrável e rodas de 10.5 polegadas proporcionam conforto e portabilidade. Ideal para aqueles que buscam tecnologia, eficiência e estilo em seus trajetos diários.",
+          "specs": "Motor: 350W\nBateria: 36V / 10.4Ah\nVelocidade Estável: Sistema otimizado para manter velocidade constante\nSistema de Frenagem: E-ABS (freio eletrônico antibloqueio)\nRecuperação de Energia: Sistema de regeneração ao frear\nSegurança de Células: Bateria com proteção avançada de células\nConectividade: Compatível com App móvel para controle e monitoramento\nFunções Adicionais:\n- Ativação de intermitentes a partir do punho direito\n- Design dobrável\n- Rodas de 10.5 polegadas"
+        },
+        "variants": [
+          {
+            "id": "10.5promax",
+            "name": "10.5 PRO MAX",
+            "color": "colors.black",
+            "photos": [
+              "/productos/scooters/10.5pro-max-v1-1.webp",
+              "/productos/scooters/10.5pro-max-v1-2.webp",
+              "/productos/scooters/10.5pro-max-v1-3.webp",
+              "/productos/scooters/10.5pro-max-v1-4.webp"
+            ]
+          }
+        ]
+      },
       "cross": {
         "id": "cross",
         "name": "Patinete Eletrico Cross",
