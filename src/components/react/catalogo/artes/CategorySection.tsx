@@ -71,7 +71,7 @@ export const CategorySection = ({
             </div>
           </div>
 
-          <div className=" absolute  top-[630px] right-[140px] text-5xl text-center z-40">
+          <div className=" absolute  top-[670px] right-[135px] text-5xl text-center z-40">
             <span className=" text-[25px] font-bold tracking-[3px]">Aproveite com</span>
             <p className=" relative ">
                <span className=" text-[150px] font-black tracking-tighter leading-[110px]">
@@ -85,7 +85,7 @@ export const CategorySection = ({
             </p>
           </div>
 
-          <div className=" absolute  top-[795px] left-[925px] text-5xl  z-40">
+          {/* <div className=" absolute  top-[795px] left-[925px] text-5xl  z-40">
             <span className=" text-[25px] font-bold tracking-[1px]">De ${
                 showPrices ? formatPriceUSD(Number(product.price)) : "??,??"
               }</span>
@@ -94,7 +94,7 @@ export const CategorySection = ({
                 showPrices ? formatPriceUSD(Number(product.promotion?.data?.data.fixedPrice)) : "??,??"
               }
             </p>
-          </div>
+          </div> */}
           
 {/* 
           <img
