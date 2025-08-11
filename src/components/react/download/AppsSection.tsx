@@ -1,7 +1,7 @@
 import { getI18NGlobal, getValueFromKey } from '@/i18n'
 import { ScooterAndroidUrl, ScooterIosUrl, scooterTitanAndXtremeUrls, scooterLenzod } from '@/shared/constants'
 import React, { useState, useEffect } from 'react'
-import { Modal, ModalBody, ModalContent, ModalFooter, ModalTrigger } from '@/components/react/download/AnimatedModal'
+import { Modal, ModalBody, ModalContent, ModalFooter, ModalTrigger, useModal } from '@/components/react/download/AnimatedModal'
 import { AvatarCircles } from '@/components/react/download/AvatarCircles'
 import { MagicCard } from '@/components/react/download/MagicCard'
 
@@ -160,6 +160,9 @@ export const AppsSectionChild = ({ lang }: AppsSectionProps) => {
     return getValueFromKey(key, i18n);
   };
 
+  // Importar el hook del modal
+  const { setOpen } = useModal();
+
   const files = [
     {
       id: '1',
@@ -261,15 +264,19 @@ export const AppsSectionChild = ({ lang }: AppsSectionProps) => {
     
     if (file) {
       setSelected(file)
+      setOpen(true) // Abrir el modal si hay un ID válido
     } else {
       setSelected(null)
+      setOpen(false) // Cerrar el modal si no hay ID válido
       params.delete('id')
       window.history.replaceState({}, '', window.location.pathname)
     }
   },[])
 
   const handleClose = () => {
+    
     setSelected(null)
+    setOpen(false) // Cerrar el modal
     const params = new URLSearchParams(window.location.search)
     params.delete('id')
     window.history.replaceState({}, '', `${window.location.pathname}?${params}`)
@@ -292,6 +299,7 @@ export const AppsSectionChild = ({ lang }: AppsSectionProps) => {
               onClick={
                 () => {
                   setSelected(file)
+                  setOpen(true) // Abrir el modal
                 }
               }
             />
