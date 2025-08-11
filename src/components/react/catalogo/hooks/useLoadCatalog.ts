@@ -16,7 +16,7 @@ export const useLoadCatalog = (currentLocale: string) => {
 
   useEffect(() => {
     (async () => {
-      const res = await fetch("https://interbras-dashboard.vercel.app/api/catalog/latest");
+      const res = await fetch("https://interbras-dashboard.vercel.app/api/catalog/latest?&show_hidden=true");
       const json: GroupedByCategory = await res.json();
 
       for (const cat of Object.values(json)) {
@@ -29,6 +29,7 @@ export const useLoadCatalog = (currentLocale: string) => {
           p.originalName = t(p.originalName);
           p.info.review = t(p.info.review);
           p.info.specs = t(p.info.specs);
+          p.showInCatalog = true; // Ensure showInCatalog is true
           p.info.included = p.info.included ? t(p.info.included) : null;
         });
       }

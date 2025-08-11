@@ -8,6 +8,7 @@ export interface CatalogActions {
   setLoading: (b: boolean) => void;
   setShowPrices: (v: boolean) => void;
   setShowOnlyPromotion: (v: boolean) => void;
+  setShowWithoutStock: (v: boolean) => void;
   reorderCategories: (newOrder: string[]) => void;
 }
 
@@ -18,12 +19,13 @@ export const createCatalogActions = (set: any, get: any): CatalogActions => ({
   setLoading: (b) => set({ loading: b }),
   setShowPrices: (v) => set({ showPrices: v }),
   setShowOnlyPromotion: (v) => set({ showOnlyPromotion: v }),
+  setShowWithoutStock: (v) => set({ showWithoutStock: v }),
   toggleProduct: (category, code) => {
     const { groupedData, selectedProducts } = get();
 
     const toggleIn = (data: GroupedByCategory) => {
       const product = data[category]?.products.find(p => p.code === code);
-      if (product) product.show = !product.show;
+      if (product) product.showInCatalog = !product.showInCatalog;
     };
 
     const newGrouped = structuredClone(groupedData);

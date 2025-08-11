@@ -97,9 +97,9 @@ export const DefaultList = ({
           return (
             <li
               key={product.productCode + "-" + product.code}
-              data-hide={!product.show}
+              data-hide={!product.showInCatalog}
               className={`bg-gray-800/60 p-5 relative justify-between flex flex-1 flex-col rounded-sm border border-purple-500/20 backdrop-blur-sm ${
-                !product.show ? "opacity-50" : ""
+                !product.showInCatalog ? "opacity-50" : ""
               }`}
             >
 
@@ -119,7 +119,7 @@ export const DefaultList = ({
                 className="absolute top-3 right-3 z-10 bg-purple-700 hover:bg-purple-600 p-1 size-6 rounded-sm text-white transition-colors duration-200 border border-purple-500/30"
                 onClick={() => onToggle(product.code)}
               >
-                {product.show ? (
+                {product.showInCatalog ? (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -242,9 +242,9 @@ const TricicloCard = ({
   return (
     <li
       className={`h-44 w-[165px] p-3 flex justify-between relative flex-col bg-gray-800/70 rounded-sm border border-purple-500/20 ${
-        !product.show ? "opacity-50" : ""
+        !product.showInCatalog ? "opacity-50" : ""
       }`}
-      data-hide={!product.show}
+      data-hide={!product.showInCatalog}
     >
       <button
         data-eye
@@ -252,7 +252,7 @@ const TricicloCard = ({
         className="absolute top-2 right-2 z-10 bg-purple-700 hover:bg-purple-600 p-1 rounded-sm text-white transition-colors duration-200 border border-purple-500/30"
         onClick={() => onToggle(product.code)}
       >
-        {product.show ? (
+        {product.showInCatalog ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

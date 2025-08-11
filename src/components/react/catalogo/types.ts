@@ -32,6 +32,7 @@ export interface ProductData {
   promotion: promotion | null;
   color: string;
   show: boolean;
+  showInCatalog: boolean;
   productPerBox: number;
   volt: string | null;
   registered: boolean;

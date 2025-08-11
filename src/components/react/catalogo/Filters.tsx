@@ -29,7 +29,7 @@ const all_voltages = (grouped: GroupedByCategory) => {
 
 export const Filters = () => {
 
-    const { groupedData, setSelectedProducts, setShowPrices, setShowOnlyPromotion, showOnlyPromotion } = useCatalogStore();
+    const { groupedData, setSelectedProducts, setShowPrices, showWithoutStock, setShowOnlyPromotion, showOnlyPromotion, setShowWithoutStock } = useCatalogStore();
 
     const [selectedKeys, setSelectedKeys] = React.useState(new Set(
         Object.keys(groupedData)
@@ -51,7 +51,7 @@ export const Filters = () => {
     useEffect(() => {
         filter();
         console.log('effect');
-    }, [selectedKeys, voltagesSelected, search, showOnlyPromotion]);
+    }, [selectedKeys, voltagesSelected, search, showOnlyPromotion, showWithoutStock]);
 
 
     if (!groupedData) {
@@ -59,9 +59,24 @@ export const Filters = () => {
     }
 
     const filter = () => {
-        // by voltage
-        const selectedByVoltage = Object.keys(groupedData).reduce((acc: GroupedByCategory, category) => {
+
+        // by showWithoutStock
+        const selectedWithoutStock = Object.keys(groupedData).reduce((acc: GroupedByCategory, category) => {
             const products = groupedData[category].products.filter((product) => {
+                return product.show || showWithoutStock
+            });
+            if (products.length > 0) {
+                acc[category] = {
+                    ...groupedData[category],
+                    products,
+                };
+            }
+            return acc;
+        }, {});
+
+        // by voltage
+        const selectedByVoltage = Object.keys(selectedWithoutStock).reduce((acc: GroupedByCategory, category) => {
+            const products = selectedWithoutStock[category].products.filter((product) => {
                 return voltagesSelected.has(product.volt || 'null');
             });
             if (products.length > 0) {
@@ -160,6 +175,10 @@ export const Filters = () => {
                     />
                 <Checkbox defaultSelected onChange={ changeViewPrice }> Precio </Checkbox>
                 <Checkbox className=" text-nowrap" onChange={ changeOnlyPromo }> Solo promo </Checkbox>
+                <Checkbox className=" text-nowrap" checked={showWithoutStock} onChange={(e) => {
+                    const checked = e.target.checked;
+                    setShowWithoutStock(checked);
+                }}> Mostrar sin stock </Checkbox>
                 </div>
 
                 <div className=" flex gap-2 w-full items-center justify-center lg:justify-end">

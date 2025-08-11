@@ -4,6 +4,7 @@ export interface CatalogState {
   groupedData: GroupedByCategory;
   selectedProducts: GroupedByCategory;
   showPrices: boolean;
+  showWithoutStock: boolean;
   showOnlyPromotion: boolean;
   coverUrl: string | null;
   loading: boolean;
@@ -14,6 +15,7 @@ export const initialCatalogState: CatalogState = {
   selectedProducts: {},
   showPrices: true,
   showOnlyPromotion: false,
+  showWithoutStock: false,
   coverUrl: null,
   loading: true,
 };

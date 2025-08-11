@@ -67,6 +67,7 @@ export const CategorySection = ({
           t_catalog={t_catalog}
           showPrices={showPrices}
           onToggle={onToggle}
+          categoryId={categoryKey}
         />
       ) : (
         <DefaultList
@@ -74,6 +75,7 @@ export const CategorySection = ({
           t_catalog={t_catalog}
           showPrices={showPrices}
           onToggle={onToggle}
+          categoryId={categoryKey}
         />
       )}
 

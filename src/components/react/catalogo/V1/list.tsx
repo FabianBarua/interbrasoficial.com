@@ -42,9 +42,9 @@ export const DefaultList = ({
           return (
             <li
               key={product.productCode + "-" + product.code}
-              data-hide={!product.show}
+              data-hide={!product.showInCatalog }
               className={`bg-[#f2f2f293] p-5 relative  justify-between flex  flex-1 max-h-[28rem] flex-col rounded-3xl ${
-                !product.show ? "opacity-50" : ""
+                !product.showInCatalog  ? "opacity-50" : ""
               }`}
             >
               {
@@ -68,7 +68,7 @@ export const DefaultList = ({
                 className="absolute top-5 right-5 z-10 bg-[#f2f2f2] p-1 size-7 rounded-full text-[#7c7c7c] hover:bg-[#e0e0e0] transition-colors duration-200 hover:scale-105"
                 onClick={() => onToggle(product.code)}
               >
-                {product.show ? (
+                {product.showInCatalog  ? (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -191,9 +191,9 @@ const TricicloCard = ({
   return (
     <li
       className={` h-44 w-[165px] p-3 flex justify-between  relative flex-col bg-gray-50 rounded-xl border border-gray-200 ${
-        !product.show ? "opacity-50" : ""
+        !product.showInCatalog  ? "opacity-50" : ""
       }`}
-      data-hide={!product.show}
+      data-hide={!product.showInCatalog }
     >
       <button
         data-eye
@@ -201,7 +201,7 @@ const TricicloCard = ({
         className="absolute top-2 right-2 z-10"
         onClick={() => onToggle(product.code)}
       >
-        {product.show ? (
+        {product.showInCatalog  ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

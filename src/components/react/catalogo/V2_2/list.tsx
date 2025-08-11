@@ -1,3 +1,4 @@
+import { useCatalogStore } from "../store/useCatalogStore";
 import type { ProductData, promotion } from "../types";
 
 const formatPriceUSD = (price: Number) => {
@@ -5,20 +6,34 @@ const formatPriceUSD = (price: Number) => {
 };
 
 
-const NormalPriceViewComponent = (price: number) => {
+const NormalPriceViewComponent = (price: number, sin_stock: boolean) => {
     return (
-        <h3 className="text-xl bg-interbrasGreen-500 text-white px-3 py-1 rounded-tr-xl rounded-bl-xl h-min text-nowrap" contentEditable>
-            USD {formatPriceUSD(price)}
+      <>
+        {
+          sin_stock && <div className=" w-full text-white bg-gray-400 p-1 text-center rounded-t-xl">
+            <span>Sin stock</span>
+          </div>
+        }
+        <h3 className={`
+          text-xl text-white px-3 py-1  h-min text-nowrap 
+          ${sin_stock ? ' bg-gray-400  rounded-b-xl  ' : ' bg-interbrasGreen-500 rounded-tr-xl rounded-bl-xl'}
+
+          ${formatPriceUSD(price) !== 'NaN' && sin_stock ? 'line-through': ''}
+          `} contentEditable>
+            {formatPriceUSD(price) !== 'NaN' ? <span>USD {formatPriceUSD(price)}</span> : <span>Sin Precio</span>}
         </h3>
+      </>
     );
 }
 
 const FixedPromoPriceViewComponent = ({
   promotion,
-  price
+  price,
+  sin_stock
 }: {
   promotion: promotion;
   price: number;
+  sin_stock: boolean;
 }) => {
   if (!promotion?.data?.active || !promotion.data.data.fixedPrice) return null;
 
@@ -27,7 +42,14 @@ const FixedPromoPriceViewComponent = ({
     ((price - fixedPrice) / price) * 100
   );
   return (
-    <div className="flex flex-col items-start text-nowrap">
+    <div className={
+      `flex flex-col items-start text-nowrap`
+    }>
+      {
+        sin_stock && <div className=" w-full text-white bg-gray-400 p-1 text-center rounded-t-xl">
+          <span>Sin stock</span>
+        </div>
+      }
       <h3 className="text-base text-gray-500  text-center mx-auto " contentEditable>
         de: <span className=" line-through" contentEditable>{formatPriceUSD(price)}</span> a:
       </h3>
@@ -59,13 +81,18 @@ interface IDefaultList {
   t_catalog: (key: string) => any;
   showPrices: boolean;
   onToggle: (code: string) => void;
+  categoryId: string;
 }
 export const DefaultList = ({
   products,
+  categoryId,
   t_catalog,
   showPrices,
   onToggle,
 }: IDefaultList) => {
+
+  const {  showWithoutStock } = useCatalogStore();
+  
 
   return (
     <ul
@@ -90,10 +117,12 @@ export const DefaultList = ({
           return (
             <li
               key={product.productCode + "-" + product.code}
-              data-hide={!product.show}
-              className={`bg-[#f2f2f293] p-5 relative  justify-between flex  flex-1 flex-col rounded-3xl ${
-                !product.show ? "opacity-50" : ""
-              }`}
+              data-hide={!product.showInCatalog}
+              className={` p-5 relative  justify-between flex  flex-1 flex-col rounded-3xl bg-[#f2f2f293] ${
+                !product.showInCatalog ? "opacity-50" : ""
+                }
+              `}
+              
             >
 
               {
@@ -122,7 +151,7 @@ export const DefaultList = ({
                 className="absolute top-5 right-5 z-10 bg-[#f2f2f2] p-1 size-7 rounded-full text-[#7c7c7c] hover:bg-[#e0e0e0] transition-colors duration-200 hover:scale-105"
                 onClick={() => onToggle(product.code)}
               >
-                {product.show ? (
+                {product.showInCatalog ? (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -187,7 +216,15 @@ export const DefaultList = ({
 
                 <div className=" flex flex-col justify-center  pr-4">
                   <h3 className="text-2xl  max-w-sm font-medium line-clamp-3 leading-6" contentEditable>
-                   {product.volt && <span className=" font-bold" contentEditable>{product.volt + " - "}</span>}{product.originalName}
+                   {product.volt && <span className=" font-bold" contentEditable>{
+                   
+                   (product.volt === '110V' && categoryId === "aires" ? "220V" : product.volt)
+
+                   + " - "}</span>}{
+
+                    (product.volt === '110V' && categoryId === "aires" ? product.originalName.replace('50Hz', '60Hz') : product.originalName)
+
+                   }
                   </h3>
                   <div className=" flex mt-2 gap-1 font-light text-nowrap flex-wrap">
                     <span className=" px-2 bg-interbrasGreen-100 rounded-lg text-interbrasGreen-600 line-clamp" contentEditable>
@@ -225,10 +262,11 @@ export const DefaultList = ({
                 }, */}
 
                   <div className=" scale-125  mt-auto ml-auto ">
-                      {showPrices && !product?.promotion?.type && NormalPriceViewComponent(Number(product.price))}
+                      {showPrices && !product?.promotion?.type && NormalPriceViewComponent(Number(product.price), !product.show && showWithoutStock)}
                       {showPrices && product?.promotion?.type?.id === 2 && FixedPromoPriceViewComponent({
                         promotion: product.promotion,
                         price: Number(product.price),
+                        sin_stock: !product.show && showWithoutStock
                       })}
                     </div>
               </div>
@@ -245,6 +283,7 @@ interface Joined extends ProductData {
   sizes: string[];
 }
 
+
 const TricicloCard = ({
   product,
   onToggle,
@@ -255,9 +294,9 @@ const TricicloCard = ({
   return (
     <li
       className={` h-44 w-[165px] p-3 flex justify-between  relative flex-col bg-gray-50 rounded-xl border border-gray-200 ${
-        !product.show ? "opacity-50" : ""
+        !product.showInCatalog  ? "opacity-50" : ""
       }`}
-      data-hide={!product.show}
+      data-hide={!product.showInCatalog }
     >
       <button
         data-eye
@@ -265,7 +304,7 @@ const TricicloCard = ({
         className="absolute top-2 right-2 z-10"
         onClick={() => onToggle(product.code)}
       >
-        {product.show ? (
+        {product.showInCatalog  ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -307,10 +346,10 @@ const TricicloCard = ({
         alt=""
         className=" h-32 object-contain relative z-10"
       />
-      <p className=" text-center leading-5 text-nowrap bg-interbrasGreen-100 text-interbrasGreen-600 rounded-xl px-2 py-1" contentEditable>
+      <p className=" text-center leading-5 text-nowrap bg-interbrasGreen-100 text-interbrasGreen-600 rounded-xl px-2 py-1">
         {product.originalName}
       </p>
-      <span className=" absolute px-2  top-2 right-2 bg-gray-100 text-gray-400 rounded-md z-0" contentEditable>
+      <span className=" absolute px-2  top-2 right-2 bg-gray-100 text-gray-400 rounded-md z-0">
         {product.sizes.join(" / ")}
       </span>
     </li>
@@ -346,12 +385,56 @@ export const TriciclosList = ({
   });
 
   return (
-    <ul className="grid grid-cols-2 gap-4">
-      {Joined.map((product) => {
-        return (
-          <TricicloCard key={product.code} product={product} onToggle={onToggle} />
-        );
-      })}
-    </ul>
+    <>
+      <div className="flex-1 bg-white text-black m-4 rounded-[40px] p-3 gap-2">
+        <ul className="flex flex-wrap justify-center gap-2">
+          {Joined.map((product) => (
+            <TricicloCard
+              key={product.code}
+              product={product}
+              onToggle={onToggle}
+            />
+          ))}
+          <li className="w-full p-2 flex justify-end gap-5">
+            <div className="flex-1 flex items-end flex-col">
+              <h3 className="text-xl font-medium">Triciclos</h3>
+              <p className="w-72 my-2 text-gray-500 leading-5 text-right">
+                Los enumerados con 6.5 y 8 corresponden a los precios de abajo
+              </p>
+              <div className="flex flex-col gap-1 justify-end items-end">
+                {showPrices &&
+                  Prices.map((p) => (
+                    <div
+                      className="flex gap-2 bg-interbrasGreen-200 pl-2 rounded-lg"
+                      key={p.size}
+                    >
+                      <h4 className="text-lg">
+                        USD {formatPriceUSD(Number(p.price))}
+                      </h4>
+                      <h4 className="text-lg bg-interbrasGreen-500 text-white rounded-lg w-12 flex justify-center items-center">
+                        {p.size}''
+                      </h4>
+                    </div>
+                  ))}
+              </div>
+            </div>
+            <div className="h-full border"></div>
+            <div className="w-fit flex-1">
+              <h3 className="text-xl font-medium">{t_catalog("specs")}</h3>
+              <ul className="max-w-md">
+                {products[0].info.specs
+                  ?.split("\n")
+                  .slice(0, 7)
+                  .map((spec: string, i: number) => (
+                    <li className="text-sm text-wrap" key={i}>
+                      {spec}
+                    </li>
+                  ))}
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </>
   );
 };

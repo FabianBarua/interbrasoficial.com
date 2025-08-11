@@ -9,7 +9,7 @@ export function useToggleProduct(
   const toggle = (category: string, code: string) => {
     const toggleIn = (d: GroupedByCategory) => {
       const p = d[category]?.products.find(p => p.code === code);
-      if (p) p.show = !p.show;
+      if (p) p.showInCatalog = !p.showInCatalog;
     };
 
     const newData: GroupedByCategory = { ...data };
