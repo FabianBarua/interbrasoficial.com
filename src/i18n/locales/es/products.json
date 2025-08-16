@@ -87,7 +87,7 @@
         "name": "Scooter 8.5",
         "info": {
           "review": "El X-Scooter Pro 8.5 de Interbras es ideal para quienes buscan una mezcla de elegancia y funcionalidad.\nEquipado con un motor de 350W y una batería de 36V/10.4Ah, este scooter asegura una conducción estable y eficiente.\nSu suspensión avanzada y el sistema de frenos E-ABS te ofrecen un viaje cómodo y seguro.\nAdemás, puedes controlar todas sus funciones a través de la aplicación móvil, asegurándote de tener siempre una experiencia personalizada y conveniente.",
-          "specs": "Motor: 350W\nBatería: 36V/10.4Ah, autonomía extendida\nVelocidad: Estable y controlada\nSuspensión avanzada: Para mayor comodidad\nFrenos: E-ABS, sistema de frenos electrónicos\nConectividad: Control mediante aplicación móvil\nIluminación LED: Seguridad nocturna mejorada"
+          "specs": "Motor: 350W\nBatería: 36V/10.4Ah, autonomía extendida\nVelocidad máxima: 30 km/h\nSuspensión avanzada: Para mayor comodidad\nFrenos: E-ABS, sistema de frenos electrónicos\nConectividad: Control mediante aplicación móvil\nIluminación LED: Seguridad nocturna mejorada"
         }
       },
       "10pro": {
@@ -95,7 +95,7 @@
         "name": "Scooter 10.5 Pro",
         "info": {
           "review": "El X-Scooter Pro 10.5 de Interbras es la solución definitiva para los entusiastas del transporte eléctrico urbano.\nCon su motor optimizado de 350W y una batería potente de 36V/10.5Ah, este scooter ofrece una autonomía extendida para aventuras más largas.\nSu sistema de recuperación de energía cinética y los frenos E-ABS garantizan máxima eficiencia y seguridad.\nEl diseño plegable en tres segundos permite un almacenamiento rápido y conveniente, ideal para la vida urbana acelerada.",
-          "specs": "Motor: 350W\nBatería: 36V/10.4Ah, \nVelocidad: Estable y eficiente\nRecuperación de energía: Sistema cinético\nFrenos: E-ABS, sistema de frenos electrónicos\nConectividad: Control mediante aplicación móvil\nDiseño plegable: Almacenamiento rápido y sencillo\nSuspensión avanzada: Mayor confort y seguridad\nIluminación LED: Seguridad nocturna mejorada"
+          "specs": "Motor: 350W\nBatería: 36V/10.4Ah, \nVelocidad máxima: 35 km/h\nRecuperación de energía: Sistema cinético\nFrenos: E-ABS, sistema de frenos electrónicos\nConectividad: Control mediante aplicación móvil\nDiseño plegable: Almacenamiento rápido y sencillo\nSuspensión avanzada: Mayor confort y seguridad\nIluminación LED: Seguridad nocturna mejorada"
         }
       },
       "10promax": {
@@ -104,7 +104,7 @@
         "popular": true,
         "info": {
           "review": "El X-Scooter 10.5 Pro Max es un scooter eléctrico de alto rendimiento diseñado para la movilidad urbana. Equipado con un motor de 350W y una batería de 36V / 10.4Ah, ofrece una conducción potente y estable. Cuenta con sistema de recuperación de energía, frenado electrónico E-ABS y protección avanzada de celdas para mayor seguridad. Su conectividad con app móvil permite un control total del scooter, mientras que su diseño plegable y llantas de 10.5 pulgadas brindan comodidad y portabilidad. Ideal para quienes buscan tecnología, eficiencia y estilo en sus trayectos diarios.",
-          "specs": "Motor: 350W\nBatería: 36V / 10.4Ah\nVelocidad Estable: Sistema optimizado para mantener velocidad constante\nSistema de Frenado: E-ABS (freno electrónico antibloqueo)\nRecuperación de Energía: Sistema de regeneración al frenar\nSeguridad de Celdas: Batería con protección avanzada de celdas\nConectividad: Compatible con App móvil para control y monitoreo\nFunciones Adicionales:\n- Activación de intermitentes desde el puño derecho\n- Diseño plegable\n- Ruedas de 10.5 pulgadas"
+          "specs": "Motor: 350W\nBatería: 36V / 10.4Ah\nVelocidad máxima: 35 km/h\nSistema de Frenado: E-ABS (freno electrónico antibloqueo)\nRecuperación de Energía: Sistema de regeneración al frenar\nSeguridad de Celdas: Batería con protección avanzada de celdas\nConectividad: Compatible con App móvil para control y monitoreo\nFunciones Adicionales:\n- Activación de intermitentes desde el puño derecho\n- Diseño plegable\n- Ruedas de 10.5 pulgadas"
         },
         "variants": [
           {
