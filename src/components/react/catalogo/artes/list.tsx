@@ -15,17 +15,18 @@ const NormalPriceViewComponent = (price: number) => {
 
 const FixedPromoPriceViewComponent = ({
   promotion,
-  price
+
 }: {
   promotion: promotion;
-  price: number;
 }) => {
   if (!promotion?.data?.active || !promotion.data.data.fixedPrice) return null;
 
   const fixedPrice = promotion.data.data.fixedPrice;
+  const price = promotion.data.data.old || 0;
   const percentageOff = Math.round(
     ((price - fixedPrice) / price) * 100
   );
+  
   return (
     <div className="flex flex-col items-start text-nowrap">
       <h3 className="text-base text-gray-500  text-center mx-auto " contentEditable>
@@ -227,8 +228,7 @@ export const DefaultList = ({
                   <div className=" scale-125  mt-auto ml-auto ">
                       {showPrices && !product?.promotion?.type && NormalPriceViewComponent(Number(product.price))}
                       {showPrices && product?.promotion?.type?.id === 2 && FixedPromoPriceViewComponent({
-                        promotion: product.promotion,
-                        price: Number(product.price),
+                        promotion: product.promotion
                       })}
                     </div>
               </div>

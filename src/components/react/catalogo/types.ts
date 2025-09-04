@@ -7,6 +7,7 @@ export interface ProductInfo {
 
 export interface fixedPromo {
   fixedPrice: number
+  old: number
 }
 
 export interface promotion {

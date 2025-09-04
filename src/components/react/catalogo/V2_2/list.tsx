@@ -28,18 +28,17 @@ const NormalPriceViewComponent = (price: number, sin_stock: boolean) => {
 
 const FixedPromoPriceViewComponent = ({
   promotion,
-  price,
   sin_stock
 }: {
   promotion: promotion;
-  price: number;
   sin_stock: boolean;
 }) => {
   if (!promotion?.data?.active || !promotion.data.data.fixedPrice) return null;
 
-  const fixedPrice = promotion.data.data.fixedPrice;
+  const fixedPrice = promotion.data.data.fixedPrice
+  const old = promotion.data.data.old
   const percentageOff = Math.round(
-    ((price - fixedPrice) / price) * 100
+    ((old - fixedPrice) / old) * 100
   );
   return (
     <div className={
@@ -51,7 +50,7 @@ const FixedPromoPriceViewComponent = ({
         </div>
       }
       <h3 className="text-base text-gray-500  text-center mx-auto " contentEditable>
-        de: <span className=" line-through" contentEditable>{formatPriceUSD(price)}</span> a:
+        de: <span className=" line-through" contentEditable>{formatPriceUSD(old)}</span> a:
       </h3>
       <h3 className="text-sm  text-red-500 bg-red-100 border-t border-x border-red-700 px-4 py-0 rounded-t-lg shadow-md" contentEditable>
         <span className=" " contentEditable>
@@ -261,11 +260,10 @@ export const DefaultList = ({
                     }
                 }, */}
 
-                  <div className=" scale-125  mt-auto ml-auto ">
+                  <div className=" scale-125  mt-auto ml-auto bgb ">
                       {showPrices && !product?.promotion?.type && NormalPriceViewComponent(Number(product.price), !product.show && showWithoutStock)}
                       {showPrices && product?.promotion?.type?.id === 2 && FixedPromoPriceViewComponent({
                         promotion: product.promotion,
-                        price: Number(product.price),
                         sin_stock: !product.show && showWithoutStock
                       })}
                     </div>
