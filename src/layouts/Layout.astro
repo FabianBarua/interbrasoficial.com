@@ -118,6 +118,43 @@ const isPageWithoutCache = pagesWithoutCache.includes(pathname);
     />
 
     <ViewTransitions fallback="none" />
+    
+    <!-- Loader personalizado para ViewTransitions -->
+    <script is:inline>
+      document.addEventListener('astro:before-preparation', () => {
+        // Crear el loader
+        const loader = document.createElement('div');
+        loader.id = '';
+        loader.innerHTML = `
+              <div class="fixed fadeIn bottom-0 left-0 right-0 w-full h-64 z-[999999999999] flex justify-center items-center ">
+                <div class=" text-black bg-white p-3 px-7  border rounded-3xl relative z-50 flex gap-2">
+                  <div class="loader"></div>
+                  <p>Cargando</p>
+                </div>
+                <div class="fixed bottom-0 left-0 right-0 w-full h-56 backdrop-blur-3xl z-20 bg-white mask-loader">
+              </div>
+              </div>
+        `;
+        
+        document.body.appendChild(loader);
+        
+        // Mostrar el loader con una animación suave
+        requestAnimationFrame(() => {
+          loader.classList.add('active');
+        });
+      });
+
+      document.addEventListener('astro:after-swap', () => {
+        // Ocultar el loader después de que se complete la transición
+        const loader = document.getElementById('page-loader');
+        if (loader) {
+          loader.classList.remove('active');
+          setTimeout(() => {
+            loader.remove();
+          }, 300);
+        }
+      });
+    </script>
   </head>
   <body
     class="font-interbras flex flex-col min-h-dvh bg-white text-black fill-black"
@@ -203,6 +240,27 @@ const isPageWithoutCache = pagesWithoutCache.includes(pathname);
 </html>
 
 <style is:global>
+
+  /* HTML: <div class="loader"></div> */
+.loader {
+  background-color: #5d5d5d00;
+  height: 25px;
+  aspect-ratio: 1;
+  position: relative;
+  clip-path: polygon(100% 50%,85.36% 85.36%,50% 100%,14.64% 85.36%,0% 50%,14.64% 14.64%,50% 0%,85.36% 14.64%,100% 50%,74.75% 25.25%,50% 15%,25.25% 25.25%,15% 50%,25.25% 74.75%,50% 85%,74.75% 74.75%,85% 50%,74.75% 25.25%);
+  filter: blur(1px);
+}
+.loader:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: conic-gradient(#0000 15%,#12d75a,#0000 65%);
+  animation: l6 1s linear infinite;
+}
+@keyframes l6 {
+  to {rotate: 1turn}
+}
+
   .nav {
     position: fixed;
     top: 0;
@@ -398,6 +456,10 @@ const isPageWithoutCache = pagesWithoutCache.includes(pathname);
     mask-image: linear-gradient(transparent 10%, black 100%);
   }
 
+  .mask-loader {
+    mask-image: linear-gradient(transparent 0%, black 80%);
+  }
+
   .no-select {
     -webkit-user-select: none; /* Safari */
     -moz-user-select: none; /* Firefox */
@@ -433,4 +495,130 @@ const isPageWithoutCache = pagesWithoutCache.includes(pathname);
     animation-fill-mode: both;
     z-index: 10;
   }
+
+  /* Loader personalizado para ViewTransitions */
+  #page-loader {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(4px);
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(16, 185, 129, 0.2);
+  }
+
+  #page-loader.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .loader-content {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .loader-logo {
+    color: #10b981; /* interbrasGreen-500 */
+    width: 60px;
+    height: auto;
+    animation: logoFade 2s ease-in-out infinite alternate;
+  }
+
+  .loader-spinner {
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    background-color: #10b981;
+    box-shadow: 
+      0 0 0 0 rgba(16, 185, 129, 0.8),
+      6px 0 0 0 rgba(16, 185, 129, 0.6),
+      12px 0 0 0 rgba(16, 185, 129, 0.4),
+      18px 0 0 0 rgba(16, 185, 129, 0.2);
+    animation: loaderDots 1.2s infinite linear;
+  }
+
+  @keyframes logoFade {
+    0% {
+      opacity: 0.7;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes loaderDots {
+    0% {
+      box-shadow: 
+        0 0 0 0 rgba(16, 185, 129, 0.8),
+        6px 0 0 0 rgba(16, 185, 129, 0.6),
+        12px 0 0 0 rgba(16, 185, 129, 0.4),
+        18px 0 0 0 rgba(16, 185, 129, 0.2);
+    }
+    25% {
+      box-shadow: 
+        -6px 0 0 0 rgba(16, 185, 129, 0.2),
+        0 0 0 0 rgba(16, 185, 129, 0.8),
+        6px 0 0 0 rgba(16, 185, 129, 0.6),
+        12px 0 0 0 rgba(16, 185, 129, 0.4);
+    }
+    50% {
+      box-shadow: 
+        -12px 0 0 0 rgba(16, 185, 129, 0.4),
+        -6px 0 0 0 rgba(16, 185, 129, 0.2),
+        0 0 0 0 rgba(16, 185, 129, 0.8),
+        6px 0 0 0 rgba(16, 185, 129, 0.6);
+    }
+    75% {
+      box-shadow: 
+        -18px 0 0 0 rgba(16, 185, 129, 0.6),
+        -12px 0 0 0 rgba(16, 185, 129, 0.4),
+        -6px 0 0 0 rgba(16, 185, 129, 0.2),
+        0 0 0 0 rgba(16, 185, 129, 0.8);
+    }
+    100% {
+      box-shadow: 
+        0 0 0 0 rgba(16, 185, 129, 0.8),
+        6px 0 0 0 rgba(16, 185, 129, 0.6),
+        12px 0 0 0 rgba(16, 185, 129, 0.4),
+        18px 0 0 0 rgba(16, 185, 129, 0.2);
+    }
+  }
+
+  .fadeIn {
+    animation: fadeIn 0.5s ease-in-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .fadeOut {
+    animation: fadeOut 0.5s ease-in-out forwards;
+  }
+
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
 </style>

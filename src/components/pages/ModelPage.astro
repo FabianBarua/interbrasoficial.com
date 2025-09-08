@@ -1,5 +1,5 @@
 ---
-import { getI18NProducts, getValueFromKey } from "@/i18n";
+import { getI18NGlobal, getI18NProducts, getValueFromKey } from "@/i18n";
 import ProductInfo from "../model/ProductInfo.astro";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import { convertToSlug, getCategories, getProducts } from "@/shared/newUtils";
@@ -9,6 +9,9 @@ const { currentLocale } = Astro;
 
 const t = (key: string) =>
   getValueFromKey(key, getI18NProducts({ currentLocale }));
+
+const t_global = (key: string) =>
+  getValueFromKey(key, getI18NGlobal({ currentLocale }));
 
 const categories = await getCategories();
 
@@ -51,6 +54,21 @@ const categoryOrdenedByActive = products.sort((a, b) => {
   if (b.name === modelSelected?.name) return 1;
   return 0;
 });
+
+// Check if current category is scooters and determine the app ID for downloads
+const isScooterCategory = categorySelected?.id === "scooters";
+let scooterAppId = null;
+
+if (isScooterCategory && modelSelected) {
+  // Determine which app to link to based on the scooter model
+  const modelName = modelSelected.name.toLowerCase();
+  
+  if (modelName.includes("10.5") || modelName.includes("8.5")) {
+    scooterAppId = "1"; // Scooters Interbras (10.5, 8.5 pro)
+  } else if (modelName.includes("xtreme") || modelName.includes("titan")) {
+    scooterAppId = "2"; // Scooters Interbras - 2 (Xtreme, Titan)
+  }
+}
 ---
 
 <section
@@ -131,6 +149,35 @@ const categoryOrdenedByActive = products.sort((a, b) => {
       </div>
 
       <hr class="my-4" />
+
+      {isScooterCategory && scooterAppId && (
+        <div class="mb-4">
+          <a
+            href={getRelativeLocaleUrl(
+              currentLocale || "",
+              `/downloads?id=${scooterAppId}`
+            )}
+            
+            class="inline-flex items-center gap-2 bg-interbrasGreen-500 hover:bg-interbrasGreen-600 text-white px-6 py-3 rounded-xl font-semibold transition-colors shadow-lg"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
+              />
+            </svg>
+            {t_global("downloads.callToAction")}
+          </a>
+        </div>
+      )}
 
       <div id="container" class="relative">
         <div
