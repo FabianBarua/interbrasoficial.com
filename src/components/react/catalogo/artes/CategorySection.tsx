@@ -33,83 +33,44 @@ export const CategorySection = ({
   // catalogSection
 
   return (
-    <div className=" flex flex-wrap justify-center gap-2 bg-gradient-to-br from-[#350060] to-[#44007b] p-5 text-white relative overflow-hidden">
+    <div className="justify-center gap-2 bg-gradient-to-br from-[#350060] to-[#44007b] p-5 text-white relative overflow-hidden">
       {products.map((product) => (
         <div
           key={product.code}
-          className="relative w-full bg-red-400 mb-2"
+          className="relative w-full   mb-2"
           id="catalogSection"
         >
-
           <img
-            src={'/pdf/1.png'}
+            src={'/pdf/no-stock-02.png'}
             className=" w-full h-auto absolute top-0 left-0 z-40 opacity-100"
           />
-
-          <img
-            src={'/pdf/2.png'}
-            className=" w-full h-auto absolute top-0 left-0 z-30 opacity-100"
-          />
-
-          <div className=" absolute  bottom-[450px] left-[30px] w-[730px] h-[850px] z-20 flex justify-center items-center">
-            <img src={product.photo} alt=""  className=" w-full h-auto "/>
-          </div>
-
-          <div className=" absolute  top-[1200px] right-1/2 translate-x-1/2 text-7xl text-left   px-32  w-full z-40">
-            
-            <div className=" font-bold flex  justify-center items-center gap-7 ">
-            <span className=" flex justify-center items-center gap-2 text-interbrasGreen-200  px-12 p-3 bg-purple-800 rounded-3xl shadow-2xl">
-              <img src="/brazilFLAG.png" alt="" className=" size-16" />
-                <span>110V</span>
-            </span>
-
-            <p>
-              {
-                product.originalName
-              }
-            </p>
-            </div>
-          </div>
-
-          <div className=" absolute  top-[670px] right-[135px] text-5xl text-center z-40">
-            <span className=" text-[25px] font-bold tracking-[3px]">Aproveite com</span>
-            <p className=" relative ">
-               <span className=" text-[150px] font-black tracking-tighter leading-[110px]">
-                {
-                  Math.floor(
-                    (Number(product.price) - Number(product.promotion?.data?.data.fixedPrice)) /
-                    Number(product.price) * 100
-                  )
-                }
-                %</span> <span className=" text-[30px] mb-4 font-bold absolute top-4">OFF</span>
-            </p>
-          </div>
-
-          {/* <div className=" absolute  top-[795px] left-[925px] text-5xl  z-40">
-            <span className=" text-[25px] font-bold tracking-[1px]">De ${
-                showPrices ? formatPriceUSD(Number(product.price)) : "??,??"
-              }</span>
-            <p className=" text-[43px] font-bold">
-              Por ${
-                showPrices ? formatPriceUSD(Number(product.promotion?.data?.data.fixedPrice)) : "??,??"
-              }
-            </p>
-          </div> */}
           
-{/* 
-          <img
-            src={'/pdf/3.png'}
-            className=" w-full h-auto absolute top-0 left-0 z-20 opacity-100"
+          <div className=" absolute top-[450px] left-1/2 -translate-x-1/2 z-50  text-center max-w-[70%]  w-full flex justify-center items-center p-2 rounded-md gap-10">
+
+            {
+              product.volt && <>
+              <span className=" bg-interbrasGreen-950 px-5 py-2 rounded-[30px] font-bold text-6xl">{product.volt}</span>
+                <div className=" w-px border h-[50px]"></div>
+              </>
+
+              
+            }
+
+            <p className={` text-[90px]  leading-[95px] text-balance ${product.volt ? 'text-left' : ' text-center' } `}>
+              {product.originalName}
+            </p>
+          </div>
+
+          <img 
+            src={product.photo}
+            className=" absolute  bottom-[320px] left-0 z-30 w-full h-auto scale-75"
           />
-*/}
+            
           <img
-            src={'/pdf/4.png'}
-            className=" w-full h-auto absolute top-0 left-0 z-10 opacity-100"
+            src="/pdf/no-stock-01.png"
+            className=" w-full h-auto"
           />
-          <img
-            src="/pdf/0.png"
-            className=" w-full h-auto opacity-20"
-          />
+
         </div>
       ))}
     </div>
