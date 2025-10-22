@@ -187,6 +187,20 @@ const Cafetera = (props: SVGProps<SVGSVGElement>) => (
   </svg>
 )
 
+const Accesorios = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={512}
+    height={512}
+    data-name="Layer 1"
+    viewBox="0 0 24 24"
+    {...props}
+  >
+    <path d="M11 13H3a3 3 0 0 0-3 3v8h11V13Zm-7.5 5v-2h4v2h-4ZM21 13h-8v11h11v-8a3 3 0 0 0-3-3Zm-.5 5h-4v-2h4v2ZM15 0H9C7.346 0 6 1.346 6 3v8h12V3c0-1.654-1.346-3-3-3Zm-1 5h-4V3h4v2Z" />
+  </svg>
+)
+
+
 export const ComponentsIcons = {
   aires: Aire,
   airfryer: Airfryer,
@@ -204,4 +218,5 @@ export const ComponentsIcons = {
   scooters: Scooter,
   triciclos: Triciclos,
   tvs: Tv,
+  accesorios: Accesorios
 }

@@ -15,6 +15,7 @@ import { useLoadCatalog } from "./hooks/useLoadCatalog";
 import { useState } from "react";
 import { ALL_VERSIONS, useVersionStore } from "./store/useVersionStore";
 import { PikIcon } from "./V2_2/PickIcon";
+import { IsComing } from "./V2_2/IsComming";
 
 export const CatalogoSection = ({ currentLocale }: { currentLocale: string }) => {
   const { selectedProducts, showPrices, coverUrl, loading, toggleProduct } = useCatalogStore();
@@ -93,6 +94,20 @@ export const CatalogoSection = ({ currentLocale }: { currentLocale: string }) =>
 
           {
             currentVersion.id === ALL_VERSIONS.V2_2.id && <>
+              <IsComing 
+                
+                  categoryKey={"coming-soon"}
+                  categoryName={tCat('coming_soon_title')}
+                  categoryDescription={tCat('coming_soon_description')}
+                  products={
+                    []
+                  }
+                  t_catalog={tCat}
+                  showPrices={showPrices}
+                  onToggle={(code) => toggleProduct("coming-soon", code)}
+                  currentLocale={currentLocale}
+              />
+              
               {Object.entries(selectedProducts).map(([key, cat]) => (
                 <CategorySectionV2_2
                   key={key}
@@ -106,6 +121,7 @@ export const CatalogoSection = ({ currentLocale }: { currentLocale: string }) =>
                   currentLocale={currentLocale}
                 />
               ))}
+
             </>
           }
 

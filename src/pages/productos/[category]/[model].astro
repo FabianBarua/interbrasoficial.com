@@ -36,6 +36,7 @@ const products = await getProducts({
 const modelSelected = products.find(
   (prod) => convertToSlug(t(prod.name)) === model
 );
+
 ---
 
 <Layout

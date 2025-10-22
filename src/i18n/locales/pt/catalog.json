@@ -17,6 +17,12 @@
     "perBox": "por caixa",
     "setCover": "Adicionar capa",
     "updateCover": "Atualizar capa",
-    "removeCover": "Remover capa"
-
+    "removeCover": "Remover capa",
+  "arriving": "Chegando",
+  "new": "Novo", 
+  "coming_soon": "Em breve",
+  "coming_soon_title": "Em breve",
+  "coming_soon_description": "Novos produtos estão chegando. \n Fique atento às nossas próximas novidades!",
+  "characteristics": "Características",
+  "includes": "Inclui"
  }

@@ -29,7 +29,6 @@ export const CategorySection = ({
 }: Props) => {
   const IconComponent = ComponentsIcons[categoryKey as ComponentsIconsKey];
   const iconUrl = useV2Store((state) => state.iconUrl);
-  
 
   return (
     <>
@@ -37,8 +36,6 @@ export const CategorySection = ({
       id="catalogSection"
       className="flex flex-col gap-10 bg-interbrasGreen-500 p-5  text-white relative overflow-hidden"
     >
-
-      
       <div className="text-left flex relative">
         <div className="size-24 bg-interbrasGreen-200 rounded-3xl flex justify-center items-center mr-5 fill-interbrasGreen-500 border border-white">
           {IconComponent && <IconComponent className="size-12" />}

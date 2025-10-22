@@ -17,5 +17,12 @@
     "perBox": "por caja",
     "setCover": "Agregar portada",
     "updateCover": "Actualizar portada",
-    "removeCover": "Quitar portada"
+    "removeCover": "Quitar portada",
+      "arriving": "Llegando",
+  "new": "Nuevo",
+  "coming_soon": "En breve",
+  "coming_soon_title": "Proximamente",
+  "coming_soon_description": "Nuevos productos están en camino. \n ¡Mantente atento a nuestras próximas novedades!",
+  "characteristics": "Caracteristicas",
+  "includes": "Incluye"
  }

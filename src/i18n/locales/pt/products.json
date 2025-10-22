@@ -36,6 +36,22 @@
     "redBlue" : "Vermelho e Azul",
     "greenBlack" : "Verde e Preto"
   },
+  "accesorios": {
+  "id": "accesorios",
+  "name": "Acessórios",
+  "description": "Complementos perfeitos para seus dispositivos Interbras.",
+  "shortDescription": "Complementos perfeitos.",
+  "children": {
+    "motor85": {
+      "id": "motor85",
+      "name": "Acc. Motor 8.5",
+      "info": {
+        "review": "O motor de reposição para o X-Scooter Pro 8.5 da Interbras é a solução ideal para manter o seu scooter em perfeitas condições. \nProjetado especificamente para este modelo, garante um desempenho eficiente e confiável, permitindo que você aproveite seus deslocamentos urbanos sem interrupções. \nFácil de instalar, este motor de alta qualidade é fabricado com materiais duráveis que asseguram uma longa vida útil e um funcionamento suave. \nSeja para substituir um motor com defeito ou simplesmente ter um sobressalente, este acessório é essencial para qualquer proprietário do X-Scooter Pro 8.5.",
+        "specs": "Compatibilidade: X-Scooter Pro 8.5\nTipo: Motor de reposição\nMaterial: Alta qualidade e durabilidade\nInstalação: Fácil e rápida\nDesempenho: Eficiente e confiável"
+      }
+    }
+  }
+},
   "airfryer": {
     "id": "airfryer",
     "name": "Airfryer",
