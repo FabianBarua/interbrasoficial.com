@@ -7,6 +7,7 @@ export interface CatalogActions {
   setCoverUrl: (url: string | null) => void;
   setLoading: (b: boolean) => void;
   setShowPrices: (v: boolean) => void;
+  setShowCommingSoon: (v: boolean) => void;
   setShowOnlyPromotion: (v: boolean) => void;
   setShowWithoutStock: (v: boolean) => void;
   reorderCategories: (newOrder: string[]) => void;
@@ -17,6 +18,7 @@ export const createCatalogActions = (set: any, get: any): CatalogActions => ({
   setSelectedProducts: (data) => set({ selectedProducts: data }),
   setCoverUrl: (url) => set({ coverUrl: url }),
   setLoading: (b) => set({ loading: b }),
+  setShowCommingSoon: (v) => set({ showCommingSoon: v }),
   setShowPrices: (v) => set({ showPrices: v }),
   setShowOnlyPromotion: (v) => set({ showOnlyPromotion: v }),
   setShowWithoutStock: (v) => set({ showWithoutStock: v }),

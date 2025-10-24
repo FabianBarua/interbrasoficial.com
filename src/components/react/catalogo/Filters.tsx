@@ -29,7 +29,7 @@ const all_voltages = (grouped: GroupedByCategory) => {
 
 export const Filters = () => {
 
-    const { groupedData, setSelectedProducts, setShowPrices, showWithoutStock, setShowOnlyPromotion, showOnlyPromotion, setShowWithoutStock } = useCatalogStore();
+    const { groupedData, setSelectedProducts, setShowPrices, showWithoutStock, setShowOnlyPromotion, showOnlyPromotion, setShowWithoutStock, setShowCommingSoon, showCommingSoon } = useCatalogStore();
 
     const [selectedKeys, setSelectedKeys] = React.useState(new Set(
         Object.keys(groupedData)
@@ -179,6 +179,10 @@ export const Filters = () => {
                     const checked = e.target.checked;
                     setShowWithoutStock(checked);
                 }}> Mostrar sin stock </Checkbox>
+                <Checkbox className=" text-nowrap" checked={showCommingSoon} onChange={(e) => {
+                    const checked = e.target.checked;
+                    setShowCommingSoon(checked);
+                }}> CommingSoon </Checkbox>
                 </div>
 
                 <div className=" flex gap-2 w-full items-center justify-center lg:justify-end">

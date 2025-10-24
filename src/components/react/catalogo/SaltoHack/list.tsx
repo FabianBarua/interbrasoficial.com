@@ -6,7 +6,7 @@ const formatPriceUSD = (price: Number) => {
 
 const NormalPriceViewComponent = (price: number) => {
     return (
-        <h3 className="text-lg bg-[#01ad00] text-white px-3 py-1 rounded-sm h-min text-nowrap border border-purple-400/30 font-mono" contentEditable>
+        <h3 className="text-lg bg-[#01ad00] text-white px-3 py-1 rounded-sm h-min text-nowrap border border-purple-400/30 font-mono" >
           <span className="text-white">$</span> {formatPriceUSD(price)}
         </h3>
     );
@@ -28,20 +28,20 @@ const FixedPromoPriceViewComponent = ({
 
   return (
     <div className="flex flex-col items-start">
-      <h3 className="text- text-purple-300 text-center mx-auto font-mono" contentEditable>
+      <h3 className="text- text-purple-300 text-center mx-auto font-mono" >
         <span className="line-through text-gray-400" style={{
           textDecorationThickness: "0.5px",
-        }} contentEditable>{formatPriceUSD(price)}</span>
+        }} >{formatPriceUSD(price)}</span>
       </h3>
       
       <div> 
 
-        <h3 className="text-sm  tracking-[-1px] text-white text-nowrap bg-gradient-to-r from-purple-700 to-violet-800 border border-purple-400/30 px-3 py-1 rounded-sm font-mono" contentEditable>
+        <h3 className="text-sm  tracking-[-1px] text-white text-nowrap bg-gradient-to-r from-purple-700 to-violet-800 border border-purple-400/30 px-3 py-1 rounded-sm font-mono" >
         <span className="text-[#01ad00]">$</span>
-        <span className="text-3xl mx-1 font-medium text-white" contentEditable>
+        <span className="text-3xl mx-1 font-medium text-white" >
             {formatPriceUSD(fixedPrice).split(",")[0]}
         </span>
-        <span className="text-white" contentEditable>
+        <span className="text-white" >
             ,{formatPriceUSD(fixedPrice).split(",")[1]}
         </span>
       </h3>
@@ -163,7 +163,7 @@ export const DefaultList = ({
                     />
 
                     <div className="flex-1">
-                      <h3 className="text-lg font-medium text-[#01ad00] font-mono" contentEditable>
+                      <h3 className="text-lg font-medium text-[#01ad00] font-mono" >
                         Specs
                       </h3>
                       <ul className="font-mono text-xs">
@@ -172,7 +172,7 @@ export const DefaultList = ({
                           .slice(0, 6)
                           .map((spec: string, i: number) => {
                             return (
-                              <li className="text-white leading-5 " key={i} contentEditable>
+                              <li className="text-white leading-5 " key={i} >
                                 <span className="text-green-400 mr-1">•</span>{spec}
                               </li>
                             );
@@ -185,18 +185,18 @@ export const DefaultList = ({
 
               <div className="flex gap-3">
                 <div className="flex flex-col justify-center pr-4">
-                  <h3 className="text-xl max-w-sm font-medium line-clamp-3 leading-6 text-white font-mono" contentEditable>
-                   {product.volt && <span className="font-medium text-[#01ad00]" contentEditable>
+                  <h3 className="text-xl max-w-sm font-medium line-clamp-3 leading-6 text-white font-mono" >
+                   {product.volt && <span className="font-medium text-[#01ad00]" >
                      [{(product.volt === "110V" && category === "aires" ? "220V" : product.volt)}]{" "}
                    </span>}
                    {product.originalName}
                   </h3>
                   <div className="flex mt-2 gap-2 font-light text-nowrap flex-wrap font-mono text-sm">
-                    <span className="px-2 py-1 bg-purple-700/50 rounded-sm text-white border border-purple-500/30" contentEditable>
+                    <span className="px-2 py-1 bg-purple-700/50 rounded-sm text-white border border-purple-500/30" >
                       REF:{product.code}
                     </span>
 
-                    <span className="px-2 py-1 bg-purple-700/50 rounded-sm text-white border border-purple-500/30 line-clamp-1" contentEditable>
+                    <span className="px-2 py-1 bg-purple-700/50 rounded-sm text-white border border-purple-500/30 line-clamp-1" >
                       {product.productPerBox} {
                         product.productPerBox === 1 ? t_catalog("product") : t_catalog("products")
                       } {t_catalog("perBox")}
@@ -204,8 +204,8 @@ export const DefaultList = ({
                   </div>
 
                   {product.info.included && (
-                    <h4 className="leading-5 text-purple-200 font-mono text-sm mt-1" contentEditable>
-                      <strong className="text-[#01ad00]" contentEditable>
+                    <h4 className="leading-5 text-purple-200 font-mono text-sm mt-1" >
+                      <strong className="text-[#01ad00]" >
                         incl:
                       </strong>
                       <span className="text-white"> {product.info.included}</span>
@@ -294,10 +294,10 @@ const TricicloCard = ({
         alt=""
         className="h-32 object-contain relative z-10"
       />
-      <p className="text-center leading-5 text-nowrap bg-purple-700/50 text-white rounded-sm px-2 py-1 border border-purple-500/30 font-mono text-sm" contentEditable>
+      <p className="text-center leading-5 text-nowrap bg-purple-700/50 text-white rounded-sm px-2 py-1 border border-purple-500/30 font-mono text-sm" >
         {product.originalName}
       </p>
-      <span className="absolute px-2 top-2 right-2 bg-gray-800/80 text-purple-200 rounded-sm z-0 border border-purple-500/20 font-mono text-xs" contentEditable>
+      <span className="absolute px-2 top-2 right-2 bg-gray-800/80 text-purple-200 rounded-sm z-0 border border-purple-500/20 font-mono text-xs" >
         {product.sizes.join(" / ")}
       </span>
     </li>

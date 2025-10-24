@@ -18,7 +18,7 @@ import { PikIcon } from "./V2_2/PickIcon";
 import { IsComing } from "./V2_2/IsComming";
 
 export const CatalogoSection = ({ currentLocale }: { currentLocale: string }) => {
-  const { selectedProducts, showPrices, coverUrl, loading, toggleProduct } = useCatalogStore();
+  const { selectedProducts, showPrices, coverUrl, loading, toggleProduct, showCommingSoon } = useCatalogStore();
   const { currentVersion, updateVersion } = useVersionStore();
   const { tCat } = useLoadCatalog(currentLocale);
   const [showModal, setShowModal] = useState(false);
@@ -94,7 +94,9 @@ export const CatalogoSection = ({ currentLocale }: { currentLocale: string }) =>
 
           {
             currentVersion.id === ALL_VERSIONS.V2_2.id && <>
-              <IsComing 
+              
+              {
+                showCommingSoon && <IsComing 
                 
                   categoryKey={"coming-soon"}
                   categoryName={tCat('coming_soon_title')}
@@ -107,6 +109,9 @@ export const CatalogoSection = ({ currentLocale }: { currentLocale: string }) =>
                   onToggle={(code) => toggleProduct("coming-soon", code)}
                   currentLocale={currentLocale}
               />
+              }
+              
+
               
               {Object.entries(selectedProducts).map(([key, cat]) => (
                 <CategorySectionV2_2

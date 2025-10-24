@@ -108,7 +108,7 @@ const NoInDb = ({
           alt=""
         />
         <div className="flex-1">
-          <h3 className="text-xl font-medium" contentEditable>
+          <h3 className="text-xl font-medium" >
             {t_catalog("characteristics")}
           </h3>
           <ul className="">
@@ -117,7 +117,7 @@ const NoInDb = ({
               .slice(0, 7)
               .map((spec: string, i: number) => {
                 return (
-                  <li className="text-sm" key={i} contentEditable>
+                  <li className="text-sm" key={i} >
                     {spec}
                   </li>
                 );
@@ -130,10 +130,10 @@ const NoInDb = ({
         <div className=" flex flex-col justify-center  pr-4">
           <h3
             className="text-2xl  max-w-sm font-medium line-clamp-3 leading-6"
-            contentEditable
+            
           >
             {volt && (
-              <span className=" font-bold" contentEditable>
+              <span className=" font-bold" >
                 {(volt === "110V" && categoryId === "aires" ? "220V" : volt) +
                   " - "}
               </span>
@@ -144,8 +144,8 @@ const NoInDb = ({
           </h3>
 
           {info.included && (
-            <h4 className=" leading-5" contentEditable>
-              <strong contentEditable>{t_catalog("includes")}:</strong>
+            <h4 className=" leading-5" >
+              <strong >{t_catalog("includes")}:</strong>
               {info.included}
             </h4>
           )}
@@ -189,7 +189,7 @@ const InDb = ({
           alt=""
         />
         <div className="flex-1">
-          <h3 className="text-xl font-medium" contentEditable>
+          <h3 className="text-xl font-medium" >
             {t_catalog("characteristics")}
           </h3>
           <ul className="">
@@ -198,7 +198,7 @@ const InDb = ({
               .slice(0, 7)
               .map((spec: string, i: number) => {
                 return (
-                  <li className="text-sm" key={i} contentEditable>
+                  <li className="text-sm" key={i} >
                     {spec}
                   </li>
                 );
@@ -211,10 +211,10 @@ const InDb = ({
         <div className=" flex flex-col justify-center  pr-4">
           <h3
             className="text-2xl  max-w-sm font-medium line-clamp-3 leading-6 text-balance"
-            contentEditable
+            
           >
             {volt && (
-              <span className=" font-bold" contentEditable>
+              <span className=" font-bold" >
                 {(volt === "110V" && categoryId === "aires" ? "220V" : volt) +
                   " - "}
               </span>
@@ -225,8 +225,8 @@ const InDb = ({
           </h3>
 
           {info.included && (
-            <h4 className=" leading-5" contentEditable>
-              <strong contentEditable>{t_catalog("includes")}:</strong>
+            <h4 className=" leading-5" >
+              <strong >{t_catalog("includes")}:</strong>
               {info.included}
             </h4>
           )}

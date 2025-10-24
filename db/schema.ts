@@ -38,6 +38,8 @@ export const Variant = sqliteTable("variant", {
 
 export const Catalog = sqliteTable("catalog", {
   id: int().primaryKey().notNull(),
+  old_id: int(),
+  new_id: int(),
   name: text().notNull(),
   price: real().notNull(),
   status_id : int().references(() => Status.id, {onDelete: 'set null', onUpdate:'cascade'}),
@@ -88,4 +90,5 @@ export const Promotion = sqliteTable("promotion", {
   // Información específica según tipo
   data: text({ mode: 'json' }).notNull(),
   active: int({ mode: 'boolean' }).default(true).notNull(),
+  label: text().default("")
 });

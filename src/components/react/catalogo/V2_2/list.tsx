@@ -19,7 +19,7 @@ const NormalPriceViewComponent = (price: number, sin_stock: boolean) => {
           ${sin_stock ? ' bg-gray-400  rounded-b-xl  ' : ' bg-interbrasGreen-500 rounded-tr-xl rounded-bl-xl'}
 
           ${formatPriceUSD(price) !== 'NaN' && sin_stock ? 'line-through': ''}
-          `} contentEditable>
+          `} >
             {formatPriceUSD(price) !== 'NaN' ? <span>USD {formatPriceUSD(price)}</span> : <span>Sin Precio</span>}
         </h3>
       </>
@@ -49,17 +49,17 @@ const FixedPromoPriceViewComponent = ({
           <span>Sin stock</span>
         </div>
       }
-      <h3 className="text-base text-gray-500  text-center mx-auto " contentEditable>
-        de: <span className=" line-through" contentEditable>{formatPriceUSD(old)}</span> a:
+      <h3 className="text-base text-gray-500  text-center mx-auto " >
+        de: <span className=" line-through" >{formatPriceUSD(old)}</span> a:
       </h3>
-      <h3 className="text-sm  text-red-500 bg-red-100 border-t border-x border-red-700 px-4 py-0 rounded-t-lg shadow-md" contentEditable>
-        <span className=" " contentEditable>
+      <h3 className="text-sm  text-red-500 bg-red-100 border-t border-x border-red-700 px-4 py-0 rounded-t-lg shadow-md" >
+        <span className=" " >
             USD
         </span> 
-        <span className=" text-3xl mx-[2px] font-bold" contentEditable>
+        <span className=" text-3xl mx-[2px] font-bold" >
             {formatPriceUSD(fixedPrice).split(",")[0]}
         </span>
-        <span className="" contentEditable>
+        <span className="" >
             ,{formatPriceUSD(fixedPrice).split(",")[1]}
         </span>
       </h3>
@@ -189,7 +189,7 @@ export const DefaultList = ({
                       alt=""
                     />
                     <div className="flex-1">
-                      <h3 className="text-xl font-medium" contentEditable>
+                      <h3 className="text-xl font-medium" >
                         {t_catalog("specs")}
                       </h3>
                       <ul className="">
@@ -198,7 +198,7 @@ export const DefaultList = ({
                           .slice(0, 7)
                           .map((spec: string, i: number) => {
                             return (
-                              <li className="text-sm" key={i} contentEditable>
+                              <li className="text-sm" key={i} >
                                 {spec}
                               </li>
                             );
@@ -214,8 +214,8 @@ export const DefaultList = ({
               <div className="flex  mt-4 px-2 gap-3 ">
 
                 <div className=" flex flex-col justify-center  pr-4">
-                  <h3 className="text-2xl  max-w-sm font-medium line-clamp-3 leading-6" contentEditable>
-                   {product.volt && <span className=" font-bold" contentEditable>{
+                  <h3 className="text-2xl  max-w-sm font-medium line-clamp-3 leading-6" >
+                   {product.volt && <span className=" font-bold" >{
                    
                    (product.volt === '110V' && categoryId === "aires" ? "220V" : product.volt)
 
@@ -226,21 +226,21 @@ export const DefaultList = ({
                    }
                   </h3>
                   <div className=" flex mt-2 gap-1 font-light text-nowrap flex-wrap">
-                    {/* <span className=" px-2 bg-interbrasGreen-100 rounded-lg text-interbrasGreen-600 line-clamp" contentEditable>
+                    <span className=" px-2 bg-interbrasGreen-100 rounded-lg text-interbrasGreen-600 line-clamp" >
                       Ref: {product.code}
-                    </span> */}
+                    </span>
                     {
                       // TODO: Actualizar con los nuevos ref codes
                     }
 
-                    <span className=" px-2 bg-interbrasGreen-100 rounded-lg text-interbrasGreen-600 line-clamp-1" contentEditable>
+                    <span className=" px-2 bg-interbrasGreen-100 rounded-lg text-interbrasGreen-600 line-clamp-1" >
                       {product.productPerBox} {t_catalog("perBox")}
                     </span>
                   </div>
 
                   {product.info.included && (
-                    <h4 className=" leading-5" contentEditable>
-                      <strong contentEditable>{t_catalog("included")}:</strong>
+                    <h4 className=" leading-5" >
+                      <strong >{t_catalog("included")}:</strong>
                       {product.info.included}
                     </h4>
                   )}
