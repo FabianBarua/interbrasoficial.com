@@ -41,13 +41,12 @@ const NormalPriceViewComponent = ({
   const hasPrice = formatPriceUSD(price) !== "NaN";
 
   return (
-    <div className="w-full">
+    <div className="w-full flex flex-col">
       {sin_stock && (
         <div className="w-full text-sm  font-medium text-white bg-interbrasGreen-900 py-1 px-2 text-center rounded-t-xl">
           {t_catalog("arriving")}
         </div>
       )}
-
       <h3
         className={`
            text-white px-3 py-1 h-min text-nowrap text-center font-semibold 
@@ -143,6 +142,14 @@ const NoInDb = ({
               : originalName}
           </h3>
 
+          {
+            nuevo && (
+              <span className="text-sm text-center bg-interbrasGreen-500 text-white px-6 py-1 rounded-b-xl mt-1 inline-block">
+                {t_catalog("new")}
+              </span>
+            )
+          }
+
           {info.included && (
             <h4 className=" leading-5" >
               <strong >{t_catalog("includes")}:</strong>
@@ -170,6 +177,7 @@ const InDb = ({
   volt,
   info,
   categoryId,
+  nuevo,
   t_catalog,
 }: {
   originalName: string;
@@ -178,6 +186,7 @@ const InDb = ({
   volt: string;
   info: any;
   categoryId: string;
+  nuevo: boolean;
   t_catalog: (key: string) => string;
 }) => {
   return (
@@ -223,6 +232,13 @@ const InDb = ({
               ? originalName.replace("50Hz", "60Hz")
               : originalName}
           </h3>
+          {
+            nuevo && (
+              <span className="text-sm bg-interbrasGreen-500 text-white px-2 py-1 rounded-full mt-1 inline-block">
+                {t_catalog("new")}
+              </span>
+            )
+          }
 
           {info.included && (
             <h4 className=" leading-5" >
@@ -236,7 +252,7 @@ const InDb = ({
           <NormalPriceViewComponent
             price={price}
             sin_stock={price === 0}
-            nuevo={false}
+            nuevo={nuevo}
             t_catalog={t_catalog}
           />
         </div>
@@ -279,24 +295,10 @@ export const IsComing = ({
       price: "290.00",
       inDb: true,
     },
-    {
-      productCode: "itb-18000iv",
-      price: "0.00",
-      inDb: true,
-    },
-    {
-      productCode: "crosspro",
-      price: null,
-      inDb: true,
-    },
-    {
-      productCode: "cross",
-      price: null,
-      inDb: true,
-    },
+    
     {
       productCode: "10.5_ULTRA",
-      price: "0.00",
+      price: "295.00",
       inDb: false,
       photo: ["/productos/scooters/10.5ultra-v1-1.png"],
       originalName: "Scooter 10.5 Ultra",
@@ -315,11 +317,11 @@ export const IsComing = ({
     },
     {
       productCode: "CROSS_EVO",
-      price: "0.00",
+      price: "580.00",
       inDb: false,
       nuevo: true,
       photo: ["/productos/scooters/cross-evo.png"],
-      originalName: " Scooter Cross Evo",
+      originalName: "Scooter Cross Evo",
       volt: "",
       info: {
         specs: `Velocidad máxima: 45 km/h  
@@ -338,7 +340,7 @@ Display digital | 3 modos de velocidad | NFC Card | IPX6
     },
     {
       productCode: "PAT_ESCAPE",
-      price: "0.00",
+      price: "597.00",
       inDb: false,
       nuevo: true,
       photo: ["/productos/scooters/escape.png"],
@@ -359,6 +361,21 @@ Display digital | 3 modos de velocidad
 `,
       },
       categoryId: "",
+    },
+    {
+      productCode: "crosspro",
+      price: "540.00",
+      inDb: true,
+    },
+    {
+      productCode: "cross",
+      price: "380.00",
+      inDb: true,
+    },
+    {
+      productCode: "itb-18000iv",
+      price: "0.00",
+      inDb: true,
     },
     {
       productCode: "IN3200TV",
@@ -472,6 +489,7 @@ Display digital | 3 modos de velocidad
                   info={product.info}
                   price={Number(product.price) < 0 ? 0 : Number(product.price)}
                   categoryId={product.categoryId ?? ""}
+                  nuevo={product.nuevo || false}
                   t_catalog={t_catalog}
                 />
               ) : (

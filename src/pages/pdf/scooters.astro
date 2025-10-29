@@ -1,0 +1,619 @@
+---
+import { ScooterComparison } from "@/components/react/pdf/ScooterComparison";
+import '@/styles/global.css';
+
+interface Caracteristica {
+    label: string;
+    value: string;
+}
+
+interface Prod {
+    nombre: string;
+    fotos: string[];
+    precio: string;
+    caracteristicas: Caracteristica[];
+}
+
+const Productos: Prod[] = [
+    {
+        nombre: "X-SCOOTER 8,5",
+        fotos: [
+            "/productos/scooters/8.5-v1-1.webp",
+        ],
+        precio: "180.00",
+        caracteristicas: [{
+                label: "Tamanho de Roda",
+                value: "8.5"
+            },
+            {
+                label: "Bateria",
+                value: "10,4 Ah"
+            },
+            {
+                label: "Motor",
+                value: "350W"
+            },
+            {
+                label: "Farois",
+                value: "Sim"
+            },
+            {
+                label: "Seta",
+                value: "Não"
+            },
+            {
+                label: "Suspension Dianteira",
+                value: "Não"
+            },
+            {
+                label: "Suspension Traseira",
+                value: "Não"
+            },
+        ],
+    },
+    {
+        nombre: "X-SCOOTER 10,5 PRO-MAX",
+        fotos: [
+            "/productos/scooters/10.5pro-max-v1-1.webp",
+            "/productos/scooters/10.5pro-max-v1-2.webp",
+            "/productos/scooters/10.5pro-max-v1-3.webp",
+        ],
+        precio: "265.00",
+        caracteristicas: [{
+                label: "Tamanho de Roda",
+                value: "10.5"
+            },
+            {
+                label: "Bateria",
+                value: "10,4 Ah"
+            },
+            {
+                label: "Motor",
+                value: "350W"
+            },
+            {
+                label: "Farois",
+                value: "Sim"
+            },
+            {
+                label: "Seta",
+                value: "Sim"
+            },
+            {
+                label: "Suspension Dianteira",
+                value: "Sim"
+            },
+            {
+                label: "Suspension Traseira",
+                value: "Não"
+            },
+        ],
+    },
+    {
+        nombre: "X-SCOOTER 10,5 ULTRA",
+        fotos: [
+            "/productos/scooters/10.5ultra-v1-1.png",
+        ],
+        precio: "295.00",
+        caracteristicas: [{
+                label: "Tamanho de Roda",
+                value: "10.5"
+            },
+            {
+                label: "Bateria",
+                value: "10,4 Ah"
+            },
+            {
+                label: "Motor",
+                value: "500W"
+            },
+            {
+                label: "Farois",
+                value: "Sim"
+            },
+            {
+                label: "Seta",
+                value: "Sim"
+            },
+            {
+                label: "Suspension Dianteira",
+                value: "Sim"
+            },
+            {
+                label: "Suspension Traseira",
+                value: "Sim"
+            },
+        ],
+    },
+    {
+        nombre: "X-SCOOTER TITAN",
+        fotos: [
+            "/productos/scooters/TITAN.webp",
+        ],
+        precio: "420.00",
+        caracteristicas: [{
+                label: "Tamanho de Roda",
+                value: "10,5 Off Road"
+            },
+            {
+                label: "Bateria",
+                value: "10,4 Ah"
+            },
+            {
+                label: "Motor",
+                value: "500W"
+            },
+            {
+                label: "Farois",
+                value: "Sim"
+            },
+            {
+                label: "Seta",
+                value: "Sim"
+            },
+            {
+                label: "Suspension Dianteira",
+                value: "Sim"
+            },
+            {
+                label: "Suspension Traseira",
+                value: "Sim"
+            },
+        ],
+    },
+    {
+        nombre: "X-SCOOTER CROSS",
+        fotos: [
+            "/productos/scooters/cross-v1-1.webp",
+        ],
+        precio: "380.00",
+        caracteristicas: [{
+                label: "Tamanho de Roda",
+                value: "10,5 Off Road"
+            },
+            {
+                label: "Bateria",
+                value: "10,4 Ah"
+            },
+            {
+                label: "Motor",
+                value: "500W"
+            },
+            {
+                label: "Farois",
+                value: "Sim"
+            },
+            {
+                label: "Seta",
+                value: "Sim"
+            },
+            {
+                label: "Suspension Dianteira",
+                value: "Sim"
+            },
+            {
+                label: "Suspension Traseira",
+                value: "Sim"
+            },
+        ],
+    },
+    {
+        nombre: "X-SCOOTER CROSS PRO",
+        fotos: [
+            "/productos/scooters/crosspro-v1-1.webp",
+        ],
+        precio: "540.00",
+        caracteristicas: [{
+                label: "Tamanho de Roda",
+                value: "10,5 Off Road"
+            },
+            {
+                label: "Bateria",
+                value: "13 Ah"
+            },
+            {
+                label: "Motor",
+                value: "500W"
+            },
+            {
+                label: "Farois",
+                value: "LED Duplo"
+            },
+            {
+                label: "Seta",
+                value: "Sim"
+            },
+            {
+                label: "Suspension Dianteira",
+                value: "Sim"
+            },
+            {
+                label: "Suspension Traseira",
+                value: "Sim"
+            },
+        ],
+    },
+    {
+        nombre: "X-SCOOTER EXTREME",
+        fotos: [
+            "/productos/scooters/XTREME.webp",
+        ],
+        precio: "500.00",
+        caracteristicas: [{
+                label: "Tamanho de Roda",
+                value: "10,5 Off Road"
+            },
+            {
+                label: "Bateria",
+                value: "13 Ah"
+            },
+            {
+                label: "Motor",
+                value: "800W x2"
+            },
+            {
+                label: "Farois",
+                value: "LED"
+            },
+            {
+                label: "Seta",
+                value: "Sim"
+            },
+            {
+                label: "Suspension Dianteira",
+                value: "Sim"
+            },
+            {
+                label: "Suspension Traseira",
+                value: "Sim"
+            },
+        ],
+    },
+    {
+        nombre: "X-SCOOTER CROSS EVO",
+        fotos: [
+            "/productos/scooters/cross-evo.png",
+        ],
+        precio: "580.00",
+        caracteristicas: [{
+                label: "Tamanho de Roda",
+                value: "10 Off Road",
+            },
+            {
+                label: "Bateria",
+                value: "10Ah",
+            },
+            {
+                label: "Motor",
+                value: "500W",
+            },
+            {
+                label: "Farois",
+                value: "LED",
+            },
+            {
+                label: "Seta",
+                value: "Sim",
+            },
+            {
+                label: "Suspension Dianteira",
+                value: "Sim",
+            },
+            {
+                label: "Suspension Traseira",
+                value: "Sim",
+            },
+        ],
+    },
+    {
+        nombre: "X-SCOOTER ESCAPE",
+        fotos: [
+            "/productos/scooters/escape.png",
+        ],
+        precio: "597.00",
+        caracteristicas: [{
+                label: "Tamanho de Roda",
+                value: "16 POL - 12 POL",
+            },
+            {
+                label: "Bateria",
+                value: "13Ah",
+            },
+            {
+                label: "Motor",
+                value: "500W",
+            },
+            {
+                label: "Farois",
+                value: "LED",
+            },
+            {
+                label: "Seta",
+                value: "Não",
+            },
+            {
+                label: "Suspension Dianteira",
+                value: "Sim",
+            },
+            {
+                label: "Suspension Traseira",
+                value: "Sim",
+            },
+        ],
+    },
+    {
+        nombre: "X-SCOOTER GT",
+        fotos: [
+            "/productos/scooters/GT.webp",
+        ],
+        precio: "1,350.00",
+        caracteristicas: [{
+                label: "Tamanho de Roda",
+                value: "12'' Pista",
+            },
+            {
+                label: "Bateria",
+                value: "13 Ah",
+            },
+            {
+                label: "Motor",
+                value: "4000W x2",
+            },
+            {
+                label: "Farois",
+                value: "LED",
+            },
+            {
+                label: "Seta",
+                value: "Não",
+            },
+            {
+                label: "Suspension Dianteira",
+                value: "Sim",
+            },
+            {
+                label: "Suspension Traseira",
+                value: "Sim",
+            },
+        ],
+    },
+    {
+        nombre: "X-SCOOTER GT-S",
+        fotos: [
+            "/productos/scooters/GT-S.webp",
+        ],
+        precio: "2,200.00",
+        caracteristicas: [{
+                label: "Tamanho de Roda",
+                value: "16'' Pista",
+            },
+            {
+                label: "Bateria",
+                value: "40Ah",
+            },
+            {
+                label: "Motor",
+                value: "8000W",
+            },
+            {
+                label: "Farois",
+                value: "LED",
+            },
+            {
+                label: "Seta",
+                value: "Não",
+            },
+            {
+                label: "Suspension Dianteira",
+                value: "Sim",
+            },
+            {
+                label: "Suspension Traseira",
+                value: "Sim",
+            },
+        ],
+    },
+];
+
+---
+
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <title>Scooters</title>
+    </head>
+    <body class=" w-full max-w-5xl mx-auto py-8">
+
+        <div class="flex justify-between items-center mb-6 px-5">
+            <h1 class="text-3xl font-bold text-interbrasGreen-500">CATÁLOGO DE SCOOTERS</h1>
+            <button
+                class="bg-interbrasGreen-500 hover:bg-interbrasGreen-600 text-white px-5 py-3 rounded-xl text-xl flex gap-3"
+                id="downloadCatalog"
+            >
+                DESCARGAR COMO PDF
+                <svg
+                    class="w-auto h-6 my-auto fill-white"
+                    clip-rule="evenodd"
+                    fill-rule="evenodd"
+                    stroke-linejoin="round"
+                    stroke-miterlimit="2"
+                    viewBox="0 0 267 267"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <g transform="matrix(4.167 0 0 4.167 -666.667 0)">
+                        <path d="m213 53h-42v-8c0-.552-.448-1-1-1h-6c-.552 0-1 .448-1 1v10.492c0 3.042 2.466 5.508 5.508 5.508h46.984c3.042 0 5.508-2.466 5.508-5.508 0-4.418 0-10.492 0-10.492 0-.552-.448-1-1-1h-6c-.552 0-1 .448-1 1zm-28-27h-13c-.4 0-.762.238-.919.606-.158.368-.081.794.195 1.084l20 21c.189.198.45.31.724.31s.535-.112.724-.31l20-21c.276-.29.353-.716.195-1.084-.157-.368-.519-.606-.919-.606h-13v-22c0-.552-.448-1-1-1h-12c-.552 0-1 .448-1 1z"></path>
+                    </g>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Sección Comparativa -->
+        <div class="mb-10">
+            <ScooterComparison client:load scooters={Productos} />
+        </div>
+
+        <!-- Lista de Productos -->
+        <ul class=" w-full bg-white flex flex-col gap-3 px-5">
+            {
+                Productos.map((prod) => (
+                    <li id="product" class=" bg-interbrasGreen-500 p-5 rounded-3xl flex flex-col gap-4">
+                        <div class=" flex justify-between">
+                            <h2 class=" text-2xl text-white">{prod.nombre}</h2>
+                            <div class=" text-interbrasGreen-500 bg-white flex justify-center items-center px-5 text-xl  rounded-tl-xl rounded-br-xl rounded-sm tracking-tighter">$<strong>{prod.precio.split(".")[0]}</strong>,{prod.precio.split(".")[1]}</div>
+                        </div>
+                        <hr class=" border-white" />
+                        <div class=" flex w-full gap-2 ">
+                            {
+                                prod.fotos.slice(0, 3).map((foto) => (
+                                    <div class=" bg-white rounded-3xl overflow-hidden flex-1 flex items-center justify-center min-h-[150px]">
+                                        <img src={foto} class=" w-full h-full object-contain p-2" alt={prod.nombre} />
+                                    </div>
+                                ))
+                            }
+                            {
+                                prod.fotos.length < 3 && Array.from({ length: 3 - prod.fotos.length }).map(() => (
+                                    <div class=" bg-white rounded-3xl overflow-hidden flex-1 flex items-center justify-center min-h-[150px]">
+                                        <svg class="w-16 h-16 text-gray-300" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path>
+                                        </svg>
+                                    </div>
+                                ))
+                            }
+                            <div  class=" flex-1 rounded-3xl bg-slate-50" >
+                                <ul class=" p-2 flex flex-col gap-2 h-full justify-center">
+                                    {
+                                        prod.caracteristicas.map((carac) => (
+                                            <li class=" flex justify-between bg-gray-100 border p-1 rounded-3xl px-4">
+                                                <span class=" text-interbrasGreen-500 ">{carac.label}</span>
+                                                <span class=" text-gray-700">{carac.value}</span>
+                                            </li>
+                                        ))
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                ))
+            }
+        </ul>
+
+    
+        <!-- Loader -->
+        <div
+            id="loader"
+            class="fixed inset-0 bg-black/80 flex justify-center gap-4 items-center z-50 hidden"
+        >
+            <div class="size-10 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
+            <div>
+                <p class="text-3xl font-bold text-white">Procesando...</p>
+                <div class="flex text-2xl text-white font-bold bg-interbrasGreen-500 w-min px-3 py-1 rounded-xl mt-2">
+                    Pagina
+                    <span class="ml-2" id="currentPage"> 0 </span>
+                    /
+                    <span id="totalPages"> 0 </span>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html-to-image/1.11.11/html-to-image.js"></script>
+        <script
+            is:inline
+            src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"
+            integrity="sha512-z8IYLHO8bTgFqj+yrPyIJnzBDf7DDhWwiEsk4sY+Oe6J2M+WQequeGS7qioI5vT6rXgVRb4K1UVQC5ER7MKzKQ=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
+
+        <script is:inline>
+            document.getElementById("downloadCatalog").addEventListener("click", convertir);
+
+            async function convertir() {
+                try {
+                    const loader = document.getElementById("loader");
+                    loader.classList.remove("hidden");
+
+                    const currentPage = document.getElementById("currentPage");
+                    const totalPages = document.getElementById("totalPages");
+
+                    const productCards = document.querySelectorAll("#product");
+                    
+                    if (!productCards.length) {
+                        alert("No se encontraron productos para exportar");
+                        loader.classList.add("hidden");
+                        return;
+                    }
+
+                    totalPages.textContent = productCards.length;
+
+                    const { PDFDocument } = PDFLib;
+                    const pdfDoc = await PDFDocument.create();
+
+                    for (const [index, card] of Array.from(productCards).entries()) {
+                        const dataUrl = await htmlToImage.toPng(card, { 
+                            pixelRatio: 2,
+                            useCORS: true,
+                            allowTaint: true
+                        });
+
+                        const img = new Image();
+                        img.src = dataUrl;
+
+                        await new Promise((resolve, reject) => {
+                            img.onload = async function () {
+                                try {
+                                    const page = pdfDoc.addPage([img.width, img.height]);
+                                    const pngImageBytes = await fetch(dataUrl).then((res) => res.arrayBuffer());
+                                    const pngImage = await pdfDoc.embedPng(pngImageBytes);
+                                    
+                                    page.drawImage(pngImage, {
+                                        x: 0,
+                                        y: 0,
+                                        width: img.width,
+                                        height: img.height,
+                                    });
+                                    
+                                    currentPage.textContent = index + 1;
+                                    resolve();
+                                } catch (error) {
+                                    console.error("Error procesando imagen:", error);
+                                    reject(error);
+                                }
+                            };
+                            
+                            img.onerror = function() {
+                                console.error("Error cargando imagen");
+                                reject(new Error("Error cargando imagen"));
+                            };
+                        });
+                    }
+
+                    const pdfBytes = await pdfDoc.save();
+                    const blob = new Blob([pdfBytes], { type: "application/pdf" });
+                    const link = document.createElement("a");
+                    link.href = URL.createObjectURL(blob);
+
+                    const date = new Date();
+                    const day = date.getDate();
+                    const month = date.getMonth() + 1;
+                    const year = date.getFullYear();
+
+                    link.download = `Scooters-Interbras-${day}-${month}-${year}.pdf`;
+                    link.click();
+
+                    loader.classList.add("hidden");
+                } catch (error) {
+                    console.error("Error al generar PDF:", error);
+                    alert("Hubo un error al generar el PDF. Por favor, intenta nuevamente.");
+                    const loader = document.getElementById("loader");
+                    if (loader) {
+                        loader.classList.add("hidden");
+                    }
+                }
+            }
+        </script>
+
+    </body>
+</html>
