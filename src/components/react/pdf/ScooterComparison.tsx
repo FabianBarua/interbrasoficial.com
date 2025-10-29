@@ -1,20 +1,52 @@
 import { useState } from 'react';
 
-interface Caracteristica {
-  label: string;
-  value: string;
+// Nivel de calidad: 1 (bajo) a 5 (alto)
+type NivelCalidad =  number;
+
+// Definición de todas las características posibles
+interface CaracteristicasScooter {
+  [key: string]: { label: string; value: string; nivel: NivelCalidad } | null;
 }
 
 interface Scooter {
   nombre: string;
   precio: string;
-  caracteristicas: Caracteristica[];
+  caracteristicas: CaracteristicasScooter;
   fotos?: string[];
 }
 
 interface ScooterComparisonProps {
   scooters: Scooter[];
 }
+
+// Definir el orden y nombres de las características
+type CaracteristicaKey = string;
+
+// Función para obtener todas las características disponibles
+const getAllCaracteristicas = (scooters: Scooter[]): CaracteristicaKey[] => {
+  const allKeys = new Set<CaracteristicaKey>();
+  scooters.forEach(scooter => {
+    Object.keys(scooter.caracteristicas).forEach(key => {
+      if (scooter.caracteristicas[key] !== null) {
+        allKeys.add(key);
+      }
+    });
+  });
+  return Array.from(allKeys).sort(); // Ordenar alfabéticamente
+};
+
+// Componente para mostrar el indicador de mejor opción
+const MejorIndicador = ({ isBetter }: { isBetter: boolean }) => {
+  if (!isBetter) return null;
+
+  return (
+    <div className="flex justify-center mt-1">
+      <div className="bg-green-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold">
+        ✓
+      </div>
+    </div>
+  );
+};
 
 export const ScooterComparison = ({ scooters }: ScooterComparisonProps) => {
   const [selectedScooter1, setSelectedScooter1] = useState<number>(0);
@@ -23,16 +55,18 @@ export const ScooterComparison = ({ scooters }: ScooterComparisonProps) => {
   const scooter1 = scooters[selectedScooter1];
   const scooter2 = scooters[selectedScooter2];
 
-  // Obtener todas las características únicas
-  const allLabels = Array.from(
-    new Set([
-      ...scooter1.caracteristicas.map(c => c.label),
-      ...scooter2.caracteristicas.map(c => c.label)
-    ])
-  );
+  const getCaracteristicaValue = (scooter: Scooter, key: CaracteristicaKey): string => {
+    return scooter.caracteristicas[key]?.value || '-';
+  };
 
-  const getCaracteristicaValue = (scooter: Scooter, label: string) => {
-    return scooter.caracteristicas.find(c => c.label === label)?.value || '-';
+  const getCaracteristicaNivel = (scooter: Scooter, key: CaracteristicaKey): NivelCalidad | null => {
+    const nivel = scooter.caracteristicas[key]?.nivel;
+    // Si el nivel es 0, se considera que no tiene la característica
+    return nivel === 0 ? null : nivel || null;
+  };
+
+  const getCaracteristicaLabel = (scooter: Scooter, key: CaracteristicaKey, defaultLabel: string): string => {
+    return scooter.caracteristicas[key]?.label || defaultLabel;
   };
 
   return (
@@ -40,6 +74,19 @@ export const ScooterComparison = ({ scooters }: ScooterComparisonProps) => {
       <h2 className="text-3xl font-bold text-interbrasGreen-500 mb-6 text-center">
         COMPARADOR DE SCOOTERS
       </h2>
+
+      {/* Leyenda de comparación */}
+      <div className="bg-gradient-to-r from-interbrasGreen-50 to-green-50 rounded-xl p-4 mb-6 border border-interbrasGreen-200">
+        <div className="flex items-center justify-center gap-4">
+          <span className="text-sm font-medium text-gray-700">Indicador de mejor opción:</span>
+          <div className="flex items-center gap-2">
+            <div className="bg-green-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold">
+              ✓
+            </div>
+            <span className="text-xs text-gray-600">Producto superior en esta característica</span>
+          </div>
+        </div>
+      </div>
 
       {/* Selectores */}
       <div className="grid grid-cols-2 gap-4 mb-6">
@@ -143,14 +190,26 @@ export const ScooterComparison = ({ scooters }: ScooterComparisonProps) => {
         </div>
 
         {/* Características */}
-        {allLabels.map((label, index) => {
-          const value1 = getCaracteristicaValue(scooter1, label);
-          const value2 = getCaracteristicaValue(scooter2, label);
+        {getAllCaracteristicas(scooters).map((key, index) => {
+          const value1 = getCaracteristicaValue(scooter1, key);
+          const value2 = getCaracteristicaValue(scooter2, key);
+          const nivel1 = getCaracteristicaNivel(scooter1, key);
+          const nivel2 = getCaracteristicaNivel(scooter2, key);
+          const label = getCaracteristicaLabel(scooter1, key, key); // Usar la key como defaultLabel
           const isDifferent = value1 !== value2;
+          
+          // Mostrar solo si al menos uno de los scooters tiene esta característica
+          const hasValue = value1 !== '-' || value2 !== '-';
+          
+          if (!hasValue) return null;
+
+          // Determinar cuál tiene mejor nivel
+          const isBetter1 = nivel1 !== null && (nivel2 === null || nivel1 > nivel2);
+          const isBetter2 = nivel2 !== null && (nivel1 === null || nivel2 > nivel1);
 
           return (
             <div 
-              key={index} 
+              key={key} 
               className={`grid grid-cols-3 border-b border-gray-200 ${
                 index % 2 === 0 ? 'bg-gray-50' : 'bg-white'
               }`}
@@ -158,11 +217,13 @@ export const ScooterComparison = ({ scooters }: ScooterComparisonProps) => {
               <div className="p-4 text-interbrasGreen-500 font-medium">
                 {label}
               </div>
-              <div className={`p-4 text-center ${isDifferent ? 'font-semibold' : ''}`}>
-                {value1}
+              <div className={`p-4 flex justify-center items-center gap-2 text-center ${isDifferent ? 'font-semibold' : ''} ${isBetter1 ? 'bg-green-50 border-l-4 border-green-500' : ''}`}>
+                <div>{value1}</div>
+                <MejorIndicador isBetter={isBetter1} />
               </div>
-              <div className={`p-4 text-center ${isDifferent ? 'font-semibold' : ''}`}>
-                {value2}
+              <div className={`p-4 flex justify-center items-center gap-2 text-center ${isDifferent ? 'font-semibold' : ''} ${isBetter2 ? 'bg-green-50 border-l-4 border-green-500' : ''}`}>
+                <div>{value2}</div>
+                <MejorIndicador isBetter={isBetter2} />
               </div>
             </div>
           );
