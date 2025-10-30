@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { PhotoProvider, PhotoView } from "react-photo-view";
 import type { ScooterProduct } from "./ScooterTypes"
 
 export const ScooterLista = (
@@ -25,13 +26,17 @@ export const ScooterLista = (
                         </div>
                         <hr className=" border-white" />
                         <div className=" flex w-full gap-2 ">
-                            {
-                                prod.fotos.slice(0, 3).map((foto) => (
-                                    <div className=" bg-white rounded-3xl overflow-hidden flex-1 flex items-center justify-center min-h-[150px]">
-                                        <img src={foto} className=" w-full h-full object-contain p-2" alt={prod.nombre} />
-                                    </div>
-                                ))
-                            }
+                            <PhotoProvider>
+                                {
+                                    prod.fotos.slice(0, 3).map((foto) => (
+                                        <div className=" bg-white rounded-3xl overflow-hidden flex-1 flex items-center justify-center min-h-[150px]">
+                                            <PhotoView src={foto}>
+                                                <img src={foto} className=" w-full h-full object-contain p-2 cursor-pointer" alt={prod.nombre} />
+                                            </PhotoView>
+                                        </div>
+                                    ))
+                                }
+                            </PhotoProvider>
                             {
                                 prod.fotos.length < 3 && Array.from({ length: 3 - prod.fotos.length }).map(() => (
                                     <div className=" bg-white rounded-3xl overflow-hidden flex-1 flex items-center justify-center min-h-[150px]">
