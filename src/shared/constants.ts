@@ -15,3 +15,8 @@ export const isApple: () => boolean = () => {
     android: 'https://play.google.com/store/apps/details?id=com.loby.balance.car.google&hl=pt',
     ios: 'https://apps.apple.com/br/app/minirobot/id1098535221'
   }
+
+  export const airesAcondicionadosUrls = {
+    android: 'https://play.google.com/store/apps/details?id=com.tuya.smart',
+    ios: 'https://apps.apple.com/us/app/tuya-smart-life-smart-living/id1034649547'
+  }

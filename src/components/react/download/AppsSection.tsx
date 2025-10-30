@@ -242,6 +242,35 @@ export const AppsSectionChild = ({ lang }: AppsSectionProps) => {
         }
       ]
     },
+    {
+      id: '3',
+      name: 'A/C Interbras',
+      models: ['Inverter', 'OnOff'],
+      avatarUrls: ['/downloads/apple-icon.png', '/downloads/google-icon.png'],
+      pricipalIcon: '/home/slideSection/1.svg',
+      files: [
+        () => {
+          return (
+            <DownloadModalCard
+              lang={lang}
+              name={
+                t('downloads.files.acinterbras.1')
+              } models={['Inverter']} imageCard='/downloads/google-icon.png' url={ScooterAndroidUrl}
+            />
+          )
+        },
+        () => {
+          return (
+            <DownloadModalCard
+              lang={lang}
+              name={
+                t('downloads.files.acinterbras.2')
+              } models={['Inverter']} imageCard='/downloads/apple-icon.png' url={ScooterIosUrl}
+            />
+          )
+        }
+      ]
+    }
   ]
   const [selected, setSelected] = useState<FilesProps | null>(null)
 
