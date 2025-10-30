@@ -1,4 +1,6 @@
 // Declaraciones de tipos para librerías cargadas desde CDN
+declare module '*.css';
+declare module '*.scss';
 declare global {
   interface Window {
     JSZip: any;
