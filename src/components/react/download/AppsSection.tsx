@@ -1,5 +1,5 @@
 import { getI18NGlobal, getValueFromKey } from '@/i18n'
-import { ScooterAndroidUrl, ScooterIosUrl, scooterTitanAndXtremeUrls, scooterLenzod } from '@/shared/constants'
+import { ScooterAndroidUrl, ScooterIosUrl, scooterTitanAndXtremeUrls, scooterLenzod, airesAcondicionadosUrls } from '@/shared/constants'
 import React, { useState, useEffect } from 'react'
 import { Modal, ModalBody, ModalContent, ModalFooter, ModalTrigger, useModal } from '@/components/react/download/AnimatedModal'
 import { AvatarCircles } from '@/components/react/download/AvatarCircles'
@@ -255,7 +255,9 @@ export const AppsSectionChild = ({ lang }: AppsSectionProps) => {
               lang={lang}
               name={
                 t('downloads.files.acinterbras.1')
-              } models={['Inverter']} imageCard='/downloads/google-icon.png' url={ScooterAndroidUrl}
+              } models={['Inverter']} imageCard='/downloads/google-icon.png' url={
+                airesAcondicionadosUrls.android
+              }
             />
           )
         },
@@ -265,7 +267,7 @@ export const AppsSectionChild = ({ lang }: AppsSectionProps) => {
               lang={lang}
               name={
                 t('downloads.files.acinterbras.2')
-              } models={['Inverter']} imageCard='/downloads/apple-icon.png' url={ScooterIosUrl}
+              } models={['Inverter']} imageCard='/downloads/apple-icon.png' url={airesAcondicionadosUrls.ios}
             />
           )
         }
