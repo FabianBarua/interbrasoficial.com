@@ -1,29 +1,12 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import type { NivelCalidad, ScooterProduct } from './ScooterTypes';
 
-// Nivel de calidad: 1 (bajo) a 5 (alto)
-type NivelCalidad =  number;
-
-// Definición de todas las características posibles
-interface CaracteristicasScooter {
-  [key: string]: { label: string; value: string; nivel: NivelCalidad } | null;
-}
-
-interface Scooter {
-  nombre: string;
-  precio: string;
-  caracteristicas: CaracteristicasScooter;
-  fotos?: string[];
-}
-
-interface ScooterComparisonProps {
-  scooters: Scooter[];
-}
 
 // Definir el orden y nombres de las características
 type CaracteristicaKey = string;
 
 // Función para obtener todas las características disponibles
-const getAllCaracteristicas = (scooters: Scooter[]): CaracteristicaKey[] => {
+const getAllCaracteristicas = (scooters: ScooterProduct[]): CaracteristicaKey[] => {
   const allKeys = new Set<CaracteristicaKey>();
   scooters.forEach(scooter => {
     Object.keys(scooter.caracteristicas).forEach(key => {
@@ -48,24 +31,34 @@ const MejorIndicador = ({ isBetter }: { isBetter: boolean }) => {
   );
 };
 
-export const ScooterComparison = ({ scooters }: ScooterComparisonProps) => {
+export const ScooterComparison = ( ) => {
+
+  const [scooters, setScooters] = useState<ScooterProduct[]>([])
+
+  useEffect(() => {
+    fetch('https://panel-scooter.interbrasoficial.com/api/productos.php')
+      .then(response => response.json())
+      .then(data => setScooters(data.data))
+      .catch(error => console.error('Error fetching scooters:', error));
+  }, []);
+
   const [selectedScooter1, setSelectedScooter1] = useState<number>(0);
   const [selectedScooter2, setSelectedScooter2] = useState<number>(1);
 
-  const scooter1 = scooters[selectedScooter1];
-  const scooter2 = scooters[selectedScooter2];
+  const scooter1 = scooters[selectedScooter1] || {};
+  const scooter2 = scooters[selectedScooter2] || {};
 
-  const getCaracteristicaValue = (scooter: Scooter, key: CaracteristicaKey): string => {
+  const getCaracteristicaValue = (scooter: ScooterProduct, key: CaracteristicaKey): string => {
     return scooter.caracteristicas[key]?.value || '-';
   };
 
-  const getCaracteristicaNivel = (scooter: Scooter, key: CaracteristicaKey): NivelCalidad | null => {
+  const getCaracteristicaNivel = (scooter: ScooterProduct, key: CaracteristicaKey): NivelCalidad | null => {
     const nivel = scooter.caracteristicas[key]?.nivel;
     // Si el nivel es 0, se considera que no tiene la característica
     return nivel === 0 ? null : nivel || null;
   };
 
-  const getCaracteristicaLabel = (scooter: Scooter, key: CaracteristicaKey, defaultLabel: string): string => {
+  const getCaracteristicaLabel = (scooter: ScooterProduct, key: CaracteristicaKey, defaultLabel: string): string => {
     return scooter.caracteristicas[key]?.label || defaultLabel;
   };
 
