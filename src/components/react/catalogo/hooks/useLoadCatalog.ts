@@ -16,14 +16,13 @@ export const useLoadCatalog = (currentLocale: string) => {
 
   useEffect(() => {
     (async () => {
-      const res = await fetch("https://interbras-dashboard.vercel.app/api/catalog/latest?&show_hidden=true");
+      const res = await fetch("http://localhost:3000/api/catalog/latest?&show_hidden=true");
       const json: GroupedByCategory = await res.json();
 
       for (const cat of Object.values(json)) {
         cat.categoryName = t(cat.categoryName);
         cat.categoryDescription = t(cat.categoryDescription);
         cat.categoryShortDescription = t(cat.categoryShortDescription);
-
         cat.products.forEach((p: ProductData) => {
           p.color = t(p.color);
           p.originalName = t(p.originalName);

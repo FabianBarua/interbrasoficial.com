@@ -284,7 +284,20 @@ export const IsComing = ({
   // info: any;
   // categoryId: string;
 
-  const productsData = [
+  const productsData: {
+      productCode: string;
+      price: string;
+      inDb: boolean;
+      nuevo?: boolean;
+      photo?: string[] | string;
+      originalName?: string;
+      volt?: string;
+      info?: any;
+      categoryId?: string;
+    }[]
+  =
+    
+  [
     {
       productCode: "itb-12000of",
       price: "250.00",
@@ -296,82 +309,7 @@ export const IsComing = ({
       inDb: true,
     },
     
-    {
-      productCode: "10.5_ULTRA",
-      price: "295.00",
-      inDb: false,
-      photo: ["/productos/scooters/10.5ultra-v1-1.png"],
-      originalName: "Scooter 10.5 Ultra",
-      volt: "",
-      nuevo: true,
-      info: {
-        specs: `Velocidad máxima: 30 km/h
-            Autonomía: Hasta 30 km
-            Peso máximo soportado: 120 kg
-            Ruedas: 10 pulgadas
-            Frenos a disco
-            Luces: LED delanteras y traseras
-            Tiempo de carga: Aproximadamente 4 horas`,
-      },
-      categoryId: "",
-    },
-    {
-      productCode: "CROSS_EVO",
-      price: "580.00",
-      inDb: false,
-      nuevo: true,
-      photo: ["/productos/scooters/cross-evo.png"],
-      originalName: "Scooter Cross Evo",
-      volt: "",
-      info: {
-        specs: `Velocidad máxima: 45 km/h  
-Motor: 500W  
-Batería: 48V 10.4Ah  
-Autonomía: 40 km  
-Peso máximo: 150 kg  
-Ruedas: 10” off-road  
-Frenos: Disco con EABS  
-Suspensión: Delantera y trasera  
-Luces: LED frontales y traseras  
-Display digital | 3 modos de velocidad | NFC Card | IPX6  
-`,
-      },
-      categoryId: "",
-    },
-    {
-      productCode: "PAT_ESCAPE",
-      price: "597.00",
-      inDb: false,
-      nuevo: true,
-      photo: ["/productos/scooters/escape.png"],
-      originalName: "Scooter Escape",
-      volt: "",
-      info: {
-        specs: `Velocidad máxima: 40 km/h  
-Motor: 500W  
-Batería: 48V 13Ah  
-Autonomía: 45 km  
-Peso máximo: 120 kg  
-Ruedas: 12” y 16”  
-Frenos: Disco con EABS  
-Suspensión: Hidráulica trasera  
-Luces: LED frontales y traseras  
-Resistencia al agua: IPX6  
-Display digital | 3 modos de velocidad  
-`,
-      },
-      categoryId: "",
-    },
-    {
-      productCode: "crosspro",
-      price: "540.00",
-      inDb: true,
-    },
-    {
-      productCode: "cross",
-      price: "380.00",
-      inDb: true,
-    },
+
     {
       productCode: "itb-18000iv",
       price: "0.00",

@@ -114,8 +114,9 @@ export const DefaultList = ({
         .map((product) => {
           return (
             <li
-              key={product.productCode + "-" + product.code}
+              key={product.productCode + "-" + product.code + "-" + product.volt + "-" + product.color}
               data-hide={!product.showInCatalog}
+              id={product.productCode + "-" + product.code + "-" + product.volt + "-" + product.color}
               className={` p-5 relative  justify-between flex  flex-1 flex-col rounded-3xl bg-[#f2f2f293] ${
                 !product.showInCatalog ? "opacity-50" : ""
                 }
