@@ -34,7 +34,9 @@
     "redSpider" : "Vermelho Aranha",
     "pinkButterfly" : "Borboleta Rosa",
     "redBlue" : "Vermelho e Azul",
-    "greenBlack" : "Verde e Preto"
+    "greenBlack" : "Verde e Preto",
+    "orange" : "Laranja",
+    "gray" : "Cinza"
   },
   "accesorios": {
   "id": "accesorios",
@@ -98,6 +100,33 @@
     "description": "Mobilidade urbana eficiente e ecológica.",
     "shortDescription": "Mobilidade mais ecológica.",
     "children": {
+      "escape": {
+  "id": "escape",
+  "name": "Scooter Escape",
+  "info": {
+    "review": "O Escape tem um design único em todo o continente.\nUma combinação perfeita entre potência, elegância e conforto.\nSua estrutura robusta e estética moderna o tornam um scooter inconfundível, feito para quem busca se destacar em cada trajeto.\nCom motor de 500W e autonomia de até 45 km, oferece um desempenho superior tanto na cidade quanto em terrenos mais exigentes.\nIdeal para quem valoriza liberdade, inovação e estilo em um só veículo.",
+    "included": null,
+    "specs": "Velocidade máxima: 40 km/h\nMotor: 500W\nBateria: 48V 13Ah\nAutonomia: 45 km\nPeso máximo: 120 kg\nRodas: 12” e 16”\nFreios: Disco com EABS"
+  }
+},
+"cross_evo": {
+  "id": "cross_evo",
+  "name": "Scooter Cross Evo",
+  "info": {
+    "review": "O Cross Evo foi projetado para quem busca aventura sem limites.\nCom um estilo agressivo e desempenho impressionante, combina força, estabilidade e design moderno.\nSeu motor de 500W e pneus off-road de 10” garantem controle total em qualquer tipo de terreno, desde ruas urbanas até caminhos irregulares.\nA estrutura reforçada suporta até 150 kg, oferecendo segurança e confiança em cada trajeto.\nÉ a evolução do scooter off-road: potência, liberdade e estilo em um único modelo.",
+    "included": null,
+    "specs": "Velocidade máxima: 45 km/h\nMotor: 500W\nBateria: 48V 10.4Ah\nAutonomia: 40 km\nPeso máximo: 150 kg\nRodas: 10” off-road\nFreios: Disco com EABS"
+  }
+},
+"10_5_ultra": {
+  "id": "10.5_ultra",
+  "name": "Scooter 10.5 Ultra",
+  "info": {
+    "review": "O 10.5 Ultra redefine a mobilidade urbana com um design moderno, leve e eficiente.\nPensado para o uso diário, oferece uma condução suave e estável, ideal para se locomover pela cidade com conforto e estilo.\nSuas rodas de 10 polegadas garantem excelente aderência e amortecimento em qualquer tipo de superfície.\nCom autonomia de até 30 km e recarga completa em apenas 4 horas, é o equilíbrio perfeito entre desempenho e praticidade.\nUm scooter versátil, elegante e confiável, feito para quem valoriza liberdade em cada trajeto.",
+    "included": null,
+    "specs": "Velocidade máxima: 30 km/h\nAutonomia: até 30 km\nPeso máximo suportado: 120 kg\nRodas: 10 polegadas\nFreios a disco\nLuzes: LED dianteiras e traseiras\nTempo de recarga: aproximadamente 4 horas"
+  }
+},
       "85": {
         "id": "8.5",
         "name": "Patinete Eletrico 8.5",

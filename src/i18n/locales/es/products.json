@@ -34,7 +34,9 @@
     "redSpider" : "Rojo araña",
     "pinkButterfly" : "Rosa Mariposa",
     "redBlue" : "Rojo y Azul",
-    "greenBlack" : "Verde y Negro"
+    "greenBlack" : "Verde y Negro",
+    "orange" : "Naranja",
+    "gray" : "Gris"
   },
   "accesorios": {
     "id": "accesorios",
@@ -98,6 +100,33 @@
     "description": "Movilidad urbana eficiente y ecológica.",
     "shortDescription": "Movilidad mas ecológica.",
     "children": {
+      "escape":{
+        "id": "escape",
+        "name": "Scooter Escape",
+        "info": {
+    "review": "El Escape tiene un diseño único en todo el continente.\nUna mezcla perfecta entre potencia, elegancia y confort.\nSu estructura robusta y estética moderna lo convierten en un scooter inconfundible, pensado para quienes buscan destacar en cada trayecto.\nCon su motor de 500W y autonomía de hasta 45 km, ofrece un rendimiento superior tanto en ciudad como en terrenos más exigentes.\nIdeal para quienes valoran la libertad, la innovación y el estilo en un solo vehículo.",
+          "included": null,
+          "specs": "Velocidad máxima: 40 km/h\nMotor: 500W\nBatería: 48V 13Ah\nAutonomía: 45 km\nPeso máximo: 120 kg\nRuedas: 12” y 16”\nFrenos: Disco con EABS"
+        }
+      },
+      "cross_evo": {
+        "id": "cross_evo",
+        "name": "Scooter Cross Evo",
+        "info": {
+    "review": "El Cross Evo está diseñado para los que buscan aventura sin límites.\nCon un estilo agresivo y un rendimiento impresionante, combina fuerza, estabilidad y diseño moderno.\nSu motor de 500W y ruedas off-road de 10” garantizan un control total en cualquier terreno, desde calles urbanas hasta caminos irregulares.\nLa estructura reforzada soporta hasta 150 kg, ofreciendo seguridad y confianza en cada trayecto.\nEs la evolución del scooter todoterreno: potencia, libertad y estilo en un solo modelo.",
+          "included": null,
+          "specs": "Velocidad máxima: 45 km/h\nMotor: 500W\nBatería: 48V 10.4Ah\nAutonomía: 40 km\nPeso máximo: 150 kg\nRuedas: 10” off-road\nFrenos: Disco con EABS"
+        }
+      },
+      "10_5_ultra": {
+        "id": "10.5_ultra",
+        "name": "Scooter 10.5 Ultra",
+        "info": {
+    "review": "El 10.5 Ultra redefine la movilidad urbana con un diseño moderno, ligero y eficiente.\nPensado para el uso diario, ofrece una conducción suave y estable, ideal para moverse por la ciudad con comodidad y estilo.\nSus ruedas de 10 pulgadas garantizan excelente agarre y amortiguación en todo tipo de superficie.\nCon una autonomía de hasta 30 km y carga completa en apenas 4 horas, es el equilibrio perfecto entre rendimiento y practicidad.\nUn scooter versátil, elegante y confiable, diseñado para quienes valoran la libertad en cada trayecto.",
+          "included": null,
+          "specs": "Velocidad máxima: 30 km/h\nAutonomía: Hasta 30 km\nPeso máximo soportado: 120 kg\nRuedas: 10 pulgadas\nFrenos a disco\nLuces: LED delanteras y traseras\nTiempo de carga: Aproximadamente 4 horas"
+        }
+      },
       "85": {
         "id": "8.5",
         "name": "Scooter 8.5",
