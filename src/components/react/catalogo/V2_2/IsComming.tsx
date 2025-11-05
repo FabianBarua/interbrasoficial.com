@@ -298,38 +298,7 @@ export const IsComing = ({
   =
     
   [
-    {
-      productCode: "itb-12000of",
-      price: "250.00",
-      inDb: true,
-    },
-    {
-      productCode: "itb-12000iv",
-      price: "290.00",
-      inDb: true,
-    },
-    
 
-    {
-      productCode: "itb-18000iv",
-      price: "0.00",
-      inDb: true,
-    },
-    {
-      productCode: "IN3200TV",
-      price: "0.00",
-      inDb: true,
-    },
-    {
-      productCode: "IN5000TV",
-      price: "0.00",
-      inDb: true,
-    },
-            {
-      productCode: "IN6500TV",
-      price: "0.00",
-      inDb: true,
-    },
 
     // {
     //   productCode: "itb-24000iv",

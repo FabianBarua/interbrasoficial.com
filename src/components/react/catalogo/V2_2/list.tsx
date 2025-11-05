@@ -227,9 +227,9 @@ export const DefaultList = ({
                    }
                   </h3>
                   <div className=" flex mt-2 gap-1 font-light text-nowrap flex-wrap">
-                    <span className=" px-2 bg-interbrasGreen-100 rounded-lg text-interbrasGreen-600 line-clamp" >
+                    {/* <span className=" px-2 bg-interbrasGreen-100 rounded-lg text-interbrasGreen-600 line-clamp" >
                       Ref: {product.code}
-                    </span>
+                    </span> */}
                     {
                       // TODO: Actualizar con los nuevos ref codes
                     }
