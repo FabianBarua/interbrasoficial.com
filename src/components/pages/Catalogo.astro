@@ -102,22 +102,82 @@ const t_catalog = (key: string) => getValueFromKey(key, i18n_catalog);
 
 <div
   id="loader"
-  class="fixed inset-0 bg-black/80 flex justify-center gap-4 items-center z-50 hidden"
+  class="fixed inset-0 bg-gradient-to-br from-black/95 via-black/90 to-black/95 backdrop-blur-sm justify-center items-center z-50 hidden"
 >
-  <div
-    class="size-10 border-4 border-white border-t-transparent rounded-full animate-spin"
-  >
-  </div>
-  <div class="">
-    <p class="text-3xl font-bold text-white">Procesando...</p>
-    <div
-      class="flex text-2xl text-white font-bold bg-interbrasGreen-500 w-min px-3 py-1 rounded-xl mt-2"
-    >
-      Pagina
-      <span class="ml-2" id="totalPages"> 0 </span>
-      /
-      <span id="currentPage"> 0 </span>
+  <div class="bg-white/10 backdrop-blur-md rounded-3xl p-8 md:p-12 shadow-2xl border border-white/20 max-w-md w-full mx-4 loader-card">
+    <!-- Header -->
+    <div class="flex items-center justify-between mb-6">
+      <div class="flex items-center gap-3">
+        <div class="relative">
+          <div class="size-12 border-4 border-interbrasGreen-500/30 rounded-full"></div>
+          <div class="absolute inset-0 size-12 border-4 border-interbrasGreen-500 border-t-transparent rounded-full animate-spin"></div>
+        </div>
+        <div>
+          <p class="text-2xl font-bold text-white" id="loaderTitle">Generando PDF</p>
+          <p class="text-sm text-gray-300" id="loaderSubtitle">Por favor espera...</p>
+        </div>
+      </div>
     </div>
+
+    <!-- Barra de progreso -->
+    <div class="mb-6">
+      <div class="flex justify-between items-center mb-2">
+        <span class="text-sm font-medium text-gray-300">Progreso</span>
+        <span class="text-sm font-bold text-white">
+          <span id="currentPage">0</span>/<span id="totalPages">0</span>
+        </span>
+      </div>
+      <div class="w-full h-3 bg-white/10 rounded-full overflow-hidden shadow-inner">
+        <div 
+          id="progressBar" 
+          class="h-full bg-gradient-to-r from-interbrasGreen-500 to-interbrasGreen-400 transition-all duration-300 ease-out rounded-full shadow-lg"
+          style="width: 0%"
+        ></div>
+      </div>
+      <p class="text-xs text-gray-400 mt-2" id="progressPercentage">0%</p>
+    </div>
+
+    <!-- Información adicional -->
+    <div class="bg-black/20 rounded-xl p-4 mb-6 border border-white/10">
+      <div class="flex items-start gap-3">
+        <svg class="w-5 h-5 text-interbrasGreen-400 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+        </svg>
+        <p class="text-sm text-gray-300 leading-relaxed">
+          Estamos procesando cada página de tu catálogo. Este proceso puede tardar unos momentos.
+        </p>
+      </div>
+    </div>
+
+    <!-- Botón de cancelar -->
+    <button
+      id="cancelButton"
+      class="w-full bg-red-500/90 hover:bg-red-500 text-white px-6 py-3.5 rounded-xl text-base font-semibold transition-all duration-200 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98]"
+    >
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+      Cancelar generación
+    </button>
+  </div>
+</div>
+
+<!-- Toast de notificación -->
+<div
+  id="toast"
+  class="fixed top-6 right-6 bg-white rounded-2xl shadow-2xl p-4 z-[60] transform translate-x-[120%] transition-transform duration-300 max-w-sm border-l-4"
+>
+  <div class="flex items-start gap-3">
+    <div id="toastIcon" class="flex-shrink-0 mt-0.5"></div>
+    <div class="flex-1">
+      <p id="toastTitle" class="font-bold text-gray-900 text-sm mb-1"></p>
+      <p id="toastMessage" class="text-gray-600 text-sm"></p>
+    </div>
+    <button id="toastClose" class="text-gray-400 hover:text-gray-600 transition-colors">
+      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+        <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+      </svg>
+    </button>
   </div>
 </div>
 
@@ -139,37 +199,115 @@ const t_catalog = (key: string) => getValueFromKey(key, i18n_catalog);
   const catalogTitle = document.getElementById("catalogTitle");
   const currentLocale = (catalogTitle.getAttribute("data-lang") || "es") === "es" ? "ESPAÑOL" : "PORTUGUES";
 
+  let isCancelled = false;
+
+  // Función para mostrar toast
+  function showToast(title, message, type = 'success') {
+    const toast = document.getElementById('toast');
+    const toastTitle = document.getElementById('toastTitle');
+    const toastMessage = document.getElementById('toastMessage');
+    const toastIcon = document.getElementById('toastIcon');
+    
+    toastTitle.textContent = title;
+    toastMessage.textContent = message;
+    
+    // Iconos y colores según el tipo
+    const styles = {
+      success: {
+        icon: '<svg class="w-6 h-6 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>',
+        border: 'border-green-500'
+      },
+      error: {
+        icon: '<svg class="w-6 h-6 text-red-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/></svg>',
+        border: 'border-red-500'
+      },
+      warning: {
+        icon: '<svg class="w-6 h-6 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>',
+        border: 'border-yellow-500'
+      }
+    };
+    
+    const style = styles[type] || styles.success;
+    toastIcon.innerHTML = style.icon;
+    toast.className = `fixed top-6 right-6 bg-white rounded-2xl shadow-2xl p-4 z-[60] transition-transform duration-300 max-w-sm border-l-4 ${style.border}`;
+    
+    // Mostrar toast
+    setTimeout(() => toast.style.transform = 'translateX(0)', 10);
+    
+    // Ocultar después de 4 segundos
+    setTimeout(() => toast.style.transform = 'translateX(120%)', 4000);
+  }
+
+  // Cerrar toast manualmente
+  document.getElementById('toastClose').addEventListener('click', () => {
+    document.getElementById('toast').style.transform = 'translateX(120%)';
+  });
+
+  // Función para actualizar progreso
+  function updateProgress(current, total, title = 'Generando PDF', subtitle = 'Por favor espera...') {
+    const percentage = Math.round((current / total) * 100);
+    document.getElementById('currentPage').textContent = current;
+    document.getElementById('totalPages').textContent = total;
+    document.getElementById('progressBar').style.width = percentage + '%';
+    document.getElementById('progressPercentage').textContent = percentage + '%';
+    document.getElementById('loaderTitle').textContent = title;
+    document.getElementById('loaderSubtitle').textContent = subtitle;
+  }
+
+  // Función para mostrar/ocultar loader
+  function toggleLoader(show) {
+    const loader = document.getElementById('loader');
+    if (show) {
+      loader.classList.remove('hidden');
+      loader.classList.add('flex');
+    } else {
+      loader.classList.add('hidden');
+      loader.classList.remove('flex');
+    }
+  }
+
+  document.getElementById("cancelButton").addEventListener("click", () => {
+    isCancelled = true;
+  });
+
   document
     .getElementById("downloadCatalog")
     .addEventListener("click", convertir);
 
   async function convertir() {
+    isCancelled = false;
     const catalog = document.getElementById("catalog");
 
     if (!catalog) {
-      alert("No se ha encontrado el catalogo o no se ha cargado correctamente");
+      showToast('Error', 'No se ha encontrado el catálogo o no se ha cargado correctamente', 'error');
       return;
     }
 
     catalog.classList.remove("hidden");
 
-    const loader = document.getElementById("loader");
-    loader.classList.remove("hidden");
-
-    const currentPage = document.getElementById("currentPage");
-    const totalPages = document.getElementById("totalPages");
+    toggleLoader(true);
+    updateProgress(0, 0, 'Generando PDF', 'Preparando catálogo...');
 
     const catalogSections = document.querySelectorAll("#catalogSection");
     const hiddenItems = document.querySelectorAll('[data-hide="true"]');
     const eyeIcons = document.querySelectorAll('[data-eye]');
     hiddenItems.forEach((el) => (el.style.display = 'none'));
     eyeIcons.forEach((el) => (el.style.display = 'none'));
-    totalPages.textContent = catalogSections.length;
+    
+    updateProgress(0, catalogSections.length, 'Generando PDF', 'Procesando páginas...');
 
     const { PDFDocument } = PDFLib;
     const pdfDoc = await PDFDocument.create();
 
     for (const section of catalogSections) {
+      if (isCancelled) {
+        hiddenItems.forEach((el) => (el.style.display = ''));
+        eyeIcons.forEach((el) => (el.style.display = ''));
+        toggleLoader(false);
+        showToast('Cancelado', 'La generación del PDF ha sido cancelada', 'warning');
+        return;
+      }
+
       const node = section;
       const dataUrl = await htmlToImage.toPng(node, { pixelRatio: 2 });
 
@@ -189,7 +327,7 @@ const t_catalog = (key: string) => getValueFromKey(key, i18n_catalog);
             width: img.width,
             height: img.height,
           });
-          currentPage.textContent = pdfDoc.getPageCount();
+          updateProgress(pdfDoc.getPageCount(), catalogSections.length, 'Generando PDF', 'Procesando páginas...');
           resolve(); // Esto asegura que el bucle espere a que `onload` termine
         };
       });
@@ -212,7 +350,8 @@ const t_catalog = (key: string) => getValueFromKey(key, i18n_catalog);
 
     link.click();
 
-    loader.classList.add("hidden");
+    toggleLoader(false);
+    showToast('¡Completado!', 'El PDF se ha descargado correctamente', 'success');
   }
 </script>
 
@@ -222,18 +361,16 @@ const t_catalog = (key: string) => getValueFromKey(key, i18n_catalog);
     .addEventListener("click", exportarComoFotos);
 
   async function exportarComoFotos() {
+    isCancelled = false;
     const catalogSections = document.querySelectorAll("#catalogSection");
-    const loader = document.getElementById("loader");
-    const currentPage = document.getElementById("currentPage");
-    const totalPages = document.getElementById("totalPages");
 
     if (!catalogSections.length) {
-      alert("No se ha encontrado el catálogo.");
+      showToast('Error', 'No se ha encontrado el catálogo', 'error');
       return;
     }
 
-    loader.classList.remove("hidden");
-    totalPages.textContent = catalogSections.length;
+    toggleLoader(true);
+    updateProgress(0, catalogSections.length, 'Generando imágenes', 'Preparando exportación...');
 
     const hiddenItems = document.querySelectorAll('[data-hide="true"]');
     const eyeIcons = document.querySelectorAll('[data-eye]');
@@ -244,12 +381,20 @@ const t_catalog = (key: string) => getValueFromKey(key, i18n_catalog);
 
     let index = 1;
     for (const section of catalogSections) {
+      if (isCancelled) {
+        hiddenItems.forEach((el) => (el.style.display = ''));
+        eyeIcons.forEach((el) => (el.style.display = ''));
+        toggleLoader(false);
+        showToast('Cancelado', 'La generación de imágenes ha sido cancelada', 'warning');
+        return;
+      }
+
       const node = section;
       const dataUrl = await htmlToImage.toPng(node, { pixelRatio: 2 });
       const imgBlob = await (await fetch(dataUrl)).blob();
 
       zip.file(`catalogo-foto-${index.toString().padStart(2, "0")}.png`, imgBlob);
-      currentPage.textContent = index;
+      updateProgress(index, catalogSections.length, 'Generando imágenes', 'Convirtiendo páginas...');
       index++;
     }
 
@@ -264,7 +409,8 @@ const t_catalog = (key: string) => getValueFromKey(key, i18n_catalog);
     a.download = `Catalogo_Interbras_Imagenes_${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}.zip`;
     a.click();
 
-    loader.classList.add("hidden");
+    toggleLoader(false);
+    showToast('¡Completado!', 'Las imágenes se han descargado correctamente', 'success');
   }
 </script>
 
@@ -274,17 +420,16 @@ const t_catalog = (key: string) => getValueFromKey(key, i18n_catalog);
     .addEventListener("click", exportarComoA4);
 
   async function exportarComoA4() {
+    isCancelled = false;
     const catalogSections = document.querySelectorAll("#catalogSection");
-    const loader = document.getElementById("loader");
-    const currentPage = document.getElementById("currentPage");
-    const totalPages = document.getElementById("totalPages");
 
     if (!catalogSections.length) {
-      alert("No se ha encontrado el catálogo.");
+      showToast('Error', 'No se ha encontrado el catálogo', 'error');
       return;
     }
 
-    loader.classList.remove("hidden");
+    toggleLoader(true);
+    updateProgress(0, catalogSections.length, 'Exportando A4', 'Preparando formato A4...');
     const hiddenItems = document.querySelectorAll('[data-hide="true"]');
     const eyeIcons = document.querySelectorAll('[data-eye]');
     hiddenItems.forEach((el) => (el.style.display = 'none'));
@@ -308,6 +453,14 @@ const t_catalog = (key: string) => getValueFromKey(key, i18n_catalog);
     let processedImages = 0;
 
     for (const section of catalogSections) {
+      if (isCancelled) {
+        hiddenItems.forEach((el) => (el.style.display = ''));
+        eyeIcons.forEach((el) => (el.style.display = ''));
+        toggleLoader(false);
+        showToast('Cancelado', 'La exportación A4 ha sido cancelada', 'warning');
+        return;
+      }
+
       const dataUrl = await htmlToImage.toPng(section, { pixelRatio: 2 });
       const img = new Image();
       img.src = dataUrl;
@@ -315,7 +468,7 @@ const t_catalog = (key: string) => getValueFromKey(key, i18n_catalog);
       await new Promise((resolve) => {
         img.onload = function () {
           processedImages++;
-          currentPage.textContent = processedImages;
+          updateProgress(processedImages, catalogSections.length, 'Exportando A4', 'Procesando imágenes...');
           
           const aspectRatio = img.width / img.height;
           // Calcular altura basada en el ancho fijo
@@ -339,7 +492,17 @@ const t_catalog = (key: string) => getValueFromKey(key, i18n_catalog);
     let currentA4Page = null;
     let currentY = MARGIN;
 
+    updateProgress(0, imageData.length, 'Exportando A4', 'Organizando páginas...');
+
     for (let i = 0; i < imageData.length; i++) {
+      if (isCancelled) {
+        hiddenItems.forEach((el) => (el.style.display = ''));
+        eyeIcons.forEach((el) => (el.style.display = ''));
+        toggleLoader(false);
+        showToast('Cancelado', 'La exportación A4 ha sido cancelada', 'warning');
+        return;
+      }
+
       const image = imageData[i];
       const imageHeight = image.scaledHeight;
       const spacing = 40; // Espacio entre imágenes
@@ -365,9 +528,8 @@ const t_catalog = (key: string) => getValueFromKey(key, i18n_catalog);
       });
 
       currentY += imageHeight + spacing;
+      updateProgress(i + 1, imageData.length, 'Exportando A4', 'Organizando páginas...');
     }
-
-    totalPages.textContent = pdfDoc.getPageCount();
 
     hiddenItems.forEach((el) => (el.style.display = ''));
     eyeIcons.forEach((el) => (el.style.display = ''));
@@ -387,7 +549,8 @@ const t_catalog = (key: string) => getValueFromKey(key, i18n_catalog);
     link.download = `Catalogo_Interbras_A4_${currentLocale}_${day}-${month}-${year}.pdf`;
     link.click();
 
-    loader.classList.add("hidden");
+    toggleLoader(false);
+    showToast('¡Completado!', 'El PDF A4 se ha descargado correctamente', 'success');
   }
 </script>
 
@@ -406,5 +569,28 @@ const t_catalog = (key: string) => getValueFromKey(key, i18n_catalog);
       opacity: 1;
       transform: translate(0);
     }
+  }
+
+  .loader-card {
+    animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  #progressBar {
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.5);
+  }
+
+  #loader.hidden {
+    display: none !important;
   }
 </style>
