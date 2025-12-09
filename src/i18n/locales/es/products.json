@@ -339,8 +339,8 @@
         ]
       },
       "5": {
-        "id": "itb-18000iv",
-        "name": "ITB 18000IV Inverter (Brasil 60Hz)",
+        "id": "itb-18000iv-wifi",
+        "name": "ITB 18000IV Inverter - WIFI (Brasil 60Hz)",
         "popular": false,
         "info": {
           "review": "El modelo ITB 18000IV, con una capacidad de 18000 BTU, combina eficiencia y rendimiento para ofrecerte un ambiente siempre confortable. \nSu tecnología Inverter asegura un uso eficiente de la energía, mientras que su diseño elegante facilita la instalación y mantenimiento.",
@@ -391,6 +391,26 @@
           {
             "id": "itb-24000iv-1",
             "name": "ITB 24000IV - 1",
+            "color": "Blanco",
+            "photos": [
+              "/productos/aires/general.webp"
+            ]
+          }
+        ]
+      },
+      "8": {
+        "id": "itb-18000iv",
+        "name": "ITB 18000IV Inverter - (Brasil 60Hz)",
+        "popular": false,
+        "info": {
+          "review": "El modelo ITB 18000IV, con una capacidad de 18000 BTU, combina eficiencia y rendimiento para ofrecerte un ambiente siempre confortable. \nSu tecnología Inverter asegura un uso eficiente de la energía, mientras que su diseño elegante facilita la instalación y mantenimiento.",
+          "included": null,
+          "specs": "Modelo: ITB 18000IV\nTipo: Inverter\nCapacidad de Enfriamiento: 18,000 BTU (2700~19000)\nCapacidad de Calefacción: 18,000 BTU (2700~19000)\nConsumo de Energía (Enfriamiento): 2000W (150~2500W)\nConsumo de Energía (Calefacción): 1850W (150~2500W)\nCorriente Nominal (Enfriamiento): 9.3A (0.7~11.6A)\nCorriente Nominal (Calefacción): 8.12A (0.7~11.6A)\nCompresor: Tipo rotativo, marca SANYO\nRefrigerante: R410A, carga de 1160g\nDimensiones Unidad Interior (Ancho x Alto x Profundidad): \n850 x 292 x 190 mm\nPeso Neto Unidad Interior: 8.5 kg\nNivel de Ruido Unidad Interior: 45/42/39 dB (Hi/Mi/Lo)\nDimensiones Unidad Exterior (Ancho x Alto x Profundidad): \n760 x 276 x 550 mm\nPeso Neto Unidad Exterior: 28.5 kg\nNivel de Ruido Unidad Exterior: 55 dB\nTemperatura de Operación: -7°C a 43°C\nAlimentación Eléctrica: 220-240V / 60Hz\nÁrea de Aplicación: 20～40 m²"
+        },
+        "variants": [
+          {
+            "id": "itb-18000iv-1",
+            "name": "ITP 12000OF - 1",
             "color": "Blanco",
             "photos": [
               "/productos/aires/general.webp"
