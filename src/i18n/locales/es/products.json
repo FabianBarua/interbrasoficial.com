@@ -365,6 +365,26 @@
         "info": {
           "review": "Descripción: El ITB 24000IV es un aire acondicionado potente con 24000 BTU, diseñado para mantener grandes espacios frescos y cómodos. \nLa tecnología Inverter ajusta el uso de energía para mayor eficiencia y ahorro.",
           "included": null,
+          "specs": "Modelo: ITB 24000IV\nTipo: Inverter\nCapacidad de Enfriamiento: 24,000 BTU (2700~25000)\nCapacidad de Calefacción: 24,000 BTU (2700~25000)\nConsumo de Energía (Enfriamiento): 2880W (300~3000W)\nConsumo de Energía (Calefacción): 2650W (300~3000W)\nCorriente Nominal (Enfriamiento): 13.3A (1.4~14.35A)\nCorriente Nominal (Calefacción): 12.3A (1.4~14.35A)\nConsumo Máximo: 3000W\nCorriente Máxima: 14.35A\nCompresor: Tipo rotativo, marca SANYO\nRefrigerante: R410A, carga de 1500g\nDimensiones Unidad Interior (Ancho x Alto x Profundidad):\n970 x 310 x 230 mm\nPeso Neto Unidad Interior: 12.5 kg\nNivel de Ruido Unidad Interior: 49/47/45 dB (Hi/Mi/Lo)\nDimensiones Unidad Exterior (Ancho x Alto x Profundidad): \n820 x 318 x 597 mm\nPeso Neto Unidad Exterior: 36 kg\nNivel de Ruido Unidad Exterior: 57 dB\nTemperatura de Operación: -7°C a 43°C\nTemperatura Ambiental de Operación: -7°C a 48°C\nAlimentación Eléctrica: 220-240V / 60Hz\nÁrea de Aplicación: 30～55 m²"
+        },
+        "variants": [
+          {
+            "id": "itb-24000iv-1",
+            "name": "ITB 24000IV - 1",
+            "color": "Blanco",
+            "photos": [
+              "/productos/aires/general.webp"
+            ]
+          }
+        ]
+      },
+      "7": {
+        "id": "itb-24000iv-wifi",
+        "name": "ITB 24000IV Inverter - WIFI (Brasil 50Hz)",
+        "popular": false,
+        "info": {
+          "review": "Descripción: El ITB 24000IV es un aire acondicionado potente con 24000 BTU, diseñado para mantener grandes espacios frescos y cómodos. \nLa tecnología Inverter ajusta el uso de energía para mayor eficiencia y ahorro.",
+          "included": null,
           "specs": "Modelo: ITB 24000IV\nIncluye Wifi Integrado con APP TUYA\nTipo: Inverter\nCapacidad de Enfriamiento: 24,000 BTU (2700~25000)\nCapacidad de Calefacción: 24,000 BTU (2700~25000)\nConsumo de Energía (Enfriamiento): 2880W (300~3000W)\nConsumo de Energía (Calefacción): 2650W (300~3000W)\nCorriente Nominal (Enfriamiento): 13.3A (1.4~14.35A)\nCorriente Nominal (Calefacción): 12.3A (1.4~14.35A)\nConsumo Máximo: 3000W\nCorriente Máxima: 14.35A\nCompresor: Tipo rotativo, marca SANYO\nRefrigerante: R410A, carga de 1500g\nDimensiones Unidad Interior (Ancho x Alto x Profundidad):\n970 x 310 x 230 mm\nPeso Neto Unidad Interior: 12.5 kg\nNivel de Ruido Unidad Interior: 49/47/45 dB (Hi/Mi/Lo)\nDimensiones Unidad Exterior (Ancho x Alto x Profundidad): \n820 x 318 x 597 mm\nPeso Neto Unidad Exterior: 36 kg\nNivel de Ruido Unidad Exterior: 57 dB\nTemperatura de Operación: -7°C a 43°C\nTemperatura Ambiental de Operación: -7°C a 48°C\nAlimentación Eléctrica: 220-240V / 60Hz\nÁrea de Aplicación: 30～55 m²"
         },
         "variants": [
