@@ -35,7 +35,7 @@ export const Variant = sqliteTable("variant", {
   color_id: int().references(() => Color.id, {onDelete: 'set null', onUpdate:'cascade'}),
   volt_id: int().references(() => Volt.id , {onDelete: 'set null', onUpdate:'cascade'}),
   catalog_id: int().references(() => Catalog.id, {onDelete: 'set null', onUpdate:'cascade'}),
-  stock: int().default(0).notNull(),
+  // stock: int().default(0).notNull(),
 });
 
 export const Catalog = sqliteTable("catalog", {

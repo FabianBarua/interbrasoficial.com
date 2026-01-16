@@ -204,7 +204,7 @@ const InDb = ({
           <ul className="">
             {info.specs
               ?.split("\n")
-              .slice(0, 7)
+              
               .map((spec: string, i: number) => {
                 return (
                   <li className="text-sm" key={i} >
@@ -299,21 +299,34 @@ export const IsComing = ({
     
   [
 
-
-    // {
-    //   productCode: "itb-24000iv",
-    //   price: "550.00",
-    //   inDb: true,
-    // },
     {
       productCode: "65-N1",
       price: "0.00",
-      inDb: true,
+      inDb: false,
+      nuevo: false,
+      photo: ['/productos/triciclos/65-N1.webp'],
+      originalName: "Triciclo Elétrico 6.5",
+
+      info: {
+    specs: "Estructura de acero al carbono de alta resistencia (ajustable)\nMotor: 250W\nCapacidad de batería: 36V 2,4Ah\nAutonomía: 6–8 km\nNeumático delantero: 6,5 pulgadas sólido\nNeumático trasero: rueda con luz LED intermitente\nCarga máxima: 120 kg\nCambios de velocidad: 3 niveles (baja, media, alta) + altavoz Bluetooth\nDimensiones del producto: 55 x 45 x 88 cm\nDimensiones del embalaje: 68,5 x 54 x 21 cm\nPeso neto / bruto: 9 / 8 kg\nIncluye cargador y luz LED frontal\nAcelerador con arranque por llave, pantalla de potencia y bocina",
+
+
+},
+      categoryId: "triciclos",
     },
     {
       productCode: "80-N1",
       price: "0.00",
-      inDb: true,
+      inDb: false,
+      nuevo: false,
+      photo: ['/productos/triciclos/80-N1.webp'],
+      originalName: "Triciclo Elétrico 8.0",
+
+      info: {
+    specs: "Estructura de acero al carbono de alta resistencia (ajustable)\nCapacidad de batería: 36V 4,0Ah\nMotor: 350W\nNeumático delantero: 8,0 pulgadas sólido\nNeumático trasero: rueda con luz LED intermitente\nCarga máxima: 120 kg\nAutonomía: 9–10 km\nDimensiones del embalaje: 57 x 44 x 21 cm\nPeso neto / bruto: 12 / 11 kg\nCambios de velocidad: 3 niveles (baja, media, alta) + altavoz Bluetooth\nIncluye cargador y luz LED frontal\nAcelerador con arranque por llave y pantalla de potencia",
+
+
+},   categoryId: "triciclos",
     },
   ];
 
