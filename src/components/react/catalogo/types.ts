@@ -50,3 +50,13 @@ export interface GroupedByCategory {
     categoryShortDescription: string;
   };
 }
+
+export interface CustomSection {
+  id: string;
+  name: string;
+  color: string;
+  icon: string; // Icon name or emoji
+  productCodes: string[];
+  customProducts?: ProductData[];
+  order: number;
+}
